@@ -184,13 +184,16 @@ $settings['skip_permissions_hardening'] = TRUE;
  * ];
  * @endcode
  */
-$databases['default']['default'] = [
+$databases['default']['default'] = array (
   'database' => 'drupal',
   'username' => 'drupal',
   'password' => 'drupal',
   'prefix' => '',
-  'host' => 'mariadb',
+  'host' => 'mysql',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
-];
+  'init_commands' => [
+    'isolation_level' => 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+  ],
+);
