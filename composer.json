@@ -19,7 +19,8 @@
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
-        "drupal/core-vendor-hardening": "^10.1"
+        "drupal/core-vendor-hardening": "^10.1",
+        "drush/drush": "^12.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -27,6 +28,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
+        "bin-dir": "bin/",
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
