@@ -1,7 +1,0 @@
-publishing_options.index:
-  title: 'Publishing options'
-  description: 'Add custom publishing options like "Promote to front".'
-  route_name: publishing_options.index
-  weight: 1
-  menu_name: publishing_options
-  parent: system.admin_config_content

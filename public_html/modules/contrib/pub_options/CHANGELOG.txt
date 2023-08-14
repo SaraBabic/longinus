@@ -1,5 +1,0 @@
-Publishing options 2.0.0, 2021-12-25
-------------------------
-- Updated documentation. See README.md
-- Updated field descriptions in PublishingOptionsForm.php
-- Bugfix: Fixed a bug where all publishing options showed regardless of content type association.

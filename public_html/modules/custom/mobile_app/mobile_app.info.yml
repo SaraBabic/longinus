@@ -1,4 +1,0 @@
-name: Mobile App
-type: module
-description: 'Provides a number of utility for integration with mobile app'
-core_version_requirement: ^9
