@@ -1,0 +1,11 @@
+site:
+  host: sara.stud.vts.su.ac.rs
+  options:
+    os: Linux
+  paths:
+    dump-dir: '/home/sara/public_html/sites/default/files/tmp'
+    drush-script: '/home/sara/public_html/bin/drush'
+  root: '/home/sara/public_html'
+  user: sara
+  ssh:
+    options: '-p 22'
