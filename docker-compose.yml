@@ -43,7 +43,7 @@ services:
       NGINX_STATIC_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html/public_html
+      NGINX_SERVER_ROOT: /var/www/html
       NGINX_VHOST_PRESET: $NGINX_VHOST_PRESET
     volumes:
       - ./:/var/www/html
