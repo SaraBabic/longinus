@@ -1,2 +1,3 @@
 .idea
 sites/settings.local.php
+sites/default/files/*
