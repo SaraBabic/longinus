@@ -1,0 +1,19 @@
+.block-up a {
+    display: block;
+    height: 32px;
+}
+
+.block-up {
+    position: fixed;
+    bottom: 32px;
+    right: 23px;
+    text-indent: -9999px;
+    height: 32px;
+    width: 32px;
+    background: url(../images/icons/back-to-top.svg) no-repeat;
+    background-size: 32px;
+    z-index: 10;
+}
+.block-up:hover {
+    background: url(../images/icons/back-to-top-active.svg) no-repeat;
+}

@@ -1,0 +1,33 @@
+/**
+ * @file
+ * Styles for Paragraphs Previewer rendered page.
+ */
+
+/* Cleanup themes that always show the header and footer (ex. bartik) */
+body.paragraphs-previewer > header,
+body.paragraphs-previewer > div > header,
+body.paragraphs-previewer #page > header,
+body.paragraphs-previewer > footer,
+body.paragraphs-previewer > div > footer,
+body.paragraphs-previewer #page > footer {
+  display: none;
+}
+
+/* Compact main content */
+html.paragraphs-previewer-html,
+body.paragraphs-previewer,
+body.paragraphs-previewer > main,
+body.paragraphs-previewer > main > .layout-content,
+body.paragraphs-previewer #main-wrapper,
+body.paragraphs-previewer #main-wrapper > #main,
+body.paragraphs-previewer #main-wrapper > #main > #content {
+  min-height: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+/* Set HTML background color t to the same as the modal */
+html.paragraphs-previewer-html {
+  background-color: #232323;
+}

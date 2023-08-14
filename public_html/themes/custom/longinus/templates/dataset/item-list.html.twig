@@ -1,0 +1,28 @@
+{% set classes = classes ?: [
+    longinus_block,
+    not items ? longinus_block ~ '--empty'
+  ]
+%}
+{% set list_classes = list_classes ?: [longinus_block ~ '__list'] %}
+{% set item_classes = item_classes ?: [longinus_block ~ '__list-item'] %}
+{%- if items or empty %}
+
+  <div class="{{ classes|join(' ') }}">
+    {%- if title is not empty -%}
+      <h3 class="{{ longinus_block }}__title">{{ title }}</h3>
+    {%- endif -%}
+    {%- if items %}
+
+      <{{ list_type }}{{ attributes.addClass(list_classes) }}>
+        {%- for item in items %}
+
+          <li{{ item.attributes.addClass(item_classes) }}>{{ item.value }}</li>
+        {%- endfor %}
+
+      </{{ list_type }}>
+    {%- else -%}
+      {{- empty -}}
+    {%- endif %}
+
+  </div>
+{%- endif %}

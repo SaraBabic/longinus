@@ -1,0 +1,14 @@
+cheeseburger_menu.js:
+  version: 1.x
+  js:
+    js/cheeseburger_menu.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupalSettings
+    - core/drupal
+cheeseburger_menu.css:
+  version: 1.x
+  css:
+    theme:
+      css/cheeseburger_menu.css: { minified: true }

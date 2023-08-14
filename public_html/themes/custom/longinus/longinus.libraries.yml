@@ -1,0 +1,43 @@
+global-css:
+  css:
+    theme:
+      css/header.css: {}
+      css/burger-menu.css: {}
+      css/language-switcher.css: {}
+      css/banner.css: {}
+      css/highlighted.css: {}
+      css/text.css: {}
+      css/footer.css: {}
+      css/general.css: {}
+      css/up.css: {}
+      css/blog.css: {}
+      css/cards.css: {}
+      css/text-and-image.css: {}
+      css/video.css: {}
+      css/gallery.css: {}
+      css/forms.css: {}
+      css/basic-page.css: {}
+      css/taxonomy.css: {}
+      css/characters.css: {}
+      css/show.css: {}
+      css/cookies.css: {}
+
+global-js:
+  js:
+    libraries/swiper/js/swiper.min.js: {}
+    /libraries/lightgallery/dist/js/lightgallery.js: {}
+    /libraries/lightgallery/dist/js/lightgallery.min.js: {}
+    /libraries/lightgallery/modules/lg-thumbnail.min.js: {}
+    /libraries/lightgallery/modules/lg-fullscreen.min.js: {}
+    js/main.js: {}
+    
+  dependencies:
+    - core/jquery
+
+global-fonts:
+  css:
+    theme:
+      '//fonts.googleapis.com/css2?family=MedievalSharp&display=swap': {type: external}
+      '//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,800;1,200&display=swap': {type: external}
+      /libraries/lightgallery/dist/css/lightgallery.min.css: {}
+      libraries/swiper/css/swiper.min.css: {}

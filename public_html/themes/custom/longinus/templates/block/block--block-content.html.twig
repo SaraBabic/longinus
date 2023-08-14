@@ -1,0 +1,10 @@
+{% extends "block.html.twig" %}
+
+{% block content %}
+  {%
+    set sub_longinus_block = block_content_bundle|replace({'_': '-'}) ~ '-' ~ configuration.view_mode|clean_class
+  %}
+  <div class="{{ longinus_block }}__content block-content-{{ sub_longinus_block }}">
+    {{ content }}
+  </div>
+{% endblock %}

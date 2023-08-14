@@ -1,0 +1,15 @@
+{%
+  set longinus_block = 'region-' ~ region|clean_class
+%}
+{%
+  set classes = [
+    longinus_block,
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+{% endif %}

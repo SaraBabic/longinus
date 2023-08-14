@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function cheeseburger_menu_uninstall($is_syncing) {
+  $menus = [
+    'language',
+  ];
+  $menus = \Drupal::entityTypeManager()->getStorage('menu')->loadMultiple($menus);
+  \Drupal::entityTypeManager()->getStorage('menu')->delete($menus);
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function cheeseburger_menu_update_8001(&$sandbox) {
+  $cheeseburger_blocks = \Drupal::entityTypeManager()->getStorage('block')->loadByProperties([
+    'plugin' => 'cheeseburger_menu',
+  ]);
+  foreach ($cheeseburger_blocks as $cheeseburger_block) {
+    $settings = $cheeseburger_block->get('settings');
+    foreach ($settings['menus'] as $key => $menu) {
+      $settings['menus'][$key]['settings']['collapsible_title'] = FALSE;
+      $settings['menus'][$key]['settings']['title_default_expanded'] = TRUE;
+    }
+    $cheeseburger_block->set('settings', $settings);
+    $cheeseburger_block->save();
+  }
+}

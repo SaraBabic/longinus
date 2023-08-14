@@ -1,0 +1,10 @@
+{% extends "item-list.html.twig" %}
+{%
+  set longinus_block = 'search-results'
+%}
+{%
+  set item_classes = [
+    longinus_block ~ '__item',
+    'search-result',
+  ]
+%}

@@ -1,0 +1,63 @@
+longinus.default.mobile_s:
+  label: All
+  mediaQuery: 'all and (min-width: 320px)'
+  weight: 0
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: longinus.default
+longinus.default.mobile_m:
+  label: Narrow
+  mediaQuery: 'all and (min-width: 375px)'
+  weight: 1
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: longinus.default
+longinus.default.mobile_l:
+    label: Tablet
+    mediaQuery: 'all and (min-width: 425px)'
+    weight: 2
+    multipliers:
+      - 1x
+    status: true
+    langcode: en
+    group: longinus.default
+longinus.default.tablet:
+  label: Normal
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 3
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: longinus.default
+longinus.default.laptop:
+  label: Wide
+  mediaQuery: 'all and (min-width: 1024px)'
+  weight: 4
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: longinus.default
+longinus.default.laptop-l:
+  label: Wide
+  mediaQuery: 'all and (min-width: 1440px)'
+  weight: 4
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: longinus.default
+longinus.default.desktop-4k:
+  label: Wide
+  mediaQuery: 'all and (min-width: 2560px)'
+  weight: 4
+  multipliers:
+    - 1x
+  status: true
+  langcode: en
+  group: longinus.default

@@ -1,0 +1,98 @@
+views.style.lightgallery:
+  type: views_style
+  label: 'Lightgallery'
+  mapping:
+    lightgallery:
+      type: mapping
+      label: 'Lightgallery'
+      mapping:
+        thumb_field:
+          type: string
+          label: 'Thumb field'
+        image_field:
+          type: string
+          label: 'Image field'
+        title:
+          type: string
+          label: 'Title'
+        mode:
+          type: string
+          label: 'Mode'
+        preload:
+          type: string
+          label: 'Preload'
+        closable:
+          type: integer
+          label: 'Closable'
+        loop:
+          type: integer
+          label: 'Loop'
+        esc_key:
+          type: integer
+          label: 'Esc key'
+        key_press:
+          type: integer
+          label: 'Esc key'
+        controls:
+          type: integer
+          labels: 'Controls'
+        mouse_wheel:
+          type: integer
+          labels: 'Mouse wheel'
+        download:
+          type: integer
+          labels: 'Download'
+        counter:
+          type: integer
+          labels: 'Counter'
+        drag:
+          type: integer
+          labels: 'Drag'
+        touch:
+          type: integer
+          labels: 'Touch'
+        thumbnails:
+          type: integer
+          labels: 'Thumbnails'
+        animate_thumb:
+          type: integer
+          labels: 'Animate Thumb'
+        current_pager_position:
+          type: string
+          labels: 'Current Pager Position'
+        thumb_width:
+          type: string
+          labels: 'Thumb width'
+        thumb_cont_height:
+          type: string
+          labels: 'Thumb cont height'
+        autoplay:
+          type: integer
+          labels: 'Current Pager Position'
+        pause:
+          type: string
+          labels: 'Pause'
+        progress_bar:
+          type: integer
+          labels: 'Progress bar'
+        autoplay_controls:
+          type: integer
+          labels: 'Autoplay controls'
+        full_screen:
+          type: integer
+          labels: 'Full screen'
+        pager:
+          type: integer
+          labels: 'Pager'
+        zoom:
+          type: integer
+          labels: 'Zoom'
+        scale:
+          type: string
+          labels: 'Scale'
+        hash:
+          type: integer
+          labels: 'Hash'
+        gallery_id:
+          type: string
+          labels: 'Gallery id'

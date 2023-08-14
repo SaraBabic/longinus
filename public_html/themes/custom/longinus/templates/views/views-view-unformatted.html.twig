@@ -1,0 +1,19 @@
+{% set longinus_block = longinus_block ?: ('view-' ~ view.storage.id() ~ '-' ~ view.current_display)|clean_class %}
+{% set longinus_element = longinus_block ~ '__row' %}
+{% if title %}
+<div class="{{ longinus_block }}__rows">
+    <h3 class="{{ longinus_block }}__rows-title">{{ title }}</h3>
+    {% endif %}
+    {% block content %}
+        {% for row in rows %}
+            {% set row_classes = [
+            default_row_class ? longinus_element,
+            ] %}
+            <div{{ row.attributes.addClass(row_classes) }}>
+                {{ row.content }}
+            </div>
+        {% endfor %}
+    {% endblock %}
+    {% if title %}
+</div>
+{% endif %}

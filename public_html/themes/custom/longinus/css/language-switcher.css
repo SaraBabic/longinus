@@ -1,0 +1,112 @@
+#block-languageswitcher {
+    display: inline-block;
+    position: relative;
+    height: 32px;
+    width: 56px
+}
+
+#block-languageswitcher:after, #block-languageswitcher:before {
+    content: " ";
+    display: table
+}
+
+#block-languageswitcher:after {
+    clear: both
+}
+
+#block-languageswitcher .links {
+    z-index: 101;
+    position: absolute;
+    height: 32px;
+    width: 56px;
+    right: 0;
+    padding: 0;
+    border: 1px solid #e6af73;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff
+}
+
+#block-languageswitcher .links li {
+    cursor: pointer;
+    display: none
+}
+
+.block-languagemenu__items li a {
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #e6af73;
+    letter-spacing: 3px;
+    padding: 8px;
+    display: block;
+    line-height: 1.3;
+    height: 100%
+}
+
+#block-languageswitcher .links li a.is-active {
+    border-top: none
+}
+
+
+#block-languageswitcher .links li:hover {
+    background-color: #e6af7333
+}
+
+
+
+#block-languageswitcher {
+    display: none
+}
+
+@media all and (min-width:1024px) {
+    #block-languageswitcher {
+        display: inline-block;
+        height: 58px;
+    }
+
+    #block-languageswitcher .links {
+        z-index: 101;
+        position: absolute;
+        right: 0;
+        top: 14px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    #block-languageswitcher .links .de {
+        display: none !important
+    }
+
+    #block-languageswitcher .links li {
+        display: none
+    }
+
+    #block-languageswitcher .links li:nth-of-type(2) a {
+        border-top: 1px solid rgba(0, 0, 0, .1)
+    }
+
+    #block-languageswitcher .links li:first-of-type {
+            display: block;
+            background-image: url(../images/icons/arrow-orange.svg);
+            background-position: right 8px center;
+            background-size: 16px;
+            background-repeat: no-repeat
+    }
+
+    #block-languageswitcher .links:hover {
+        height: auto;
+        cursor: pointer
+    }
+
+    #block-languageswitcher .links:hover li {
+        display: block
+    }
+
+
+    #block-languageswitcher .block-laitems:hover li:last-of-type a {
+        border-bottom: 0
+    }
+
+}

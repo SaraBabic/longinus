@@ -1,0 +1,33 @@
+publishing_options.index:
+  path: '/admin/config/content/publishing-options'
+  defaults:
+    _controller:  '\Drupal\publishing_options\Controller\AdminPagesController::index'
+    _title: 'Publishing options'
+  requirements:
+    _permission: 'administer publishing_options'
+
+publishing_options.add:
+  path: '/admin/config/content/publishing-options/add'
+  defaults:
+    _form:  '\Drupal\publishing_options\Form\PublishingOptionsForm'
+    _title: 'Add publishing options'
+  requirements:
+    _permission: 'administer publishing_options'
+
+publishing_options.edit:
+  path: '/admin/config/content/publishing-options/{id}/edit'
+  defaults:
+    _form:  '\Drupal\publishing_options\Form\PublishingOptionsForm'
+    _title: 'Edit publishing options'
+  requirements:
+    _permission: 'administer publishing_options'
+    id: ^\d+$
+
+publishing_options.delete:
+  path: '/admin/config/content/publishing-options/{id}/delete'
+  defaults:
+    _form:  '\Drupal\publishing_options\Form\PublishingOptionsDeleteForm'
+    _title: 'Confirm publishing option delete'
+  requirements:
+    _permission: 'administer publishing_options'
+    id: ^\d+$

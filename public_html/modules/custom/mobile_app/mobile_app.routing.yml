@@ -1,0 +1,6 @@
+mobile_app.user:
+  path: '/user/api/login'
+  defaults:
+    _controller: '\Drupal\mobile_app\Controller\UserLoginController:login'
+  requirements:
+    _permission: 'access content'

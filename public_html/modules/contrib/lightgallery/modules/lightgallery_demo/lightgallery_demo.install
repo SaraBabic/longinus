@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Light Gallery module.
+ */
+
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\file\Entity\File;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Implements hook_install().
+ */
+function lightgallery_demo_install() {
+
+  // Creates a custom image field with lightgallery display.
+  FieldStorageConfig::create([
+    'entity_type' => 'node',
+    'field_name' => 'lightgallery_image',
+    'type' => 'image',
+    'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
+  ])->save();
+  FieldConfig::create([
+    'entity_type' => 'node',
+    'field_name' => 'lightgallery_image',
+    'bundle' => 'article',
+    'settings' => [
+      'file_extensions' => 'png',
+    ],
+  ])->save();
+
+  // Set the display to be lightgallery.
+  $display = \Drupal::service('entity_display.repository')
+    ->getViewDisplay('node', 'article')
+    ->setComponent('lightgallery_image', [
+      'type' => 'lightgallery',
+    ]);
+  $display->save();
+
+  // Creates two files to be inserted on the demonstration node.
+  $file_system = \Drupal::service('file_system');
+  $file_system->copy(DRUPAL_ROOT . '/core/misc/druplicon.png', 'public://druplicon.png');
+  $file_system->copy(DRUPAL_ROOT . '/core/misc/logo/drupal-logo.svg', 'public://drupal-logo.svg');
+
+  $drupalicon_file = File::create([
+    'uri' => 'public://druplicon.png',
+  ]);
+  $drupalicon_file->save();
+
+  $drupal_logo_file = File::create([
+    'uri' => 'public://drupal-logo.svg',
+  ]);
+  $drupal_logo_file->save();
+
+  // Create an article node with the images.
+  Node::create([
+    'type' => 'article',
+    'title' => 'Lightgallery demo node',
+    'lightgallery_image' => [$drupalicon_file, $drupal_logo_file],
+  ])->save();
+
+  // Create a demonstration view for lightgallery.
+  $dir = \Drupal::service('extension.list.module')->getPath('lightgallery_demo');
+  $file_storage = new FileStorage($dir);
+  $config = $file_storage->read('views.view.lightgallery_demo');
+
+  /** @var \Drupal\Core\Config\Entity\ConfigEntityStorage $storage */
+  $storage = \Drupal::entityTypeManager()->getStorage('view');
+
+  /** @var \Drupal\views\Entity\View $view */
+  $view = $storage->create($config);
+  $view->save();
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function lightgallery_demo_uninstall() {
+  // Delete the created node.
+  $nodes = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->loadByProperties(['title' => 'Lightgallery demo node']);
+  if ($nodes) {
+    foreach ($nodes as $node) {
+      $node->delete();
+    }
+  }
+
+  $fieldStorage = FieldStorageConfig::loadByName('node', 'lightgallery_image');
+  if ($fieldStorage) {
+    // Delete the demonstration field storage.
+    $fieldStorage->delete();
+  }
+
+  $fieldConfig = FieldConfig::loadByName('node', 'article', 'lightgallery_image');
+  if ($fieldConfig) {
+    // Delete the demonstration field config.
+    $fieldConfig->delete();
+  }
+
+  $view = \Drupal::service('config.factory')->getEditable('views.view.lightgallery_demo');
+  if ($view) {
+    // Delete the demonstration view.
+    $view->delete();
+  }
+}

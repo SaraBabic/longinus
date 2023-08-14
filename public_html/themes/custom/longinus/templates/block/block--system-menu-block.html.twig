@@ -1,0 +1,28 @@
+{% set longinus_block_base = 'block block-' ~ id|split('__', 2)|first|clean_class %}
+{% set longinus_block = longinus_block_base|replace({'longinus-' : ''}) %}
+{% set longinus_modifiers = id|split('__')|slice(1) %}
+{%
+  set classes = [
+    longinus_block
+  ]
+%}
+{% for modifier in id|split('__')|slice(1) %}
+  {% set classes = classes|merge([longinus_block ~ '--' ~ modifier|clean_class]) %}
+{% endfor %}
+{% set heading_id = attributes.id ~ '-title'|clean_id %}
+
+<nav aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
+  {# Label. If not displayed, we still provide it for screen readers. #}
+  {% if not configuration.label_display %}
+    {% set title_attributes = title_attributes.setAttribute('id', heading_id).addClass('visually-hidden') %}
+  {% endif %}
+  {{ title_prefix }}
+  <div{{ title_attributes.addClass(longinus_block ~ '__title') }}>{{ configuration.label }}</div>
+  {{ title_suffix }}
+
+  {# Menu. #}
+  {% block content %}
+    {% do content_attributes.setAttribute('longinus_base', longinus_block ~ '__') %}
+    {{ content }}
+  {% endblock %}
+</nav>
