@@ -90,6 +90,17 @@
  */
 $databases = [];
 
+$databases['default']['default'] = [
+  'database' => 'sara',
+  'username' => 'sara',
+  'password' => '0E4F2MNBeHns2HO',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+];
+
 /**
  * Customizing database settings.
  *
