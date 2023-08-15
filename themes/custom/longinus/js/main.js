@@ -18,27 +18,27 @@
       
 
     // Open submenu researches on click.
-    $(".block-mainnavigation-2__menu li:nth-child(3)").click(function(){
-        if($(".block-mainnavigation-2__menu li:nth-child(3)>.block-mainnavigation-2__submenu").hasClass('opened-researches')) {
-            $(".block-mainnavigation-2__menu li:nth-child(3)>.block-mainnavigation-2__submenu").removeClass('opened-researches');
+    $(".block-mainnavigation__menu li:nth-child(3)").click(function(){
+        if($(".block-mainnavigation__menu li:nth-child(3)>.block-mainnavigation__submenu").hasClass('opened-researches')) {
+            $(".block-mainnavigation__menu li:nth-child(3)>.block-mainnavigation__submenu").removeClass('opened-researches');
         }
         else {
-            $(".block-mainnavigation-2__menu li:nth-child(3)>.block-mainnavigation-2__submenu").addClass("opened-researches");
-            if($(".block-mainnavigation-2__menu li:nth-child(4)>.block-mainnavigation-2__submenu").hasClass('opened-doings')) {
-                $(".block-mainnavigation-2__menu li:nth-child(4)>.block-mainnavigation-2__submenu").removeClass('opened-doings');
+            $(".block-mainnavigation__menu li:nth-child(3)>.block-mainnavigation__submenu").addClass("opened-researches");
+            if($(".block-mainnavigation__menu li:nth-child(4)>.block-mainnavigation__submenu").hasClass('opened-doings')) {
+                $(".block-mainnavigation__menu li:nth-child(4)>.block-mainnavigation__submenu").removeClass('opened-doings');
             }
         }
       });
 
       // Open submenu doings on click.
-    $(".block-mainnavigation-2__menu li:nth-child(4)").click(function(){
-        if($(".block-mainnavigation-2__menu li:nth-child(4)>.block-mainnavigation-2__submenu").hasClass('opened-doings')) {
-            $(".block-mainnavigation-2__menu li:nth-child(4)>.block-mainnavigation-2__submenu").removeClass('opened-doings');
+    $(".block-mainnavigation__menu li:nth-child(4)").click(function(){
+        if($(".block-mainnavigation__menu li:nth-child(4)>.block-mainnavigation__submenu").hasClass('opened-doings')) {
+            $(".block-mainnavigation__menu li:nth-child(4)>.block-mainnavigation__submenu").removeClass('opened-doings');
         }
         else {
-            $(".block-mainnavigation-2__menu li:nth-child(4)>.block-mainnavigation-2__submenu").addClass("opened-doings");
-            if($(".block-mainnavigation-2__menu li:nth-child(3)>.block-mainnavigation-2__submenu").hasClass('opened-researches')) {
-                $(".block-mainnavigation-2__menu li:nth-child(3)>.block-mainnavigation-2__submenu").removeClass('opened-researches');
+            $(".block-mainnavigation__menu li:nth-child(4)>.block-mainnavigation__submenu").addClass("opened-doings");
+            if($(".block-mainnavigation__menu li:nth-child(3)>.block-mainnavigation__submenu").hasClass('opened-researches')) {
+                $(".block-mainnavigation__menu li:nth-child(3)>.block-mainnavigation__submenu").removeClass('opened-researches');
             }
         }
       });

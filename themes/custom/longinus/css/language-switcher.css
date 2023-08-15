@@ -1,20 +1,20 @@
-#block-languageswitcher {
+#block-longinus-languageswitcher {
     display: inline-block;
     position: relative;
     height: 32px;
     width: 56px
 }
 
-#block-languageswitcher:after, #block-languageswitcher:before {
+#block-longinus-languageswitcher:after, #block-longinus-languageswitcher:before {
     content: " ";
     display: table
 }
 
-#block-languageswitcher:after {
+#block-longinus-languageswitcher:after {
     clear: both
 }
 
-#block-languageswitcher .links {
+#block-longinus-languageswitcher .links {
     z-index: 101;
     position: absolute;
     height: 32px;
@@ -27,7 +27,7 @@
     background-color: #fff
 }
 
-#block-languageswitcher .links li {
+#block-longinus-languageswitcher .links li {
     cursor: pointer;
     display: none
 }
@@ -44,28 +44,28 @@
     height: 100%
 }
 
-#block-languageswitcher .links li a.is-active {
+#block-longinus-languageswitcher .links li a.is-active {
     border-top: none
 }
 
 
-#block-languageswitcher .links li:hover {
+#block-longinus-languageswitcher .links li:hover {
     background-color: #e6af7333
 }
 
 
 
-#block-languageswitcher {
+#block-longinus-languageswitcher {
     display: none
 }
 
 @media all and (min-width:1024px) {
-    #block-languageswitcher {
+    #block-longinus-languageswitcher {
         display: inline-block;
         height: 58px;
     }
 
-    #block-languageswitcher .links {
+    #block-longinus-languageswitcher .links {
         z-index: 101;
         position: absolute;
         right: 0;
@@ -75,19 +75,19 @@
         list-style: none;
     }
 
-    #block-languageswitcher .links .de {
+    #block-longinus-languageswitcher .links .de {
         display: none !important
     }
 
-    #block-languageswitcher .links li {
+    #block-longinus-languageswitcher .links li {
         display: none
     }
 
-    #block-languageswitcher .links li:nth-of-type(2) a {
+    #block-longinus-languageswitcher .links li:nth-of-type(2) a {
         border-top: 1px solid rgba(0, 0, 0, .1)
     }
 
-    #block-languageswitcher .links li:first-of-type {
+    #block-longinus-languageswitcher .links li:first-of-type {
             display: block;
             background-image: url(../images/icons/arrow-orange.svg);
             background-position: right 8px center;
@@ -95,17 +95,17 @@
             background-repeat: no-repeat
     }
 
-    #block-languageswitcher .links:hover {
+    #block-longinus-languageswitcher .links:hover {
         height: auto;
         cursor: pointer
     }
 
-    #block-languageswitcher .links:hover li {
+    #block-longinus-languageswitcher .links:hover li {
         display: block
     }
 
 
-    #block-languageswitcher .block-laitems:hover li:last-of-type a {
+    #block-longinus-languageswitcher .block-laitems:hover li:last-of-type a {
         border-bottom: 0
     }
 

@@ -1,0 +1,4 @@
+inline_blocks_style:
+  css:
+    theme:
+      css/inline-blocks-style.css: { }

@@ -1,0 +1,118 @@
+<?php
+
+/**
+ * @file
+ * Block Library module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StreamWrapper\StreamWrapperManager;
+use Drupal\Core\File\Exception\FileException;
+use Drupal\block_content\Entity\BlockContentType;
+
+/**
+ * Implements hook_form_alter().
+ */
+function block_library_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $block_type_forms = [
+    'block_content_type_add_form',
+    'block_content_type_edit_form',
+  ];
+  if (in_array($form_id, $block_type_forms)) {
+    $entity = $form_state->getFormObject()->getEntity();
+
+    $form['icon'] = [
+      '#type' => 'details',
+      '#title' => t('Icon'),
+      '#open' => TRUE,
+    ];
+
+    $form['icon']['icon_path'] = [
+      '#type' => 'textfield',
+      '#title' => t('Path to custom icon'),
+      '#default_value' => $entity->getThirdPartySetting('block_library', 'icon_path') ?? '',
+      '#description' => _path_field_description(),
+    ];
+    $form['icon']['icon_upload'] = [
+      '#type' => 'file',
+      '#title' => t('Upload icon'),
+      '#description' => t("If you don't have direct file access to the server, use this field to upload your icon."),
+      '#upload_validators' => [
+        'file_validate_is_image' => [],
+      ],
+    ];
+    $form['#entity_builders'][] = '_block_library_block_content_type_form_builder';
+  }
+}
+
+/**
+ * Helper function to validate the path.
+ */
+function _validate_path($path) {
+  // Absolute local file paths are invalid.
+  if (\Drupal::service('file_system')->realpath($path) == $path) {
+    return FALSE;
+  }
+  // A path relative to the Drupal root or a fully qualified URI is valid.
+  if (is_file($path)) {
+    return $path;
+  }
+  // Prepend 'public://' for relative file paths within public filesystem.
+  if (StreamWrapperManager::getScheme($path) === FALSE) {
+    $path = 'public://' . $path;
+  }
+  if (is_file($path)) {
+    return $path;
+  }
+  return FALSE;
+}
+
+/**
+ * Helper function to generate the description for icon_path input.
+ */
+function _path_field_description() {
+  return t('Examples: public://block-name-icon.svg, modules/custom/module-path/block-name-icon.svg or themes/custom/active-theme-path/block-name-icon.svg.');
+}
+
+/**
+ * Entity builder for the block_content_type config entity.
+ */
+function _block_library_block_content_type_form_builder($entity_type, BlockContentType $block_content_type, &$form, FormStateInterface $form_state) {
+  $path = '';
+
+  if (\Drupal::service('module_handler')->moduleExists('file')) {
+
+    // If the user provided a path for a icon file, make sure a file
+    // exists at that path.
+    if ($form_state->getValue('icon_path')) {
+      $path = _validate_path($form_state->getValue('icon_path'));
+      if (!$path) {
+        $form_state->setErrorByName('icon_path', t('The custom icon path is invalid.'));
+        return;
+      }
+    }
+
+    // Check for a new uploaded icon.
+    if (isset($form['icon'])) {
+      $file = _file_save_upload_from_form($form['icon']['icon_upload'], $form_state, 0);
+      if ($file) {
+        // Put the temporary file in form_values so we can save it on submit.
+        $default_scheme = \Drupal::config('system.file')->get('default_scheme');
+        try {
+          $path = \Drupal::service('file_system')->copy($file->getFileUri(), $default_scheme . '://');
+        }
+        catch (FileException $e) {
+          // Ignore.
+        }
+      }
+    }
+
+    // Save the configuration.
+    if (!empty($path)) {
+      $block_content_type->setThirdPartySetting('block_library', 'icon_path', $path);
+      return;
+    }
+
+    $block_content_type->unsetThirdPartySetting('block_library', 'icon_path');
+  }
+}

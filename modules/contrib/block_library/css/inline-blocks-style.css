@@ -1,0 +1,52 @@
+#drupal-off-canvas .inline-block-list.lb-list {
+  margin-top: 15px;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list:hover a {
+  text-decoration: none;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item {
+  padding: 1.5rem;
+  margin: 1rem;
+  background-color: #4e4e4e;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item .bl-block-title,
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item .bl-block-icon {
+  background-color: inherit;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item:hover {
+  background-color: #333;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item:hover .bl-block-title,
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item:hover .bl-block-icon {
+  background-color: inherit;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item:hover svg,
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item:hover .bl-block-icon {
+  opacity: 1;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list .inline-block-list__item:hover a {
+  text-decoration: none;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list svg,
+#drupal-off-canvas .inline-block-list.lb-list .bl-block-icon {
+  transition: all .3s ease-in-out;
+  max-width: 100%;
+  max-height: 60px;
+  margin: 0 auto;
+  display: block;
+  opacity: .4;
+}
+
+#drupal-off-canvas .inline-block-list.lb-list .bl-block-title {
+  padding-top: 1rem;
+  display: block;
+  text-align: center;
+}

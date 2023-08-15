@@ -3,17 +3,17 @@
     padding: 20px 0;
 
 }
-.region-footer-first #block-sitebranding img {
+.region-footer-first #block-longinus-sitebranding img {
     width: 50px;
 }
 
-#block-sitebranding .block-branding__link{
+#block-longinus-sitebranding .block-branding__link{
     display: flex; 
     align-items: center;
     gap: 15px;
     text-decoration: none;
 }
-#block-sitebranding .block-branding__site-name {
+#block-longinus-sitebranding .block-branding__site-name {
     width: 190px;
     line-height: 1.3;
     font-size: 14px;

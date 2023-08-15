@@ -1,0 +1,11 @@
+{
+  "name": "drupal/block_library",
+  "type": "drupal-module",
+  "keywords": ["Drupal", "custom", "block", "library" ,"Layout Builder"],
+  "license": "GPL-2.0+",
+  "description": "Adds additional functionality to the core block library.",
+  "require": {
+    "drupal/core": "^9.3 || ^10",
+    "drupal/layout_builder_restrictions": "^2.7"
+  }
+}

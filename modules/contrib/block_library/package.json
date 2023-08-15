@@ -1,0 +1,17 @@
+{
+  "name": "block_library",
+  "description": "Adds additional functionality to the core block library.",
+  "author": "Mahmoud Zayed",
+  "version": "2.0.0",
+  "scripts": {
+    "css:compile": "node-sass scss --output-style expanded -o css/",
+    "css:build": "npm run css:compile",
+    "css:watch": "nodemon -e scss -x \"npm run css:build\" --ignore dist",
+    "watch": "nodemon -e scss -x \"npm run build\" --ignore dist",
+    "build": "npm run css:build"
+  },
+  "dependencies": {
+    "node-sass": "^4.5.3",
+    "nodemon": "^2.0.4"
+  }
+}

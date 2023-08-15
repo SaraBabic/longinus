@@ -1,0 +1,5 @@
+services:
+  block_library.route_subscriber:
+    class: Drupal\block_library\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

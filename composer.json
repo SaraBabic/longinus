@@ -28,6 +28,7 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/block_library": "^1.0",
         "drupal/cheeseburger_menu": "^5.0@RC",
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
