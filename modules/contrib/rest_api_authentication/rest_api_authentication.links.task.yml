@@ -1,0 +1,5 @@
+rest_api_authentication.auth_settings:
+  route_name: rest_api_authentication.auth_settings
+  title: 'Setup API Authentication'
+  weight: 10
+  base_route: rest_api_authentication.auth_settings

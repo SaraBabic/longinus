@@ -1,0 +1,25 @@
+{
+  "name": "cheeseburger_menu",
+  "version": "1.0.0",
+  "description": "CONTENTS OF THIS FILE ---------------------",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.drupal.org:project/cheeseburger_menu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^4.1.0"
+  }
+}

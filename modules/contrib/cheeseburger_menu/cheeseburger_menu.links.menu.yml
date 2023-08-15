@@ -1,0 +1,3 @@
+language_switch_links:
+  class: \Drupal\cheeseburger_menu\Plugin\Menu\LanguageSwitchMenuLink
+  deriver: \Drupal\cheeseburger_menu\Plugin\Deriver\LanguageSwitchLinksDeriver

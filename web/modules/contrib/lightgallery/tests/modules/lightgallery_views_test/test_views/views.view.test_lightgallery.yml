@@ -1,0 +1,103 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.storage.entity_test.field_image
+  module:
+    - image
+    - lightgallery
+    - entity_test
+id: test_lightgallery
+module: views
+description: ''
+tag: ''
+base_table: entity_test
+base_field: id
+display:
+  default:
+    display_options:
+      defaults:
+        fields: false
+        pager: false
+        sorts: false
+      fields:
+        id:
+          id: id
+          table: entity_test
+          field: id
+          entity_type: entity_test
+          entity_field: id
+          plugin_id: field
+        title:
+          field: title
+          id: title
+          relationship: none
+          table: views_test_data
+          plugin_id: string
+        field_image:
+          type: image
+          field: field_image
+          id: field_image
+          relationship: none
+          table: entity_test__field_image
+          plugin_id: field
+      pager:
+        options:
+          offset: 0
+        type: none
+      sorts:
+        id:
+          field: id
+          id: id
+          order: ASC
+          relationship: none
+          table: views_test_data
+          plugin_id: numeric
+      style:
+        type: lightgallery
+        options:
+          lightgallery:
+            thumb_field: field_image
+            image_field: field_image
+            title: ''
+            mode: lg-slide
+            preload: '1'
+            closable: 1
+            loop: 1
+            esc_key: 1
+            key_press: 1
+            controls: 1
+            mouse_wheel: 1
+            download: 1
+            counter: 1
+            drag: 1
+            touch: 1
+            thumbnails: 1
+            animate_thumb: 1
+            current_pager_position: middle
+            thumb_width: '100'
+            thumb_cont_height: '100'
+            autoplay: 1
+            pause: '5000'
+            progress_bar: 1
+            autoplay_controls: 1
+            full_screen: 1
+            pager: 1
+            zoom: 1
+            scale: '1'
+            hash: 1
+            gallery_id: '1'
+      row:
+        type: fields
+    display_plugin: default
+    display_title: Default
+    id: default
+    position: 0
+  page_1:
+    display_options:
+      path: test-lightgallery
+    display_plugin: page
+    display_title: Page
+    id: page_1
+    position: 1

@@ -1,0 +1,15 @@
+{
+    "name": "cheeseburger_menu",
+    "type": "drupal-module",
+    "description": "This block is displaying the main menu and its child items in an ordered list",
+    "keywords": [
+        "cheeseburger", "menu", "hamburger"
+    ],
+    "homepage": "https://www.drupal.org/project/cheeseburger_menu",
+    "minimum-stability": "dev",
+    "license": "GPL-2.0+",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/cheeseburger_menu",
+        "source": "http://cgit.drupalcode.org/cheeseburger_menu"
+    }
+}

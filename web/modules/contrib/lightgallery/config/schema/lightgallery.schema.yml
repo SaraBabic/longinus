@@ -1,0 +1,127 @@
+# @file
+# Schema for the configuration files of the Lightgallery module.
+
+field.formatter.settings.lightgallery:
+  type: mapping
+  label: ''
+  mapping:
+    lightgallery_core:
+      type: mapping
+      mapping:
+        thumb_field:
+          type: string
+          label: 'Thumbnail field'
+        image_field:
+          type: string
+          label: 'Image field'
+        title:
+          type: string
+          label: 'Title'
+        thumb_image_style:
+          type: string
+          label: 'Thumbnail image style'
+        lightgallery_image_style:
+          type: string
+          label: 'Lightgallery image style'
+        title_source:
+          type: string
+          label: Title Source
+        closable:
+          type: integer
+          label: 'Closable'
+        mode:
+          type: integer
+          label: 'Mode'
+        preload:
+          type: integer
+          label: 'Preload'
+        loop:
+          type: integer
+          label: 'Loop'
+        esc_key:
+          type: integer
+          label: 'Escape key'
+        key_press:
+          type: integer
+          label: 'Key press'
+        controls:
+          type: integer
+          label: 'Controls'
+        mouse_wheel:
+          type: integer
+          label: 'Mouse wheel'
+        download:
+          type: integer
+          label: 'Download'
+        counter:
+          type: integer
+          label: 'Counter'
+        drag:
+          type: integer
+          label: 'Drag'
+        touch:
+          type: integer
+          label: 'Touch'
+    lightgallery_thumbs:
+      type: mapping
+      mapping:
+        thumbnails:
+          type: integer
+          label: 'Use thumbnails'
+        animate_thumb:
+          type: integer
+          label: 'Animate thumbnails'
+        current_pager_position:
+          type: string
+          label: 'Position'
+        thumb_width:
+          type: string
+          label: 'Width'
+        thumb_cont_height:
+          type: string
+          label: 'Height'
+    lightgallery_autoplay:
+      type: mapping
+      mapping:
+        autoplay:
+          type: integer
+          label: 'Autoplay'
+        pause:
+          type: string
+          label: 'Pause'
+        progress_bar:
+          type: string
+          label: 'Progress bar'
+        autoplay_controls:
+          type: string
+          label: 'Autoplay controls'
+    lightgallery_full_screen:
+      type: mapping
+      mapping:
+        full_screen:
+          type: integer
+          label: 'Full screen'
+    lightgallery_pager:
+      type: mapping
+      mapping:
+        pager:
+          type: integer
+          label: 'Pager'
+    lightgallery_zoom:
+      type: mapping
+      mapping:
+        zoom:
+          type: integer
+          label: 'Pager'
+        scale:
+          type: string
+          label: 'Scale'
+    lightgallery_hash:
+      type: mapping
+      mapping:
+        hash:
+          type: integer
+          label: 'Hash'
+        gallery_id:
+          type: string
+          label: 'Gallery ID'

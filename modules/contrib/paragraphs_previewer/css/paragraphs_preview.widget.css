@@ -1,0 +1,77 @@
+/**
+ * @file
+ * Styles for Paragraphs Previewer widget form.
+ */
+.js .field--widget-paragraphs-previewer .paragraphs-nested .tabledrag-toggle-weight-wrapper {
+  display: none;
+}
+
+.js .field--widget-paragraphs-previewer th .paragraphs-actions {
+  float: right;
+  margin-right: -11px;
+}
+
+.js .field--widget-paragraphs-previewer .form-actions {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.js .field--widget-paragraphs-previewer .form-actions .dropbutton-multiple {
+  margin-right: .5rem;
+}
+
+.js .field--widget-paragraphs-previewer .form-actions .placeholder {
+  margin-left: .25em;
+}
+
+.js .field--widget-paragraphs-previewer .paragraphs-dropbutton-wrapper {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+}
+
+.js .field--widget-paragraphs-previewer .paragraphs-dropbutton-wrapper .dropbutton-multiple {
+  margin: 0;
+}
+
+.js .field--widget-paragraphs-previewer .dropbutton-wrapper {
+  width: auto;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.js .field--widget-paragraphs-previewer .field-multiple-table {
+  margin-bottom: 10px;
+}
+
+.js .field--widget-paragraphs-previewer td {
+  padding: 10px 0;
+}
+
+.js .field--widget-paragraphs-previewer .field-multiple-drag {
+  vertical-align: top;
+}
+
+.js .field--widget-paragraphs-previewer .draggable .tabledrag-handle {
+  min-width: 50px;
+  margin-left: 0;
+}
+
+.js .field--widget-paragraphs-previewer .draggable .tabledrag-handle:focus::before {
+  margin-left: .1em;
+  margin-right: .1em;
+}
+
+.js .field--widget-paragraphs-previewer .tabledrag-handle .handle {
+  height: 22px;
+}
+
+.js .field--widget-paragraphs-previewer .delta-order {
+  padding-right: 10px;
+  text-align: right;
+}

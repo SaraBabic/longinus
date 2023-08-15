@@ -1,0 +1,10 @@
+langcode: und
+status: true
+dependencies: {  }
+third_party_settings:
+  cheeseburger_menu:
+    use_langcode: true
+id: language
+label: Language
+description: 'Language switcher links'
+locked: false

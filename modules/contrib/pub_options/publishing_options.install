@@ -1,0 +1,108 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the node module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function publishing_options_schema() {
+  $schema['publishing_options'] = [
+    'description' => 'Saves information regarding additional publishing options.',
+    'fields' => [
+      'pubid' => [
+        'description' => 'The {publishing_options}.pubid this record affects.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'title' => [
+        'description' => "The {node}.title of this record.",
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Unix timestamp of node and newsroom association when created.',
+      ],
+      'modified' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Unix timestamp of node and newsroom association when modified.',
+      ],
+    ],
+    'unique keys' => [
+      'pubid' => ['pubid'],
+    ],
+    'primary key' => ['pubid'],
+  ];
+
+  $schema['publishing_options_bundles'] = [
+    'description' => 'Saves information regarding additional publishing options.',
+    'fields' => [
+      'pubid' => [
+        'description' => 'The parent {publishing_options}.pubid this record affects.',
+        'type' => 'int',
+        'length' => 11,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'bundle' => [
+        'description' => "The bundle label of this record.",
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+    ],
+  ];
+
+  $schema['publishing_options_option_node'] = [
+    'description' => 'Saves node and option association.',
+    'fields' => [
+      'pubid' => [
+        'description' => 'The parent {publishing_options}.pubid this record affects.',
+        'type' => 'int',
+        'length' => 11,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'nid' => [
+        'description' => 'The parent nid this record affects.',
+        'type' => 'int',
+        'length' => 11,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'selected' => [
+        'description' => 'The parent nid this record affects.',
+        'type' => 'int',
+        'length' => 1,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 1,
+      ],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function publishing_options_install() {
+}
+/**
+ * Implements hook_uninstall().
+ */
+function publishing_options_uninstall() {
+}

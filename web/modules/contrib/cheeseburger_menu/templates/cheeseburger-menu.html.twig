@@ -1,0 +1,75 @@
+{% import _self as cheesebuger %}
+{% if show_navigation %}
+	<div{{side_navigation_menu_attribute}}>
+		<div{{side_navigation_trigger_attribute}}>{{ close_icon|raw }}</div>
+
+		{% for menu in tree %}
+      {% if not menu.isNavigationTitleHidden %}
+        <div {{ menu.getIdAsAttribute }} {{ menu.navigationItemAttribute }}>
+          {% if menu.hasIcon %}
+            {{ menu.icon|raw }}
+          {% endif %}
+          <span>{{ menu.title }}</span>
+        </div>
+      {% endif %}
+			{% for menu_item in menu.getNavigationMenuItems() %}
+				<div {{ menu.navigationItemAttribute }}>
+					<a href="{{ menu_item.url }}">
+						<span>{{ menu_item.title }}</span>
+					</a>
+				</div>
+			{% endfor %}
+		{% endfor %}
+	</div>
+{% endif %}
+
+{# Each menu #}
+<div{{main_navigation_attribute}}>
+	{% if show_navigation == FALSE %}
+		<div{{side_navigation_trigger_attribute}}>{{ close_icon|raw }}</div>
+	{% endif %}
+	{% for menu in tree %}
+		<div {{ menu.getIdAsAttribute }} {{ menu.wrapperAttribute }}>
+			{% if not menu.isTitleHidden %}
+				<div {{ menu.titleAttribute }}>{{ menu.title }}</div>
+			{% endif %}
+			<ul
+				class="cheeseburger-menu__mainmenu">
+				{# Each menu item #}
+				{% for menu_item in menu %}
+					{{ cheesebuger.render_menu_item(menu_item, trigger_icon) }}
+				{% endfor %}
+			</ul>
+		</div>
+	{% endfor %}
+</div>
+
+{% macro render_menu_item(menu_item, trigger_icon) %}
+	{% import _self as render_menu_item %}
+	<li {{ menu_item.attribute }}>
+		{% if menu_item.isLink() %}
+			<a{{menu_item.labelAttribute}} href="{{ menu_item.url }}">
+				<span>{{ menu_item.title }}</span>
+			</a>
+		{% else %}
+			{% if menu_item.hasChild %}
+				<span{{menu_item.labelAttribute}} data-cheeseburger-parent-trigger>
+					<span>{{ menu_item.title }}</span>
+				</span>
+			{% else %}
+				<span{{menu_item.labelAttribute}}>
+					<span>{{ menu_item.title }}</span>
+				</span>
+			{% endif %}
+		{% endif %}
+
+		{% if menu_item.hasChild %}
+			<span{{menu_item.triggerAttribute}} data-cheeseburger-parent-trigger>{{ trigger_icon|raw }}</span>
+			<ul class="cheeseburger-menu__submenu">
+				{% for child_menu_item in menu_item.children %}
+					{{ render_menu_item.render_menu_item(child_menu_item, trigger_icon) }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</li>
+{% endmacro %}

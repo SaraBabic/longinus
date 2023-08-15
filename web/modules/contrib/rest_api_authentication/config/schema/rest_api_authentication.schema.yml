@@ -1,0 +1,16 @@
+rest_api_authentication.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    rest_api_authentication_customer_admin_email:
+      type: string
+    rest_api_authentication_license_key:
+      type: string
+    rest_api_authentication_customer_id:
+      type: string
+    rest_api_authentication_customer_admin_token:
+      type: string
+    rest_api_authentication_customer_api_key:
+      type: string
+    rest_api_authentication_status:
+      type: string

@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a paragraphs previewer modal content.
+ *
+ * Available variables:
+ * - preview_url: The Drupal\Core\Url object for the preview.
+ * - preview_url_string: The rendered preview url.
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_paragraphs_previewer_modal_content()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="paragraphs-previewer-wrapper">
+    {% if preview_url_string %}
+        <iframe src="{{ preview_url_string }}" class="paragraphs-previewer-iframe"></iframe>
+    {% else %}
+        <p>
+            {% trans %}
+            No preview available.
+            {% endtrans %}
+        </p>
+    {% endif %}
+</div>

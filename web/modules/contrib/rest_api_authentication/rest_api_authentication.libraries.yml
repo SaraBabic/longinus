@@ -1,0 +1,11 @@
+rest_api_authentication.style_settings:
+  version: VERSION
+  css:
+    layout:
+      css/rest_api_authentication.style_settings.css: {}
+
+rest_api_authentication.basic_style_settings:
+  version: VERSION
+  css:
+    layout:
+      css/rest_api_authentication.basic_style_settings.css: {}

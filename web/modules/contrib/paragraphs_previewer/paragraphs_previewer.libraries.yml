@@ -1,0 +1,26 @@
+dialog:
+  version: 1.3
+  js:
+    js/dialog.js: {}
+  css:
+    component:
+      css/dialog.css: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.ui.resizable
+    - core/jquery.ui.draggable
+    - core/drupalSettings
+    - core/drupal.ajax
+    - core/drupal.dialog.ajax
+
+widget:
+  version: 1.0
+  css:
+    theme:
+      css/paragraphs_preview.widget.css: {}
+
+preview-page:
+  version: 1.2
+  css:
+    component:
+      css/preview_page.css: {}

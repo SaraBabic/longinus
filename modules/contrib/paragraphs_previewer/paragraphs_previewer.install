@@ -1,0 +1,44 @@
+<?php
+/**
+ * @file
+ * Provides update functions for paragraphs_previewer.
+ */
+
+/**
+ * Rename plugin id to fix spelling. WARNING: Export site config after update!
+ */
+function paragraphs_previewer_update_8001() {
+  /** @var \Drupal\Core\Entity\EntityStorageInterface $storage */
+  $storage = \Drupal::entityTypeManager()->getStorage('entity_form_display');
+
+  /** @var \Drupal\Core\Entity\Display\EntityFormDisplayInterface[] $formDisplayConfig */
+  $formDisplayConfig = $storage->loadByProperties([]);
+  $updated_count = 0;
+  foreach ($formDisplayConfig as $formDisplay) {
+    $needsSaving = FALSE;
+    $components = $formDisplay->getComponents();
+
+    foreach ($components as $fieldName => $component) {
+      if ($component['type'] === 'paragraphs_previwer') {
+        $component['type'] = 'paragraphs_previewer';
+
+        $formDisplay->setComponent($fieldName, $component);
+        $needsSaving = TRUE;
+      }
+    }
+
+    if ($needsSaving) {
+      $formDisplay->save();
+      $updated_count++;
+    }
+  }
+
+  if (empty($updated_count)) {
+    return t('There were no Paragraphs Previewer field widgets updated. No further action is needed.') ;
+  }
+
+  return \Drupal::translation()->formatPlural($updated_count,
+    'There was 1 Paragraphs Previewer field widget updated to the new plugin id. If the site configuration is source controlled, then developers should export the site configuration to commit the updates.',
+    'There was @count Paragraphs Previewer field widgets updated to the new plugin id. If the site configuration is source controlled, then developers should export the site configuration to commit the updates.'
+  );
+}

@@ -1,0 +1,6 @@
+
+rest_api_authentication.auth_settings:
+  route_name: rest_api_authentication.auth_settings
+  title: 'miniOrange API Authentication Configuration'
+  description: 'Setup configurations for the miniOrange API Authentication module'
+  parent: user.admin_index

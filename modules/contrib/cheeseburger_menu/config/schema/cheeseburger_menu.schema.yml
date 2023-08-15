@@ -1,0 +1,137 @@
+block.settings.cheeseburger_menu:
+  type: block_settings
+  label: 'Cheeseburger Menu'
+  mapping:
+    default_css:
+      type: boolean
+      label: 'Use default css'
+    default_js:
+      type: boolean
+      label: 'Use default js'
+    hidden:
+      type: boolean
+      label: 'Hidden by default'
+    parent_menu_as_link:
+      type: boolean
+      label: 'Show parent menu item as link'
+    show_navigation:
+      type: boolean
+      label: 'Show navigation'
+    invoke_hooks:
+      type: boolean
+      label: 'Invoke hooks'
+    track_active_trail:
+      type: boolean
+      label: 'Active menu items'
+    # Colors
+    left_side_background_color:
+      type: string
+      label: 'Left side background color'
+    left_side_background_opacity:
+      type: string
+      label: 'Left side background opacity'
+    left_side_text_color:
+      type: string
+      label: 'Left side background color'
+    left_side_text_opacity:
+      type: string
+      label: 'Left side background opacity'
+    right_side_background_color:
+      type: string
+      label: 'Right side background color'
+    right_side_background_opacity:
+      type: string
+      label: 'Right side background opacity'
+    right_side_text_color:
+      type: string
+      label: 'Right side text color'
+    right_side_text_opacity:
+      type: string
+      label: 'Right side text opacity'
+    trigger_color:
+      type: string
+      label: 'Trigger color'
+    trigger_opacity:
+      type: string
+      label: 'Trigger opacity'
+    trigger_background_color:
+      type: string
+      label: 'Trigger background color'
+    trigger_background_opacity:
+      type: string
+      label: 'Trigger background opacity'
+    scrollbar_color:
+      type: string
+      label: 'Scrollbar color'
+    scrollbar_opacity:
+      type: string
+      label: 'Scrollbar opacity'
+    # Menus
+    menus:
+      type: sequence
+      sequence:
+        type: mapping
+        mapping:
+          id:
+            type: string
+            label: 'Menu ID'
+          type:
+            type: string
+            label: 'Type'
+          weight:
+            type: integer
+            label: 'Weight'
+          # Menu settings
+          settings:
+            type: mapping
+            mapping:
+              max_depth:
+                type: integer
+                label: 'Max menu depth'
+              initial_visibility_level:
+                type: integer
+                label: 'Initial visibility level'
+              default_expanded:
+                type: boolean
+                label: 'Expanded by default'
+              show_title_in_navigation:
+                type: boolean
+                label: 'Show title in navigation'
+              collapsible_title:
+                type: boolean
+                label: 'Title is collapsible'
+              title_default_expanded:
+                type: boolean
+                label: 'Title is expanded by default'
+              show_title_above_menu:
+                type: boolean
+                label: 'Show title above menu'
+              override_title:
+                type: boolean
+                label: 'Use overriden title'
+              title_override:
+                type: label
+                label: 'Menu title override'
+              show_links_in_navigation:
+                type: boolean
+                label: 'Show links in navigation'
+              # TODO: How smart is it to save SVG in config?
+              icon:
+                type: string
+                label: 'SVG icon'
+
+block.settings.cheeseburger_menu_trigger:
+  type: block_settings
+  label: 'Cheeseburger Menu Trigger'
+  mapping:
+    block_to_trigger:
+      type: string
+      label: 'Use default css'
+    breakpoints:
+      type: sequence
+      sequence:
+        type: string
+        label: 'Breakpoint string'
+    custom_media_query:
+      type: string
+      label: 'Custom media query'

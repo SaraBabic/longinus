@@ -1,0 +1,40 @@
+{
+    "name": "drupal/lightgallery",
+    "type": "drupal-module",
+    "description": "Integrate the Light Gallery library with Drupal.",
+    "keywords": ["Drupal", "Lightgallery"],
+    "minimum-stability": "dev",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Dietrich Moerman (dietr_ch)",
+            "homepage": "https://www.drupal.org/u/dietr_ch",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Darryl Norris (robin.ingelbrecht)",
+            "homepage": "https://www.drupal.org/u/robin.ingelbrecht",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Philippe Joulot (phjou)",
+            "homepage": "https://www.drupal.org/u/phjou",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Murilo (murilohp)",
+            "homepage": "https://www.drupal.org/u/murilohp",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://www.drupal.org/project/lightgallery",
+    "support": {
+        "issues": "https://drupal.org/project/issues/lightgallery",
+        "source": "https://git.drupalcode.org/project/lightgallery"
+    },
+    "require": {
+        "php": ">=7.0 || >=8.0",
+        "drupal/core": "^9 || ^10",
+        "sachinchoolur/lightgallery": "^1.2.21"
+    }
+}

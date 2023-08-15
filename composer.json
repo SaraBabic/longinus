@@ -12,15 +12,48 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "sachinchoolur/lightgallery",
+                "type": "drupal-library",
+                "version": "1.6.11",
+                "dist": {
+                    "url": "https://github.com/sachinchoolur/lightGallery/archive/1.6.11.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/cheeseburger_menu": "^5.0@RC",
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/core-vendor-hardening": "^10.1",
-        "drush/drush": "^12.1"
+        "drupal/eu_cookie_compliance": "^1.24",
+        "drupal/field_group": "^3.4",
+        "drupal/field_group_link": "^3.1",
+        "drupal/focal_point": "^2.0",
+        "drupal/gin": "^3.0@RC",
+        "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/jwt": "^2.0",
+        "drupal/lightgallery": "^1.1",
+        "drupal/mailsystem": "^4.4",
+        "drupal/paragraphs": "^1.15",
+        "drupal/paragraphs_previewer": "^1.7",
+        "drupal/pathauto": "^1.11",
+        "drupal/pub_options": "^2.0",
+        "drupal/rest_api_authentication": "^2.0",
+        "drupal/restui": "^1.21",
+        "drupal/svg_formatter": "^2.0",
+        "drupal/token": "^1.12",
+        "drupal/twig_tweak": "^3.2",
+        "drupal/video_embed_field": "^2.5",
+        "drush/drush": "^12.1",
+        "sachinchoolur/lightgallery": "^1.6"
     },
     "conflict": {
         "drupal/drupal": "*"

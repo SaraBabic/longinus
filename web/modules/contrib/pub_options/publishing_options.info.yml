@@ -1,0 +1,11 @@
+name: Publishing options
+type: module
+description: 'Provides an administrative interface to create custom publishing options.'
+core_version_requirement: ^8.8 || ^9 || ^10
+package: Custom
+configure: publishing_options.settings
+
+# Information added by Drupal.org packaging script on 2022-10-03
+version: '2.0.1'
+project: 'pub_options'
+datestamp: 1664814249

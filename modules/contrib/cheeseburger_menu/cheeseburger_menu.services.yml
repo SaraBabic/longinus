@@ -1,0 +1,12 @@
+services:
+  cheeseburger_menu.service:
+    class: Drupal\cheeseburger_menu\CheeseburgerMenuService
+    arguments: ['@entity_type.manager', '@menu.link_tree', '@menu.active_trail', '@current_route_match', '@language_manager', '@module_handler']
+
+  cache_context.route.taxonomy_term_tree:
+    class: Drupal\cheeseburger_menu\Cache\TaxonomyTermTreeCacheContext
+    arguments:
+      - '@current_route_match'
+      - '@entity_type.manager'
+    tags:
+      - { name: cache.context}

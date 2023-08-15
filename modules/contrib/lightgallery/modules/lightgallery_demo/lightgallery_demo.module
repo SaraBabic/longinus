@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Light Gallery demo module file.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function lightgallery_demo_help($route_name) {
+  switch ($route_name) {
+    case 'help.page.lightgallery_demo':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      // phpcs:disable
+      $output .= '<p>' . t('The Lightgallery demo module is a simple module intended to work with <a href=":simplytest" target="_blank">simplytest.me</a>, it just create some nodes using the <b>Article</b> content type. For more information about the module check the <a href=":documentation" target="_blank">online documentation for the Lightgaller module</a>.', [':documentation' => 'https://www.drupal.org/docs/contributed-modules/lightgallery', ':simplytest' => 'https://simplytest.me/']) . '</p>';
+      return $output;
+  }
+}

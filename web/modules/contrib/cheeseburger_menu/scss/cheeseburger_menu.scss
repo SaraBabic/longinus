@@ -1,0 +1,452 @@
+$minTouchArea: 40px;
+$cheeseRadius: 2px;
+
+$cheeseTransition: all 0.3s ease;
+$cheeseTransitionOpacity: opacity 0.3s ease;
+$cheeseTransitionLong: all 0.45s ease;
+
+$cheeseSideMenuWidth: 75px;
+
+$cheeseTriggerSize: 2px;
+$cheseeTriggerWidth: 24px;
+$cheeseTriggerGap: 5px;
+$cheeseTriggerStart: (
+    $minTouchArea - ($cheeseTriggerSize * 3) - ($cheeseTriggerGap * 2)
+  ) / 2;
+
+$cheeseUnit: 6px;
+
+$main-bg-color: var(--cheese-main-bg-color);
+$main-text-color: var(--cheese-main-text-color);
+$aside-bg-color: var(--cheese-aside-bg-color);
+$aside-text-color: var(--cheese-aside-text-color);
+
+$trigger-bg-color: var(--cheese-trigger-bg-color);
+$trigger-color: var(--cheese-trigger-color);
+
+$scrollbar-color: var(--cheese-srcollbar-color);
+
+@mixin touchAreaSize {
+  min-height: $minTouchArea;
+  min-width: $minTouchArea;
+}
+
+$imgRoute: "../images";
+
+$dd-height: 8px;
+$dd-width: 2px;
+$radius: 0;
+
+// :root {
+//   --aside-bg-color: #2494db;
+//   --aside-text-color: #ffffff;
+//   --main-bg-color: #ffffff;
+//   --main-text-color: #000000;
+// }
+
+@mixin cheeseClearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+// Body -- done
+.body--has-active-cheese {
+  overscroll-behavior-y: contain;
+  overflow: hidden;
+}
+
+// Trigger -- done
+.block-cheeseburgermenu {
+  &-trigger-container {
+    display: flex;
+  }
+
+  &__trigger-element {
+    @include touchAreaSize();
+    background: $trigger-bg-color;
+    position: relative;
+
+    span {
+      width: $cheseeTriggerWidth;
+      height: $cheeseTriggerSize;
+      background: $trigger-color;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: width 0.25s;
+
+      &:nth-of-type(1) {
+        top: $cheeseTriggerStart;
+      }
+
+      &:nth-of-type(2) {
+        top: $cheeseTriggerStart + $cheeseTriggerSize + $cheeseTriggerGap;
+      }
+
+      &:nth-of-type(3) {
+        top: $cheeseTriggerStart + $cheeseTriggerSize * 2 + $cheeseTriggerGap *
+          2;
+      }
+    }
+
+    &:active,
+    &:hover {
+      cursor: pointer;
+
+      span {
+        width: calc(#{$cheseeTriggerWidth} + 5px);
+      }
+    }
+  }
+}
+
+// Overlay
+
+.cheeseburger-menu {
+  &__backdrop {
+    transition: $cheeseTransitionOpacity;
+    transition-delay: 0.3s;
+    z-index: 200;
+    transition: background-color 0.25s;
+
+    &--active {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(black, 0.5);
+    }
+  }
+}
+
+// Menu Container
+.block-cheeseburgermenu {
+  &-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: $cheeseTransition;
+    max-width: 100%;
+    width: 350px;
+    background: $main-bg-color;
+    color: $main-text-color;
+
+    overflow: hidden;
+    transform: translateX(-100%);
+    box-sizing: border-box;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    &--is-open {
+      transform: translateX(0);
+      z-index: 201;
+
+      .cheeseburger-menu__side-menu {
+        transform: translateX(0);
+      }
+    }
+
+    &--with-navigation {
+      padding-left: $cheeseSideMenuWidth;
+    }
+  }
+}
+
+// Menu
+.cheeseburger-menu {
+  &__item {
+    display: flex;
+    flex-flow: row wrap;
+    transition: $cheeseTransition;
+    overflow: hidden;
+
+    > ul {
+      flex: 1 0 100%;
+      height: 0;
+      will-change: height;
+      position: relative;
+    }
+
+    &--is-expanded {
+      > ul {
+        height: auto;
+      }
+
+      ul {
+        background-color: rgba(black, 0.1);
+      }
+    }
+
+    &.in-active-trail {
+      > a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__item-label {
+    @include touchAreaSize();
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    color: $main-text-color;
+    text-decoration: none;
+    border: none;
+    max-width: calc(100% - #{$minTouchArea});
+
+    &:hover {
+      cursor: pointer;
+      border: none;
+      text-decoration: underline;
+    }
+
+    &:visited,
+    &:hover {
+      color: $main-text-color;
+    }
+  }
+
+  &__submenu-trigger {
+    @include touchAreaSize();
+    transition: $cheeseTransition;
+    display: flex;
+    align-items: center;
+  }
+
+  &__main-navigation-area {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    padding-bottom: 150px; // Extra padding on bottom for mobile phones.
+
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-color transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-color;
+    }
+
+    > div {
+      border-bottom: 1px solid rgba(black, 0.2);
+      margin-bottom: $cheeseUnit * 4;
+      transition: $cheeseTransitionLong;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    ul,
+    ol {
+      padding: 0;
+    }
+  }
+
+  &__side-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    height: 100%;
+    transition: $cheeseTransition;
+    background: $aside-bg-color;
+    color: $aside-text-color;
+    max-height: 100%;
+    overflow: auto;
+
+    &-item {
+      width: $cheeseSideMenuWidth;
+      transition: $cheeseTransition;
+      text-align: center;
+      min-height: calc(#{$cheeseSideMenuWidth} - 10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: bold;
+
+      img,
+      svg {
+        display: block;
+        margin: 0 auto $cheeseUnit auto;
+        max-width: 90%;
+        max-height: 40px;
+        fill: $aside-text-color;
+      }
+
+      span {
+        font-size: 10px;
+        line-height: 1.2;
+        padding-left: $cheeseUnit / 2;
+        padding-right: $cheeseUnit / 2;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__side-trigger {
+    @include touchAreaSize();
+    min-height: calc(#{$cheeseSideMenuWidth} - 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: $cheeseUnit * 3;
+
+    svg {
+      fill: $aside-text-color;
+      margin: 0 auto;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__title {
+    padding: $cheeseUnit * 2;
+    text-transform: uppercase;
+    &--collapsible {
+      .cheeseburger-menu__title {
+        position: relative;
+        transition: ease 0.35s;
+        &:before,
+        &:after {
+          transition: ease 0.35s;
+          content: " ";
+          position: absolute;
+          width: $dd-width;
+          height: $dd-height;
+          background: $main-text-color;
+          border-radius: $radius;
+          top: calc(50% - 4px);
+        }
+
+        &:before {
+          right: 12px;
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          right: 16px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    &--expanded {
+      .cheeseburger-menu__title {
+        &:before,
+        &:after {
+          right: 14px;
+          height: calc(21px / 1.5);
+          top: calc(50% - 8px);
+        }
+
+        &:before {
+          transform: rotate(-45deg);
+        }
+
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &__submenu {
+    padding-left: $cheeseUnit * 2 !important;
+  }
+
+  &__mainmenu {
+    > li {
+      padding-left: $cheeseUnit * 2;
+
+      &.cheeseburger-parent {
+        padding-left: 0;
+
+        .cheeseburger-menu__item-label {
+          padding-left: $cheeseUnit * 2;
+        }
+      }
+    }
+    &--invisible {
+      display: none;
+    }
+  }
+}
+
+.toolbar-fixed {
+  .block-cheeseburgermenu-container {
+    top: 39px;
+  }
+
+  &.toolbar-tray-open {
+    .block-cheeseburgermenu-container {
+      top: 79px;
+    }
+  }
+}
+
+.dropdown {
+  position: relative;
+  margin: $minTouchArea/2 $minTouchArea/1.7;
+  transition: ease 0.35s;
+
+  &:before,
+  &:after {
+    transition: ease 0.35s;
+    content: " ";
+    position: absolute;
+    width: $dd-width;
+    height: $dd-height;
+    background: $main-text-color;
+    border-radius: $radius;
+    top: -4px;
+  }
+
+  &:before {
+    left: 3px;
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    left: -2px;
+    transform: rotate(-45deg);
+  }
+}
+
+.cheeseburger-menu__item--is-expanded {
+  > .cheeseburger-menu__submenu-trigger {
+    .dropdown {
+      &:before,
+      &:after {
+        left: 0;
+        height: calc(21px / 1.5);
+        top: -7px;
+      }
+
+      &:before {
+        transform: rotate(-45deg);
+      }
+
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

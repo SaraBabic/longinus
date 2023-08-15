@@ -1,0 +1,215 @@
+<?php
+
+/**
+ * @file
+ * Contains cheeseburger_menu.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function cheeseburger_menu_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the cheeseburger_menu module.
+    case 'help.page.cheeseburger_menu':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This block is displaying the main menu and its child items in an ordered list') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cheeseburger_menu_theme($existing, $type, $theme, $path) {
+  return [
+    'cheeseburger_menu' => [
+      'variables' => [
+        'tree' => [],
+        'show_navigation' => TRUE,
+        'side_navigation_menu_attribute' => new Attribute(['class' => ['cheeseburger-menu__side-menu']]),
+        'side_navigation_trigger_attribute' => new Attribute([
+          'class' => [
+            'cheeseburger-menu__side-trigger',
+          ],
+          'data-cheeseburger-close' => 'true',
+        ]),
+        'main_navigation_attribute' => new Attribute(['class' => ['cheeseburger-menu__main-navigation-area']]),
+        'trigger_icon' => '<div class="cheeseburger-menu__submenu-trigger-icon dropdown"></div>',
+        'close_icon' => file_get_contents(\Drupal::service('extension.list.module')->getPath('cheeseburger_menu') . '/images/trigger-close.svg'),
+      ],
+    ],
+    'cheeseburger_menu_trigger' => [
+      'variables' => [
+        'menu_id' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function cheeseburger_menu_page_attachments(array &$attachments) {
+  $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
+  $grouped_triggers = cheeseburger_get_trigger_ids_grouped_by_block_to_trigger($active_theme->getName());
+  /** @var \Drupal\block\Entity\Block[] $block */
+  $blocks = \Drupal::entityTypeManager()->getStorage('block')->loadByProperties([
+    'plugin' => 'cheeseburger_menu',
+    'theme' => $active_theme->getName(),
+  ]);
+  foreach ($blocks as $block) {
+    /** @var \Drupal\cheeseburger_menu\Plugin\Block\CheeseburgerMenuBlock $block_plugin */
+    $block_plugin = $block->getPlugin();
+    $block_ids = [$block->id()];
+    $block_ids = array_merge($block_ids, $grouped_triggers['block_ids'][$block->id()] ?? []);
+    $html_ids = array_map(function ($block_id) {
+      return '#block-' . str_replace('_', '-', $block_id);
+    }, $block_ids);
+    if ($active_theme->getName() === 'glisseo') {
+      $html_ids = array_merge($block_ids, array_map(function ($block_id) {
+        return '.block--' . str_replace('_', '-', $block_id);
+      }, $block_ids));
+    }
+    $colors = implode(', ', $html_ids) . ' {';
+    $colors .= '--cheese-aside-bg-color: ' . cheeseburger_hex_to_rgba($block_plugin->getConfigValue('left_side_background_color'), $block_plugin->getConfigValue('left_side_background_opacity')) . ';';
+    $colors .= '--cheese-aside-text-color: ' . cheeseburger_hex_to_rgba($block_plugin->getConfigValue('left_side_text_color'), $block_plugin->getConfigValue('left_side_text_opacity')) . ';';
+    $colors .= '--cheese-main-bg-color: ' . cheeseburger_hex_to_rgba($block_plugin->getConfigValue('right_side_background_color'), $block_plugin->getConfigValue('right_side_background_opacity')) . ';';
+    $colors .= '--cheese-main-text-color: ' . cheeseburger_hex_to_rgba($block_plugin->getConfigValue('right_side_text_color'), $block_plugin->getConfigValue('right_side_text_opacity')) . ';';
+    $colors .= '--cheese-trigger-color: ' . cheeseburger_hex_to_rgba($block_plugin->getConfigValue('trigger_color'), $block_plugin->getConfigValue('trigger_opacity')) . ';';
+    $colors .= '--cheese-trigger-bg-color: ' . cheeseburger_hex_to_rgba($block_plugin->getConfigValue('trigger_background_color'), $block_plugin->getConfigValue('trigger_background_opacity')) . ';';
+    $colors .= '--cheese-scrollbar-color: ' . cheeseburger_hex_to_rgba($block_plugin->getConfigValue('scrollbar_color'), $block_plugin->getConfigValue('scrollbar_opacity')) . ';';
+    $colors .= '}';
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'style',
+        '#value' => $colors,
+      ], 'cheeseburger-colors-' . $block->id(),
+    ];
+  }
+  foreach ($grouped_triggers['media_queries'] as $block_id => $media_query) {
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'style',
+        '#value' => '@media ' . $media_query . ' {#block-' . str_replace('_', '-', $block_id) . '{ display:none; }}',
+      ], 'cheeseburger-media-query-' . $block->id(),
+    ];
+  }
+}
+
+/**
+ * Returns trigger ids grouped by block to trigger.
+ */
+function cheeseburger_get_trigger_ids_grouped_by_block_to_trigger($theme) {
+  $blocks = \Drupal::entityTypeManager()->getStorage('block')->loadByProperties([
+    'plugin' => 'cheeseburger_menu_trigger',
+    'theme' => $theme,
+  ]);
+  $cheeseburger_triggers = [
+    'block_ids' => [],
+    'media_queries' => [],
+  ];
+  foreach ($blocks as $block) {
+    $configuration = $block->getPlugin()->getConfiguration();
+    $cheeseburger_triggers['block_ids'][$configuration['block_to_trigger']][] = $block->id();
+    if ($configuration['custom_media_query']) {
+      $cheeseburger_triggers['media_queries'][$block->id()] = $configuration['custom_media_query'];
+    }
+  }
+  return $cheeseburger_triggers;
+}
+
+/**
+ * Converts hex to rgba.
+ */
+function cheeseburger_hex_to_rgba($hex, $opacity = 1) {
+  $hex = str_replace('#', '', $hex);
+  return 'rgba( ' . hexdec($hex[0] . $hex[1]) . ', ' . hexdec($hex[2] . $hex[3]) . ', ' . hexdec($hex[4] . $hex[5]) . ', ' . $opacity . ')';
+}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function cheeseburger_menu_block_view_alter(array &$build, BlockPluginInterface $block) {
+  if ($block->getPluginId() === 'cheeseburger_menu') {
+    if ($block->getConfigValue('hidden')) {
+      $build['#attributes']['style'] = 'display: none;';
+    }
+    else {
+      $build['#attributes']['class'][] = 'block-cheeseburgermenu-container--is-open';
+    }
+    $build['#attributes']['class'][] = 'block-cheeseburgermenu-container';
+    if ($block->getConfigValue('show_navigation')) {
+      $build['#attributes']['class'][] = 'block-cheeseburgermenu-container--with-navigation';
+    }
+    else {
+      $build['#attributes']['class'][] = 'block-cheeseburgermenu-container--without-navigation';
+    }
+  }
+  if ($block->getPluginId() === 'cheeseburger_menu_trigger') {
+    $variables['attributes']['class'][] = 'block-cheeseburgermenu-trigger-container';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function cheeseburger_menu_form_menu_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\system\Entity\Menu $menu */
+  $menu = $form_state->getFormObject()->getEntity();
+  if ($menu->id() === 'language') {
+    $form['use_langcode'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Use language codes instead of language names'),
+      '#default_value' => $menu->getThirdPartySetting('cheeseburger_menu', 'use_langcode', TRUE),
+    ];
+    $form['link_front_page'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Link front page'),
+      '#description' => t('If this option is turned on links will lead to front page. In this case we dont need to cache links for each page.'),
+      '#default_value' => $menu->getThirdPartySetting('cheeseburger_menu', 'link_front_page', FALSE),
+    ];
+    $form['actions']['submit']['#submit'][] = '_cheeseburger_menu_save_third_party_settings';
+  }
+}
+
+/**
+ * Save third party setting added to menu on form submission.
+ */
+function _cheeseburger_menu_save_third_party_settings($form, FormStateInterface $form_state) {
+  /** @var \Drupal\system\Entity\Menu $menu */
+  $menu = $form_state->getFormObject()->getEntity();
+  $menu->setThirdPartySetting('cheeseburger_menu', 'use_langcode', (bool) $form_state->getValue('use_langcode'));
+  $menu->setThirdPartySetting('cheeseburger_menu', 'link_front_page', (bool) $form_state->getValue('link_front_page'));
+  $menu->save();
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ * Remove modal dialog from cheeseburger place block link.
+ */
+function cheeseburger_menu_preprocess_table(&$variables) {
+  if (isset($variables['attributes']['class'][0]) && $variables['attributes']['class'][0] === 'block-add-table') {
+    foreach ($variables['rows'] as &$row) {
+      if (isset($row['cells']['operations']['content']['#links']['add']['url'])) {
+        $url = $row['cells']['operations']['content']['#links']['add']['url'];
+        if ($url instanceof Url) {
+          $plugin_id = $url->getRouteParameters()['plugin_id'];
+          if ($plugin_id === 'cheeseburger_menu') {
+            unset($row['cells']['operations']['content']['#links']['add']['attributes']);
+          }
+        }
+      }
+    }
+  }
+}
+
