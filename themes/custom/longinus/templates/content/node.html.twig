@@ -1,0 +1,35 @@
+{%
+set longinus_block = longinus_block ?: ('node-' ~ node.bundle ~ (view_mode != 'default' ? '-' ~ view_mode))|clean_class
+%}
+{%
+set classes = [
+longinus_block,
+longinus_blockss,
+node.isPromoted() ? longinus_block ~ '--promoted',
+node.isSticky() ? longinus_block ~ '--sticky',
+not node.isPublished() ? longinus_block ~ '--unpublished',
+]
+%}
+
+<article{{ attributes.addClass(classes) }} id="{{ node.id }}">
+    {% block content %}
+        {{ title_prefix }}
+        {% if not page %}
+          <h2{{ title_attributes.addClass(longinus_block ~ '__title') }}>
+            <a class="{{ longinus_block }}__title-link" href="{{ url }}" rel="bookmark">{{ label }}</a>
+          </h2>
+        {% endif %}
+        {{ title_suffix }}
+
+      <div{{ content_attributes.addClass(longinus_block ~ '__content') }}>
+          
+          {{ content|without('links') }}
+      </div>
+
+        {% if content.links %}
+          <div class="{{ longinus_block }}__links">
+              {{ content.links }}
+          </div>
+        {% endif %}
+    {% endblock %}
+</article>

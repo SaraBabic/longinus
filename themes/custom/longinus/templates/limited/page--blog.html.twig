@@ -1,0 +1,90 @@
+<div id="page" class="{{ page_classes }}">
+  <header id="header">
+    <div class="container">
+      {% if page.branding %}
+      {{ page.branding }}
+      {% endif %} {% if page.primary_navigation %}
+      {{ page.primary_navigation }}
+      {% endif %} {% if page.information %}
+      {{ page.information }}
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.highlighted %}
+  <section id="highlighted">
+    <div class="container">
+      {{ page.highlighted }}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.slider %}
+  <section id="slider">
+      {{ page.slider }}
+      {% if page.preface_first %}
+        <section id="preface-first">
+          <div class="container">
+            {% if page.preface_first %}
+            {{ page.preface_first }}
+            {% endif %}
+          </div>
+        </section>
+      {% endif %}
+  </section>
+  {% endif %}
+
+  {% if page.preface_second %}
+  <section id="preface-second">
+    <div class="container">
+      {% if page.preface_second %}
+      {{ page.preface_second }}
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section id="content">
+
+    {% if page.content %}
+    <div class="container">
+        {{ page.content }}
+    </div>
+    {% endif %}
+  </section>
+
+  {% if page.postfix_first %}
+  <section id="postfix-first">
+    <div class="container">
+      {{ page.postfix_first }}
+    </div>
+  </section>
+  {% endif %}
+
+   {% if page.postfix_second %}
+  <section id="postfix-second">
+    <div class="container">
+      {{ page.postfix_second }}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.footer_first or page.footer_second or page.footer_third %}
+  <section id="pre-footer">
+    <div class="container">
+      {{ page.footer_first }}
+      {{ page.footer_second }}
+      {{ page.footer_third }}
+    </div>
+  </section>
+  {% endif %}
+
+   {% if page.footer_fifth or page.footer_fourth %}
+  <footer id="footer">
+    <div class="container">
+      {{ page.footer_fourth }}
+      {{ page.footer_fifth }}
+    </div>
+  </footer>
+  {% endif %}
+</div>

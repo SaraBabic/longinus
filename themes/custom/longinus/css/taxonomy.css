@@ -1,0 +1,386 @@
+.block-views-block__title {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+    text-align: center;
+    margin: 24px 0;
+}
+.views-element-container {
+    margin-bottom: 60px;
+}
+
+/* costumes head */
+.view-costumes-head-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.views-field-name {
+    margin-top: 8px;
+}
+.view-costumes-head-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-costumes-head-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-costumes-head-block-1__content .view-costumes-head-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-costumes-head-block-1__content .view-costumes-head-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-costumes-head-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-costumes-head-block-1__content .view-costumes-head-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* costumes top */
+.view-costumes-top-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-costumes-top-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-costumes-top-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-costumes-top-block-1__content .view-costumes-top-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-costumes-top-block-1__content .view-costumes-top-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-costumes-top-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-costumes-top-block-1__content .view-costumes-top-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* costumes body */
+.view-costumes-body-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-costumes-body-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-costumes-body-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-costumes-body-block-1__content .view-costumes-body-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-costumes-body-block-1__content .view-costumes-body-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-costumes-body-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-costumes-body-block-1__content .view-costumes-body-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* costumes bottom */
+.view-costumes-bottom-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-costumes-bottom-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-costumes-bottom-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-costumes-bottom-block-1__content .view-costumes-bottom-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-costumes-bottom-block-1__content .view-costumes-bottom-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-costumes-bottom-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-costumes-bottom-block-1__content .view-costumes-bottom-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* costumes hands */
+.view-costumes-hands-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-costumes-hands-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-costumes-hands-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-costumes-hands-block-1__content .view-costumes-hands-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-costumes-hands-block-1__content .view-costumes-hands-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-costumes-hands-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-costumes-hands-block-1__content .view-costumes-hands-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* costumes foot */
+.view-costumes-foot-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-costumes-foot-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-costumes-foot-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-costumes-foot-block-1__content .view-costumes-foot-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-costumes-foot-block-1__content .view-costumes-foot-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-costumes-foot-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-costumes-foot-block-1__content .view-costumes-foot-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+
+/* shield head */
+.view-shield-head-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-shield-head-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-shield-head-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-shield-head-block-1__content .view-shield-head-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-shield-head-block-1__content .view-shield-head-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-shield-head-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-shield-head-block-1__content .view-shield-head-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* shield top */
+.view-shield-top-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-shield-top-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-shield-top-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-shield-top-block-1__content .view-shield-top-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-shield-top-block-1__content .view-shield-top-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-shield-top-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-shield-top-block-1__content .view-shield-top-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* shield bottom */
+.view-shield-bottom-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-shield-bottom-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-shield-bottom-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-shield-bottom-block-1__content .view-shield-bottom-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-shield-bottom-block-1__content .view-shield-bottom-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-shield-bottom-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-shield-bottom-block-1__content .view-shield-bottom-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* shield hands */
+.view-shield-hands-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-shield-hands-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-shield-hands-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-shield-hands-block-1__content .view-shield-hands-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-shield-hands-block-1__content .view-shield-hands-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-shield-hands-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-shield-hands-block-1__content .view-shield-hands-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* shield foot */
+.view-shield-foot-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-shield-foot-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-shield-foot-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-shield-foot-block-1__content .view-shield-foot-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-shield-foot-block-1__content .view-shield-foot-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-shield-foot-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-shield-foot-block-1__content .view-shield-foot-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}
+/* weapons */
+.view-weapons-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 16px;
+}
+.view-weapons-block-1__content span {
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 28px;
+}
+.view-weapons-block-1__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.view-weapons-block-1__content .view-weapons-block-1__row {
+    flex: 0 0 calc(50% - 8px);
+}
+.view-weapons-block-1__content .view-weapons-block-1__row img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+}
+@media all and (min-width:768px) {
+    .view-weapons-block-1__content {
+        gap: 45px 30px;
+    }
+    .view-weapons-block-1__content .view-weapons-block-1__row {
+        flex: 0 0 calc(33% - 18px);
+    }
+}

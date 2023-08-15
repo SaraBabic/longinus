@@ -1,0 +1,45 @@
+.eu-cookie-withdraw-wrapper {
+    background-color: #e6af73;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.sliding-popup-bottom {
+    background-color: #e6af73;
+    width: 100%;
+}
+.eu-cookie-compliance-banner-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.eu-cookie-compliance-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.eu-cookie-withdraw-tab {
+    font-size: 10px;
+    left: 15%;
+    border: 1px solid #816362;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #e6af7333;
+    font-family: 'Montserrat', sans-serif;
+    color: #816362;
+}
+.eu-cookie-compliance-buttons button{
+    left: 10%;
+    border: 1px solid #816362;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #e6af7333;
+    font-family: 'Montserrat', sans-serif;
+    color: #816362;
+}
+@media all and (min-width:768px) {
+    .eu-cookie-compliance-buttons button{
+        left: 5%;
+    }
+}

@@ -1,0 +1,11 @@
+
+span,
+a,
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 span{
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 42px;
+}
