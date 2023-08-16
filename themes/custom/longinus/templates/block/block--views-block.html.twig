@@ -1,5 +1,5 @@
 {% set longinus_block_base = 'block block-' ~ id|split('__', 2)|first|clean_class %}
-{% set longinus_block = longinus_block_base|replace({'longinus-' : ''}) %}
+{% set longinus_block = longinus_block_base|replace({'' : ''}) %}
 {% set longinus_modifiers = id|split('__')|slice(1) %}
 {%
   set classes = [
@@ -9,7 +9,7 @@
 {% for modifier in id|split('__')|slice(1) %}
   {% set classes = classes|merge([longinus_block ~ '--' ~ modifier|clean_class]) %}
 {% endfor %}
-{% set content %}{% spaceless %}{{ content }}{% endspaceless %}{% endset %}
+{% set content %}{{ content }}{% endset %}
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
     {{ title_prefix }}
