@@ -1,0 +1,53 @@
+mobile_app.user:
+  path: '/user/api/login'
+  defaults:
+    _controller: '\Drupal\mobile_app\Controller\UserLoginController:login'
+  requirements:
+    _permission: 'access content'
+
+#mobile_app.blog:
+#  path: '/blog/api/create'
+#  defaults:
+#    _controller: '\Drupal\mobile_app\Controller\CreateBlogController::welcome'
+#    _format: json
+#  methods: [POST]
+#  requirements:
+#    _access: 'TRUE'
+
+mobile_app.create_blog:
+  path: '/blog/api/create'
+  defaults:
+    _controller: '\Drupal\mobile_app\Controller\CreateBlogController::createBlogs'
+  requirements:
+    _access: 'TRUE'
+
+mobile_app.create_show:
+  path: '/shows/api/create'
+  defaults:
+    _controller: '\Drupal\mobile_app\Controller\CreateShowController::createShows'
+  requirements:
+    _access: 'TRUE'
+
+mobile_app.delete_blog:
+  path: '/blog/api/delete/{nid}'
+  defaults:
+    _controller: '\Drupal\mobile_app\Controller\DeleteBlogController::deleteBlog'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST,]
+  options:
+    parameters:
+      nid:
+        type: entity:node
+
+mobile_app.delete_show:
+  path: '/show/api/delete/{nid}'
+  defaults:
+    _controller: '\Drupal\mobile_app\Controller\DeleteShowController::deleteShow'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST,]
+  options:
+    parameters:
+      nid:
+        type: entity:node
