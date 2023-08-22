@@ -118,10 +118,10 @@
     font-size: 16px;
     line-height: 1.5;
 }
-.view-costumes-lower-body-block-1__content .view-costumes-bottom-block-1__row {
+.view-costumes-lower-body-block-1__content .view-costumes-lower-body-block-1__row {
     flex: 0 0 calc(50% - 8px);
 }
-.view-costumes-lower-body-block-1__content .view-costumes-bottom-block-1__row img{
+.view-costumes-lower-body-block-1__content .view-costumes-lower-body-block-1__row img{
     object-fit: cover;
     width: 100%;
     height: 250px;
@@ -131,7 +131,7 @@
     .view-costumes-lower-body-block-1__content {
         gap: 45px 30px;
     }
-    .view-costumes-lower-body-block-1__content .view-costumes-bottom-block-1__row {
+    .view-costumes-lower-body-block-1__content .view-costumes-lower-body-block-1__row {
         flex: 0 0 calc(33% - 18px);
     }
 }
