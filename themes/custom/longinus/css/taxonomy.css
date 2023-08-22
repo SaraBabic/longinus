@@ -1,4 +1,4 @@
-.block-views-block__title {
+.block-longinus-views-block__title {
     font-family: 'MedievalSharp', cursive !important;
     font-size: 28px;
     text-align: center;
@@ -43,33 +43,33 @@
     }
 }
 /* costumes top */
-.view-costumes-top-block-1__content {
+.view-custom-torso-block-1__content {
     display: flex;
     flex-wrap: wrap;
     gap: 30px 16px;
 }
-.view-costumes-top-block-1__content span {
+.view-custom-torso-block-1__content span {
     font-family: 'MedievalSharp', cursive !important;
     font-size: 28px;
 }
-.view-costumes-top-block-1__content p {
+.view-custom-torso-block-1__content p {
     font-size: 16px;
     line-height: 1.5;
 }
-.view-costumes-top-block-1__content .view-costumes-top-block-1__row {
+.view-custom-torso-block-1__content .view-custom-torso-block-1__row {
     flex: 0 0 calc(50% - 8px);
 }
-.view-costumes-top-block-1__content .view-costumes-top-block-1__row img{
+.view-custom-torso-block-1__content .view-custom-torso-block-1__row img{
     object-fit: cover;
     width: 100%;
     height: 250px;
     border-radius: 8px;
 }
 @media all and (min-width:768px) {
-    .view-costumes-top-block-1__content {
+    .view-custom-torso-block-1__content {
         gap: 45px 30px;
     }
-    .view-costumes-top-block-1__content .view-costumes-top-block-1__row {
+    .view-custom-torso-block-1__content .view-custom-torso-block-1__row {
         flex: 0 0 calc(33% - 18px);
     }
 }
