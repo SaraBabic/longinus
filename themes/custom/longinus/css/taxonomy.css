@@ -105,33 +105,33 @@
     }
 }
 /* costumes bottom */
-.view-costumes-bottom-block-1__content {
+.view-costumes-lower-body-block-1__content {
     display: flex;
     flex-wrap: wrap;
     gap: 30px 16px;
 }
-.view-costumes-bottom-block-1__content span {
+.view-costumes-lower-body-block-1__content span {
     font-family: 'MedievalSharp', cursive !important;
     font-size: 28px;
 }
-.view-costumes-bottom-block-1__content p {
+.view-costumes-lower-body-block-1__content p {
     font-size: 16px;
     line-height: 1.5;
 }
-.view-costumes-bottom-block-1__content .view-costumes-bottom-block-1__row {
+.view-costumes-lower-body-block-1__content .view-costumes-bottom-block-1__row {
     flex: 0 0 calc(50% - 8px);
 }
-.view-costumes-bottom-block-1__content .view-costumes-bottom-block-1__row img{
+.view-costumes-lower-body-block-1__content .view-costumes-bottom-block-1__row img{
     object-fit: cover;
     width: 100%;
     height: 250px;
     border-radius: 8px;
 }
 @media all and (min-width:768px) {
-    .view-costumes-bottom-block-1__content {
+    .view-costumes-lower-body-block-1__content {
         gap: 45px 30px;
     }
-    .view-costumes-bottom-block-1__content .view-costumes-bottom-block-1__row {
+    .view-costumes-lower-body-block-1__content .view-costumes-bottom-block-1__row {
         flex: 0 0 calc(33% - 18px);
     }
 }
