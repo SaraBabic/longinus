@@ -22,6 +22,12 @@
 .view-shows-block-1__content tbody tr {
     border-bottom: 1px solid #dddddd;
 }
+.view-shows-block-1__content tbody tr td {
+    min-width: 125px;
+}
+.view-shows-block-1__content tbody tr td:last-of-type {
+    min-width: 400px;
+}
 
 .view-shows-block-1__content tbody tr:nth-of-type(even) {
     background-color: #e6af7333;
