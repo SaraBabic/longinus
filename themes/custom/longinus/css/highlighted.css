@@ -1,10 +1,10 @@
 
-.region-highlighted #block-tabs .tabs--primary {
+.region-highlighted #block-longinus-tabs .tabs--primary {
     display: flex;
     justify-content: center;
     margin: 40px 0;
 }
-.region-highlighted #block-tabs li {
+.region-highlighted #block-longinus-tabs li {
     list-style: none;
     width: 100px;
     border: 1px solid black;
@@ -14,10 +14,10 @@
     align-items: center;
     display: grid;
 }
-.region-highlighted #block-tabs li:hover {
+.region-highlighted #block-longinus-tabs li:hover {
     background-color: bisque;
 }
-.region-highlighted #block-tabs a{
+.region-highlighted #block-longinus-tabs a{
     text-decoration: none;
     color: black;
     display: block;

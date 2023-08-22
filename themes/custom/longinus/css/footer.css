@@ -26,21 +26,21 @@
     display: flex;
     flex-direction: column;
 }
-#block-footerinfo {
+#block-longinus-footerinfo {
     flex: 60%;
 }
-#block-contactus {
+#block-longinus-contactus {
     flex: 40%;
     text-align: center;
 }
-#block-contactus a{
+#block-longinus-contactus a{
     color: #816362;
     text-decoration: none;
 }
-#block-contactus a:hover{
+#block-longinus-contactus a:hover{
     text-decoration: underline;
 }
-.block-contactus__title {
+.block-longinus-contactus__title {
     font-family: 'MedievalSharp', cursive !important;
     color:#E6AF73;
     font-size: 42px;
@@ -145,7 +145,7 @@
     .region-footer-second {
         flex-direction: row;
     }
-    #block-contactus {
+    #block-longinus-contactus {
         text-align: end;
     }
     .region-footer-fourth {
