@@ -40,3 +40,14 @@
     font-weight: bold;
     color: #E6AF73;
 }
+
+.pager a {
+    color: #816362;
+    padding: 4px 8px;
+    border: 1px solid #816362;
+    background-color: #E6AF7333; 
+    border-radius: 8px;
+}
+.pager .is-active a {
+    background-color: #E6AF7399;
+}
