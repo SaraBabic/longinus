@@ -1,4 +1,0 @@
-services:
-  publishing_options.content:
-    class: Drupal\publishing_options\Services\PublishingOptionsContent
-    arguments: ['@database']

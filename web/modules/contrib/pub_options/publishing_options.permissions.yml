@@ -1,4 +1,0 @@
-administer publishing_options:
-  title: 'Administer publishing options'
-  description: 'Configure publishing options.'
-  restrict access: true

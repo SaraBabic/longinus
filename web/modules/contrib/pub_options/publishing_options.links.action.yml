@@ -1,5 +1,0 @@
-publshing_options.add:
-  route_name: publishing_options.add
-  title: 'Add publishing option'
-  appears_on:
-    - publishing_options.index
