@@ -91,9 +91,9 @@
 $databases = [];
 
 $databases['default']['default'] = [
-  'database' => 'sara',
-  'username' => 'sara',
-  'password' => '0E4F2MNBeHns2HO',
+  'database' => 'longinus',
+  'username' => 'longinus',
+  'password' => 'Dh2k5Tzy6L9HjX8GdrasYv',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
