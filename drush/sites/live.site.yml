@@ -6,5 +6,5 @@ site:
   ssh:
     options: '-p 43567'
   paths:
-    files: '/var/www/longinus.rs/web/sites/default/files'
+    files: '/var/www/longinus.rs/sites/default/files'
     drush-script: '/var/www/longinus.rs/bin/drush'
