@@ -48,7 +48,7 @@ class setupAuthenticationForm{
     );
 
     $form['api_auth']['mo_rest_api_authentication_authenticator']['head_text'] = array(
-      '#markup' => '<table><tr><td class="td-class"><b>Select the authentication method of your choice: </td><td></b><a class="button button--small shift-right" target="_blank" href="https://www.drupal.org/docs/contributed-modules/api-authentication">How To Setup?</a></td></tr></table>',
+      '#markup' => '<table><tr><td class="td-class"><b>Select the authentication method of your choice: </td><td></b><a class="button button--small shift-right" target="_blank" href="https://www.drupal.org/docs/contributed-modules/api-authentication">🕮 Setup Guides</a><a class="button button--small shift-right" target="_blank" href="https://youtube.com/playlist?list=PL2vweZ-PcNpevVNw68h6SYsGQHpGcFa6g&feature=shared">⏵Setup videos</a></td></tr></table>',
     );
     $form['api_auth']['mo_rest_api_authentication_authenticator']['settings']['active'] = array(
       '#type' => 'radios',

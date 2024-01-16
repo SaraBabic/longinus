@@ -80,7 +80,7 @@ final class MetadataAwareNameConverter implements AdvancedNameConverterInterface
         }
 
         if (null !== $attributesMetadata[$propertyName]->getSerializedName() && null !== $attributesMetadata[$propertyName]->getSerializedPath()) {
-            throw new LogicException(sprintf('Found SerializedName and SerializedPath annotations on property "%s" of class "%s".', $propertyName, $class));
+            throw new LogicException(sprintf('Found SerializedName and SerializedPath attributes on property "%s" of class "%s".', $propertyName, $class));
         }
 
         return $attributesMetadata[$propertyName]->getSerializedName() ?? null;
@@ -124,14 +124,17 @@ final class MetadataAwareNameConverter implements AdvancedNameConverterInterface
             }
 
             if (null !== $metadata->getSerializedName() && null !== $metadata->getSerializedPath()) {
-                throw new LogicException(sprintf('Found SerializedName and SerializedPath annotations on property "%s" of class "%s".', $name, $class));
+                throw new LogicException(sprintf('Found SerializedName and SerializedPath attributes on property "%s" of class "%s".', $name, $class));
             }
 
-            $groups = $metadata->getGroups();
-            if (!$groups && ($context[AbstractNormalizer::GROUPS] ?? [])) {
+            $metadataGroups = $metadata->getGroups();
+            $contextGroups = (array) ($context[AbstractNormalizer::GROUPS] ?? []);
+
+            if ($contextGroups && !$metadataGroups) {
                 continue;
             }
-            if ($groups && !array_intersect($groups, (array) ($context[AbstractNormalizer::GROUPS] ?? []))) {
+
+            if ($metadataGroups && !array_intersect($metadataGroups, $contextGroups) && !\in_array('*', $contextGroups, true)) {
                 continue;
             }
 

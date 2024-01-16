@@ -100,8 +100,8 @@ class PublishingOptionsForm extends ConfigFormBase {
       }
     }
 
-    if (!empty($options) && !empty($publishing_option)) {
-        $form_values['bundles'] = $publishing_option['bundles'];
+    if (!empty($options) && !empty($publishing_option) && array_key_exists('bundles', $publishing_option)) {
+      $form_values['bundles'] = $publishing_option['bundles'];
     }
 
     $form['description'] = [

@@ -1,11 +1,10 @@
 site:
-  host: sara.stud.vts.su.ac.rs
-  options:
-    os: Linux
-  paths:
-    dump-dir: '/home/sara/public_html/sites/default/files/tmp'
-    drush-script: '/home/sara/public_html/bin/drush'
-  root: '/home/sara/public_html'
-  user: sara
+  host: '116.203.227.238'
+  user: 'goran'
+  root: '/var/www/longinus.rs'
+  uri: 'https://longinus.rs'
   ssh:
-    options: '-p 22'
+    options: '-p 43567'
+  paths:
+    files: '/var/www/longinus.rs/web/sites/default/files'
+    drush-script: '/var/www/longinus.rs/bin/drush'

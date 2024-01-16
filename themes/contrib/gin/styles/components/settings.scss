@@ -223,6 +223,15 @@
       }
     }
 
+    // New Drupal Navigation
+    &[data-gin-toolbar=new] {
+      background-image: url(~settings/toolbar_new.png);
+
+      .gin--dark-mode & {
+        background-image: url(~settings/toolbar_new_darkmode.png);
+      }
+    }
+
     // Minimal
     &[data-gin-toolbar=horizontal] {
       background-image: url(~settings/toolbar_minimal.png);
@@ -273,4 +282,10 @@
       }
     }
   }
+}
+
+input[data-gin-toolbar="new"] + label .gin-new-flag {
+  position: absolute;
+  top: -100px;
+  right: 8px;
 }

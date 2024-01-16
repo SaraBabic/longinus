@@ -35,8 +35,8 @@ class ParagraphsLibraryTest extends ParagraphsTestBase {
    */
   public function testLibraryItems() {
     // Set default theme.
-    \Drupal::service('theme_installer')->install(['bartik']);
-    $this->config('system.theme')->set('default', 'bartik')->save();
+    \Drupal::service('theme_installer')->install(['claro']);
+    $this->config('system.theme')->set('default', 'claro')->save();
     $this->loginAsAdmin(['create paragraphed_test content', 'edit any paragraphed_test content', 'administer paragraphs library']);
 
     // Add a Paragraph type with a text field.
@@ -54,7 +54,7 @@ class ParagraphsLibraryTest extends ParagraphsTestBase {
     ];
     $this->submitForm($edit, 'Save');
     $this->clickLink('re usable paragraph label');
-    $this->assertSession()->responseContains('bartik/css/base/elements.css');
+    $this->assertSession()->responseContains('claro/css/base/elements.css');
     $this->clickLink('Edit');
     $this->assertSession()->responseNotContains('class="messages messages--warning"');
     $items = \Drupal::entityQuery('paragraphs_library_item')
@@ -294,9 +294,15 @@ class ParagraphsLibraryTest extends ParagraphsTestBase {
     $this->assertSession()->linkExists('Manage fields');
     $this->assertSession()->linkExists('Manage form display');
     $this->assertSession()->linkExists('Manage display');
+    $this->assertSession()->buttonExists('Save configuration');
     // Assert that users can create fields to
     $this->clickLink('Manage fields');
-    $this->clickLink('Add field');
+    if (version_compare(\Drupal::VERSION, '10.1', '>=')) {
+      $this->clickLink('Create a new field');
+    }
+    else {
+      $this->clickLink('Add field');
+    }
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->pageTextNotContains('plugin does not exist');
     $this->drupalGet('admin/config/content');
@@ -576,8 +582,8 @@ class ParagraphsLibraryTest extends ParagraphsTestBase {
     // Disallow the paragraphs type "Text" for the used content type.
     $this->drupalGet('admin/structure/types/manage/paragraphed_test/fields/node.paragraphed_test.field_paragraphs');
     $edit = [
-      'settings[handler_settings][negate]' => 0,
-      'settings[handler_settings][target_bundles_drag_drop][from_library][enabled]' => 1,
+      'settings[handler_settings][negate]' => '0',
+      'settings[handler_settings][target_bundles_drag_drop][from_library][enabled]' => '1',
       'settings[handler_settings][target_bundles_drag_drop][text][enabled]' => FALSE,
     ];
     $this->submitForm($edit, 'Save settings');

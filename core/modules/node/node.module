@@ -42,7 +42,7 @@ function node_help($route_name, RouteMatchInterface $route_match) {
   // for rebuild. We don't need to issue the message on the confirm form, or
   // while the rebuild is being processed.
   if ($route_name != 'node.configure_rebuild_confirm' && $route_name != 'system.batch_page.html' && $route_name != 'help.page.node' && $route_name != 'help.main'
-    && \Drupal::currentUser()->hasPermission('access administration pages') && node_access_needs_rebuild()) {
+    && \Drupal::currentUser()->hasPermission('administer nodes') && node_access_needs_rebuild()) {
     if ($route_name == 'system.status') {
       $message = t('The content access permissions need to be rebuilt.');
     }
@@ -399,8 +399,8 @@ function node_revision_delete($revision_id) {
  * @param \Drupal\node\NodeInterface $node
  *   A node entity.
  *
- * @return int|false
- *   The ID of the node if this is a full page view, otherwise FALSE.
+ * @return bool
+ *   TRUE if this is a full page view, otherwise FALSE.
  */
 function node_is_page(NodeInterface $node) {
   $route_match = \Drupal::routeMatch();
@@ -717,8 +717,14 @@ function node_user_predelete($account) {
  * @return \Drupal\node\NodeInterface[]
  *   An array of node entities or an empty array if there are no recent nodes
  *   visible to the current user.
+ *
+ * @deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. Use
+ *   \Drupal::entityQuery() instead.
+ *
+ * @see https://www.drupal.org/node/3356516
  */
 function node_get_recent($number = 10) {
+  @trigger_error(__METHOD__ . ' is deprecated in drupal:10.2.0 and is removed from drupal:11.0.0. Use \Drupal::entityQuery() instead. See https://www.drupal.org/node/3356516', E_USER_DEPRECATED);
   $account = \Drupal::currentUser();
   $query = \Drupal::entityQuery('node');
 
@@ -1138,7 +1144,7 @@ function node_access_rebuild($batch_mode = FALSE) {
     $access_control_handler->writeDefaultGrant();
   }
 
-  if (!isset($batch)) {
+  if (!isset($batch_builder)) {
     \Drupal::messenger()->addStatus(t('Content permissions have been rebuilt.'));
     node_access_needs_rebuild(FALSE);
   }
@@ -1179,10 +1185,11 @@ function _node_access_rebuild_batch_operation(&$context) {
     ->execute();
   $node_storage->resetCache($nids);
   $nodes = Node::loadMultiple($nids);
-  foreach ($nodes as $nid => $node) {
+  foreach ($nids as $nid) {
     // To preserve database integrity, only write grants if the node
     // loads successfully.
-    if (!empty($node)) {
+    if (!empty($nodes[$nid])) {
+      $node = $nodes[$nid];
       /** @var \Drupal\node\NodeAccessControlHandlerInterface $access_control_handler */
       $access_control_handler = \Drupal::entityTypeManager()->getAccessControlHandler('node');
       $grants = $access_control_handler->acquireGrants($node);

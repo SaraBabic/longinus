@@ -24,20 +24,26 @@ class customerSetupForm{
         'customerid' => array(
           'data' => t('Customer ID')
         ),
-        'token' => array(
-          'data' => t('Token Key')
+        'module_version' => array(
+          'data' => t('Module Version')
         ),
-        'apikey' => array(
-          'data' => t('API Key')
+        'php_version' => array(
+          'data' => t('PHP Version')
         ),
+      'drupal_version' => array(
+          'data' => t('Drupal Version')
+      ),
       );
 
       $options = [];
+      $modules_info = \Drupal::service('extension.list.module')->getExtensionInfo('rest_api_authentication');
       $options[0] = array(
         'email' => \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_admin_email'),
         'customerid' => \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_id'),
-        'token' => \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_admin_token'),
-        'apikey' => \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_api_key'),
+        'module_version'=> $modules_info['version'],
+        'php_version' => phpversion(),
+        'drupal_version'=> \Drupal::VERSION,
+
       );
       $form['customersetup']['customer_setup_container_outline']['customerinfo'] = array(
         '#theme' => 'table',

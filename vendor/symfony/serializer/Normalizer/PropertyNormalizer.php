@@ -82,7 +82,7 @@ class PropertyNormalizer extends AbstractObjectNormalizer
      */
     public function hasCacheableSupportsMethod(): bool
     {
-        trigger_deprecation('symfony/serializer', '6.3', 'The "%s()" method is deprecated, use "getSupportedTypes()" instead.', __METHOD__);
+        trigger_deprecation('symfony/serializer', '6.3', 'The "%s()" method is deprecated, implement "%s::getSupportedTypes()" instead.', __METHOD__, get_debug_type($this));
 
         return __CLASS__ === static::class;
     }
@@ -92,6 +92,10 @@ class PropertyNormalizer extends AbstractObjectNormalizer
      */
     private function supports(string $class): bool
     {
+        if ($this->classDiscriminatorResolver?->getMappingForClass($class)) {
+            return true;
+        }
+
         $class = new \ReflectionClass($class);
 
         // We look for at least one non-static property

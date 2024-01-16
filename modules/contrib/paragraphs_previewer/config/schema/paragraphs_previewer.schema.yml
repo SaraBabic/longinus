@@ -5,3 +5,9 @@ paragraphs_previewer.settings:
     previewer_view_mode:
       type: string
       label: 'Previewer view mode'
+
+field.widget.settings.paragraphs_previewer:
+  type: field.widget.settings.paragraphs
+
+field.widget.settings.entity_reference_paragraphs_previewer:
+  type: field.widget.settings.entity_reference_paragraphs

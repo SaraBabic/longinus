@@ -7,7 +7,7 @@ package: Paragraphs
 dependencies:
   - paragraphs:paragraphs
 
-# Information added by Drupal.org packaging script on 2023-01-07
-version: '8.x-1.7'
+# Information added by Drupal.org packaging script on 2023-10-27
+version: '8.x-1.8'
 project: 'paragraphs_previewer'
-datestamp: 1673066738
+datestamp: 1698445281

@@ -28,12 +28,14 @@ services:
       PHP_MEMORY_LIMIT: 2048M
       COLUMNS: 80
       APP_ENV: Local
+      DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:${PROJECT_PORT}"
       # https://wodby.com/docs/1.0/stacks/php/local/#xdebug
 #      PHP_XDEBUG: 1
 #      PHP_XDEBUG_MODE: debug
 #      PHP_XDEBUG_START_WITH_REQUEST: "yes"
     volumes:
-      - ./:/var/www/html
+      - ./:/var/www/html${CACHE}
+      - ~/.ssh/id_rsa:/home/wodby/.ssh/id_rsa
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -51,22 +53,22 @@ services:
     labels:
       - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
-  chrome:
-    image: drupalci/webdriver-chromedriver:production
-    ulimits:
-      core:
-        soft: -1
-        hard: -1
-    cap_add:
-      - SYS_ADMIN
-    volumes:
-      - /dev/shm:/dev/shm
-    entrypoint:
-      - chromedriver
-      - "--no-sandbox"
-      - "--log-path=/tmp/chromedriver.log"
-      - "--verbose"
-      - "--whitelisted-ips="
+#  chrome:
+#    image: drupalci/webdriver-chromedriver:production
+#    ulimits:
+#      core:
+#        soft: -1
+#        hard: -1
+#    cap_add:
+#      - SYS_ADMIN
+#    volumes:
+#      - /dev/shm:/dev/shm
+#    entrypoint:
+#      - chromedriver
+#      - "--no-sandbox"
+#      - "--log-path=/tmp/chromedriver.log"
+#      - "--verbose"
+#      - "--whitelisted-ips="
 
   mailhog:
     image: mailhog/mailhog
@@ -81,6 +83,6 @@ services:
     container_name: "${PROJECT_NAME}_traefik"
     command: --api.insecure=true --providers.docker
     ports:
-      - '8008:80'
+      - "${PROJECT_PORT}:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

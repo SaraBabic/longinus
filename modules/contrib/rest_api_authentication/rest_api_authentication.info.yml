@@ -4,7 +4,7 @@ core_version_requirement: ^9.3 || ^10
 description: 'Drupal API Authentication module secures unauthorized access to your Drupal site APIs using different API authentication methods.'
 configure: rest_api_authentication.auth_settings
 
-# Information added by Drupal.org packaging script on 2023-06-08
-version: '2.0.10'
+# Information added by Drupal.org packaging script on 2024-01-10
+version: '2.0.13'
 project: 'rest_api_authentication'
-datestamp: 1686205649
+datestamp: 1704884946

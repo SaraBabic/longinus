@@ -97,10 +97,9 @@ class UsersJwtAuth implements AuthenticationProviderInterface {
   public function authenticate(Request $request) {
     $raw_jwt = self::getJwtFromRequest($request);
     try {
-      // @todo add Ed25519 here as allowed when it's supported. We verify the
-      // algorithm from the key matches the header below so we can allow
-      // multiple here.
-      $payload = $this->transcoder->decode($raw_jwt, $this->keyRepository, ['RS256']);
+      // @todo add Ed25519 support. JWT::decode() now verifies that the
+      // algorithm from the key matches the alg in the JWT header.
+      $payload = $this->transcoder->decode($raw_jwt, $this->keyRepository);
     }
     catch (\Exception $e) {
       return $this->debugLog('JWT decode exception', $e);
@@ -113,8 +112,8 @@ class UsersJwtAuth implements AuthenticationProviderInterface {
       return $this->debugLog('Bad iat, exp claims', NULL, $payload);
     }
     // Unfortunately this JWT implementation does not save or allow the
-    // header to be retrieved via a simple method, so we need to decode it
-    // again. The decode call above has already validated it.
+    // header to be retrieved via a simple method before v6.6.0, so we need to
+    // decode it again. The decode call above has already validated it.
     $tks = explode('.', $raw_jwt);
     $headb64 = $tks[0];
     $header = $this->transcoder->jsonDecode($this->transcoder->urlsafeB64Decode($headb64));

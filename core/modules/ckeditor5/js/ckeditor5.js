@@ -251,7 +251,7 @@
    * To ensure they have higher specificity and are not reset too aggressively.
    *
    * @param {CSSRule} rule
-   *  A single CSS rule to be analysed and changed if necessary.
+   *  A single CSS rule to be analyzed and changed if necessary.
    */
   function ckeditor5SelectorProcessing(rule) {
     // Handle nested rules in @media, @support, etc.
@@ -423,6 +423,11 @@
           if (element.hasAttribute('required')) {
             required.add(id);
             element.removeAttribute('required');
+          }
+
+          // If the textarea is disabled, enable CKEditor's read-only mode.
+          if (element.hasAttribute('disabled')) {
+            editor.enableReadOnlyMode('ckeditor5_disabled');
           }
 
           // Integrate CKEditor 5 viewport offset with Drupal displace.

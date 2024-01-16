@@ -67,7 +67,7 @@ tr.selected td {
       box-shadow: none;
     }
   }
-  & .button--primary {
+  & .button--primary:not(:disabled, .is-disabled) {
     background: var(--color-blue-400);
     &:hover {
       background: var(--color-blue-500);
@@ -115,4 +115,10 @@ tr.selected td {
   .views-bulk-actions__item--status {
     width: auto;
   }
+}
+
+.position-sticky thead {
+  position: sticky;
+  z-index: 500;
+  top: var(--drupal-displace-offset-top);
 }

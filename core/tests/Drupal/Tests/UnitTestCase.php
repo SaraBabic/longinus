@@ -9,7 +9,6 @@ use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\StringTranslation\PluralTranslatableMarkup;
 use Drupal\Tests\Traits\PhpUnitWarnings;
-use Drupal\TestTools\Random;
 use Drupal\TestTools\TestVarDumper;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
@@ -70,7 +69,9 @@ abstract class UnitTestCase extends TestCase {
    */
   public function __get(string $name) {
     if ($name === 'randomGenerator') {
-      return Random::getGenerator();
+      @trigger_error('Accessing the randomGenerator property is deprecated in drupal:10.2.0 and is removed from drupal:11.0.0. Use getRandomGenerator() instead. See https://www.drupal.org/node/3358445', E_USER_DEPRECATED);
+
+      return $this->getRandomGenerator();
     }
   }
 
@@ -85,9 +86,8 @@ abstract class UnitTestCase extends TestCase {
    *   configuration object names and whose values are key => value arrays for
    *   the configuration object in question. Defaults to an empty array.
    *
-   * @return \PHPUnit\Framework\MockObject\MockBuilder
-   *   A MockBuilder object for the ConfigFactory with the desired return
-   *   values.
+   * @return \PHPUnit\Framework\MockObject\MockObject|\Drupal\Core\Config\ConfigFactoryInterface
+   *   A mock configuration factory object.
    */
   public function getConfigFactoryStub(array $configs = []) {
     $config_get_map = [];

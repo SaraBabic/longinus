@@ -196,7 +196,7 @@ function paragraphs_library_form_paragraphs_type_form_alter(&$form, FormStateInt
   if ($paragraph_type->id() != 'from_library') {
     $form['allow_library_conversion'] = [
       '#type' => 'checkbox',
-      '#title' => t('Allow adding to library'),
+      '#title' => t('Allow promoting to library'),
       '#default_value' => $paragraph_type->getThirdPartySetting('paragraphs_library', 'allow_library_conversion', FALSE),
     ];
     $form['#entity_builders'][] = 'paragraphs_library_form_paragraphs_type_form_builder';
@@ -207,7 +207,7 @@ function paragraphs_library_form_paragraphs_type_form_alter(&$form, FormStateInt
 /**
  * Entity builder for the paragraphs type form with group property.
  *
- * @see primer_base_form_paragraphs_type_form_alter()
+ * @see paragraphs_library_form_paragraphs_type_form_alter()
  */
 function paragraphs_library_form_paragraphs_type_form_builder($entity_type, ParagraphsTypeInterface $type, &$form, FormStateInterface $form_state) {
   if ($form_state->getValue('allow_library_conversion')) {

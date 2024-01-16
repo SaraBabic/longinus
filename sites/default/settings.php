@@ -99,7 +99,26 @@ $databases['default']['default'] = [
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
+  'init_commands' => [
+    'isolation_level' => 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+  ],
 ];
+
+if (getenv('APP_ENV') === 'Local') {
+  $databases['default']['default'] = [
+    'database' => 'drupal',
+    'username' => 'drupal',
+    'password' => 'drupal',
+    'prefix' => '',
+    'host' => 'mysql',
+    'port' => '3306',
+    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+    'driver' => 'mysql',
+    'init_commands' => [
+      'isolation_level' => 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+    ],
+  ];
+}
 
 /**
  * Customizing database settings.

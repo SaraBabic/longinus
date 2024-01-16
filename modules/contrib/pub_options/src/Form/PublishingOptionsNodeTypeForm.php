@@ -27,7 +27,6 @@ class PublishingOptionsNodeTypeForm extends NodeTypeForm {
    * @var array
    */
   protected $publishing_options;
-
   /**
    * The entity manager.
    *
@@ -79,37 +78,24 @@ class PublishingOptionsNodeTypeForm extends NodeTypeForm {
 
     $type = $this->entity;
 
-    if ($this->operation == 'add') {
-      $type_id = NULL;
-    }
-    else {
-      $type_id = $type->id();
-    }
-
     $publishing_options = $this->publishing_options->getPublishingOptions();
 
     $this->bundles = $this->publishing_options->getPublishingOptionBundles($type->id());
 
     foreach ($publishing_options as $publishing_option) {
       if (isset($publishing_option->pubid)) {
-        // Get publishing option associated with bundle.
-        $allowed_publishing_option = $this->publishing_options->getPublishingOptionBundles($type_id, $publishing_option->pubid);
-
         // Create drupal machine name for publishing option.
         $machine_name = strtolower(str_replace(' ', '_', $publishing_option->title));
 
-        // If allowed publishing option returns a value.
-        if ((bool) $allowed_publishing_option) {
-          if (!is_null($type_id)) {
-            foreach ($this->bundles as $bundle) {
-              if ($publishing_option->pubid == $bundle->pubid) {
-                $form['workflow']['options']['#options'][$machine_name] = $publishing_option->title;
-                $form['workflow']['options']['#default_value'][$machine_name] = $machine_name;
-              }
-            }
+        $form['workflow']['options']['#options'][$machine_name] = $publishing_option->title;
+
+        foreach ($this->bundles as $bundle) {
+          if ($publishing_option->pubid == $bundle->pubid) {
+            $form['workflow']['options']['#default_value'][$machine_name] = $machine_name;
           }
         }
       }
+
     }
 
     return $this->protectBundleIdElement($form);
@@ -124,23 +110,19 @@ class PublishingOptionsNodeTypeForm extends NodeTypeForm {
     $options = $form_state->getValue('options');
     $remove = ['sticky', 'status', 'promote', 'revision'];
     $options = array_flip(array_diff(array_flip($options), $remove));
-    $entries = FALSE;
 
+    // Check and see if checkbox has been clicked.
+    // If it has, associate pub option to entity type
     foreach ($options as $id => $option) {
-      $publishing_option = $this->publishOptions->getPublishingOptionByTitle($id);
-      $entries = $this->publishOptions->getPublishingOptionBundles($type->id(), $publishing_option->pubid);
-      if (!isset($entries[0]) && (bool) $option) {
-        $this->publishOptions->insertBundle($publishing_option->pubid, $type->id());
+      $publishing_option = $this->publishing_options->getPublishingOptionByTitle($id);
+      if ((bool) $form_state->getValue('options')[$id]) {
+        $this->publishing_options->insertBundle($publishing_option->pubid, $type->id());
       }
-      elseif (!(bool) $option
-            && isset($entries[0])
-            && $publishing_option->pubid == $entries[0]->pubid
-        ) {
-        $this->publishOptions->deleteBundle($publishing_option->pubid, $type->id());
+      elseif ($this->publishing_options->getPublishingOptionBundles($type->id(), $publishing_option->pubid)) {
+        $this->publishing_options->deleteBundle($publishing_option->pubid, $type->id());
       }
     }
 
     parent::save($form, $form_state);
   }
-
 }

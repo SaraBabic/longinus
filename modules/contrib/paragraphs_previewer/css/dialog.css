@@ -10,7 +10,7 @@ body.paragraphs-previewer-dialog-active {
   padding: 0;
 }
 .ui-dialog.paragraphs-previewer-ui-dialog #drupal-modal {
-  padding: 10px;
+  padding: 0 !important;
   background: #232323 url(/core/misc/loading.gif) no-repeat center center;
   overflow: hidden;
 }

@@ -86,12 +86,16 @@ class MiniornageAPIAuthnRequestTrial extends FormBase {
   public function submitModalFormAjax(array $form, FormStateInterface $form_state) {
     $form_values = $form_state->getValues();
     $response = new AjaxResponse();
+    $email = $form_values['rest_api_authentication_trial_email_address'];
     // If there are any form errors, AJAX replace the form.
     if ($form_state->hasAnyErrors()) {
       $response->addCommand(new ReplaceCommand('#modal_example_form', $form));
+    }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      \Drupal::messenger()->addMessage(t('The email address <b><i>' . $email . '</i></b> is not valid.'), 'error');
+      $response->addCommand(new ReplaceCommand('#modal_example_form', $form));
     }
     else {
-      $email = $form_values['rest_api_authentication_trial_email_address'];
+
       $query = $form_values['rest_api_authentication_trial_description'];
       $query_type = 'trial';
 

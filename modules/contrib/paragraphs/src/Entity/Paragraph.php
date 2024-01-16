@@ -188,8 +188,8 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
    */
   public function getAllBehaviorSettings() {
     if ($this->unserializedBehaviorSettings === NULL) {
-      $this->unserializedBehaviorSettings = unserialize($this->get('behavior_settings')->value);
-    }
+      $this->unserializedBehaviorSettings = unserialize($this->get('behavior_settings')->value ?? '');
+     }
     if (!is_array($this->unserializedBehaviorSettings)) {
       $this->unserializedBehaviorSettings = [];
     }
@@ -741,7 +741,7 @@ class Paragraph extends ContentEntityBase implements ParagraphInterface {
       }
 
       $text = $this->get($field_name)->value ?? '';
-      $summary = Unicode::truncate(trim(strip_tags($text)), 150);
+      $summary = Unicode::truncate(trim(html_entity_decode(strip_tags($text))), 150);
       if (empty($summary)) {
         // Autoescape is applied to the summary when it is rendered with twig,
         // make it a Markup object so HTML tags are displayed correctly.

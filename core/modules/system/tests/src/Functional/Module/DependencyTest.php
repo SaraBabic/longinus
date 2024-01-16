@@ -9,6 +9,7 @@ use Drupal\Component\Utility\Unicode;
  * Enable module without dependency enabled.
  *
  * @group Module
+ * @group #slow
  */
 class DependencyTest extends ModuleTestBase {
 
@@ -171,6 +172,7 @@ class DependencyTest extends ModuleTestBase {
    * Tests enabling modules with different core version specifications.
    */
   public function testCoreCompatibility() {
+    $this->markTestSkipped('Skipped due to major version-specific logic. See https://www.drupal.org/project/drupal/issues/3359322');
     $assert_session = $this->assertSession();
 
     // Test incompatible 'core_version_requirement'.

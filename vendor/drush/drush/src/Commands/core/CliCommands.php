@@ -132,12 +132,12 @@ final class CliCommands extends DrushCommands
         $ignored_commands = [
             'help',
             self::PHP,
-            'core:cli',
+            CliCommands::PHP,
             'php',
-            'php:eval',
+            PhpCommands::EVAL,
             'eval',
             'ev',
-            'php:script',
+            PhpCommands::SCRIPT,
             'scr',
         ];
         $php_keywords = $this->getPhpKeywords();
@@ -168,19 +168,19 @@ final class CliCommands extends DrushCommands
      * See http://symfony.com/doc/current/components/var_dumper/advanced.html#casters
      * for more information.
      *
-     * @return array.
+     * @return callable[].
      *   An array of caster callbacks keyed by class or interface.
      */
     protected function getCasters(): array
     {
         return [
-        'Drupal\Core\Entity\ContentEntityInterface' => 'Drush\Psysh\Caster::castContentEntity',
-        'Drupal\Core\Field\FieldItemListInterface' => 'Drush\Psysh\Caster::castFieldItemList',
-        'Drupal\Core\Field\FieldItemInterface' => 'Drush\Psysh\Caster::castFieldItem',
-        'Drupal\Core\Config\Entity\ConfigEntityInterface' => 'Drush\Psysh\Caster::castConfigEntity',
-        'Drupal\Core\Config\ConfigBase' => 'Drush\Psysh\Caster::castConfig',
-        'Drupal\Component\DependencyInjection\Container' => 'Drush\Psysh\Caster::castContainer',
-        'Drupal\Component\Render\MarkupInterface' => 'Drush\Psysh\Caster::castMarkup',
+            \Drupal\Core\Entity\ContentEntityInterface::class => \Drush\Psysh\Caster::castContentEntity(...),
+            \Drupal\Core\Field\FieldItemListInterface::class => \Drush\Psysh\Caster::castFieldItemList(...),
+            \Drupal\Core\Field\FieldItemInterface::class => \Drush\Psysh\Caster::castFieldItem(...),
+            \Drupal\Core\Config\Entity\ConfigEntityInterface::class => \Drush\Psysh\Caster::castConfigEntity(...),
+            \Drupal\Core\Config\ConfigBase::class => \Drush\Psysh\Caster::castConfig(...),
+            \Drupal\Component\DependencyInjection\Container::class => \Drush\Psysh\Caster::castContainer(...),
+            \Drupal\Component\Render\MarkupInterface::class => \Drush\Psysh\Caster::castMarkup(...),
         ];
     }
 
@@ -308,16 +308,22 @@ final class CliCommands extends DrushCommands
     {
         foreach ($this->entityTypeManager->getDefinitions() as $definition) {
             $class = $definition->getClass();
+            $reflectionClass = new \ReflectionClass($class);
             $parts = explode('\\', $class);
+            $end = end($parts);
+            // https://github.com/drush-ops/drush/pull/5729 and https://github.com/drush-ops/drush/issues/5730.
+            if ($reflectionClass->isFinal() || class_exists($end)) {
+                continue;
+            }
             // Make it possible to easily load revisions.
-            eval(sprintf('class %s extends \%s {
+            eval(sprintf('class %s extends %s {
                 public static function loadRevision($id) {
                     $entity_type_repository = \Drupal::service("entity_type.repository");
                     $entity_type_manager = \Drupal::entityTypeManager();
                     $storage = $entity_type_manager->getStorage($entity_type_repository->getEntityTypeFromClass(static::class));
                     return $storage->loadRevision($id);
                 }
-            }', end($parts), $class));
+            }', $end, $class));
         }
     }
 }

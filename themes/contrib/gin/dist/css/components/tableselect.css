@@ -159,11 +159,27 @@
   margin-left: var(--gin-spacing-xs);
 }
 
+.views-bulk-actions__item--status {
+  color: var(--gin-color-text-light);
+}
+
 [dir="ltr"] .views-bulk-actions__item--status {
   margin-right: var(--gin-spacing-l);
 }
 
 [dir="rtl"] .views-bulk-actions__item--status {
   margin-left: var(--gin-spacing-l);
+}
+
+.views-bulk-actions__item .button--primary:not(:disabled, .is-disabled) {
+  background-color: var(--gin-color-primary);
+}
+
+.views-bulk-actions__item .button--primary:not(:disabled, .is-disabled):hover {
+  background-color: var(--gin-color-primary-hover);
+}
+
+.views-bulk-actions__item .button--primary:not(:disabled, .is-disabled):active {
+  background-color: var(--gin-color-primary-active);
 }
 

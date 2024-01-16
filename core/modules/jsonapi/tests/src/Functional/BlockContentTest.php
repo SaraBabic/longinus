@@ -12,6 +12,7 @@ use Drupal\Tests\jsonapi\Traits\CommonCollectionFilterAccessTestPatternsTrait;
  * JSON:API integration test for the "BlockContent" content entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class BlockContentTest extends ResourceTestBase {
 
@@ -67,9 +68,13 @@ class BlockContentTest extends ResourceTestBase {
   protected function setUpAuthorization($method) {
     switch ($method) {
       case 'GET':
-      case 'PATCH':
         $this->grantPermissionsToTestedRole([
           'access block library',
+        ]);
+        break;
+
+      case 'PATCH':
+        $this->grantPermissionsToTestedRole([
           'administer block types',
           'administer block content',
         ]);
@@ -80,9 +85,17 @@ class BlockContentTest extends ResourceTestBase {
         break;
 
       case 'DELETE':
-        $this->grantPermissionsToTestedRole(['access block library', 'delete any basic block content']);
+        $this->grantPermissionsToTestedRole(['delete any basic block content']);
         break;
     }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUpRevisionAuthorization($method) {
+    parent::setUpRevisionAuthorization($method);
+    $this->grantPermissionsToTestedRole(['view any basic block content history']);
   }
 
   /**
@@ -149,7 +162,6 @@ class BlockContentTest extends ResourceTestBase {
           ],
           'changed' => (new \DateTime())->setTimestamp($this->entity->getChangedTime())->setTimezone(new \DateTimeZone('UTC'))->format(\DateTime::RFC3339),
           'info' => 'Llama',
-          'revision_log' => NULL,
           'revision_created' => (new \DateTime())->setTimestamp($this->entity->getRevisionCreationTime())->setTimezone(new \DateTimeZone('UTC'))->format(\DateTime::RFC3339),
           'revision_translation_affected' => TRUE,
           'status' => FALSE,
@@ -193,7 +205,7 @@ class BlockContentTest extends ResourceTestBase {
       'data' => [
         'type' => 'block_content--basic',
         'attributes' => [
-          'info' => 'Dramallama',
+          'info' => 'Drama llama',
         ],
       ],
     ];
@@ -205,9 +217,9 @@ class BlockContentTest extends ResourceTestBase {
   protected function getExpectedUnauthorizedAccessMessage($method) {
     return match ($method) {
       'GET' => "The 'access block library' permission is required.",
-      'PATCH' => "The following permissions are required: 'access block library' AND 'edit any basic block content'.",
+      'PATCH' => "The 'edit any basic block content' permission is required.",
       'POST' => "The following permissions are required: 'create basic block content' AND 'access block library'.",
-      'DELETE' => "The following permissions are required: 'access block library' AND 'delete any basic block content'.",
+      'DELETE' => "The 'delete any basic block content' permission is required.",
       default => parent::getExpectedUnauthorizedAccessMessage($method),
     };
   }

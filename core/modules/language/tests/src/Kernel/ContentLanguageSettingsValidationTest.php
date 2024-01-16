@@ -9,6 +9,7 @@ use Drupal\language\Entity\ContentLanguageSettings;
  * Tests validation of content_language_settings entities.
  *
  * @group language
+ * @group #slow
  */
 class ContentLanguageSettingsValidationTest extends ConfigEntityValidationTestBase {
 
@@ -16,6 +17,11 @@ class ContentLanguageSettingsValidationTest extends ConfigEntityValidationTestBa
    * {@inheritdoc}
    */
   protected static $modules = ['language', 'user'];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected bool $hasLabel = FALSE;
 
   /**
    * {@inheritdoc}

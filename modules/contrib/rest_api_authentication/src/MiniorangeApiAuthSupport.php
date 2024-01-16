@@ -106,7 +106,7 @@ class MiniorangeApiAuthSupport {
 
         } else {
 
-            $this->query = '[Drupal - '.\Drupal::VERSION.' REST API Authentication Free Module] <br>' . $this->query;
+            $this->query = '[Drupal - '.\Drupal::VERSION.' REST API Authentication Free Module|'.$modules_version.'] <br>' . $this->query;
             $fields = array(
                 'company' => $base_url,
                 'email' => $this->email,

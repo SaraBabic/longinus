@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Component\Render;
 
 use Drupal\Component\Render\HtmlEscapedText;
@@ -47,10 +49,10 @@ class HtmlEscapedTextTest extends TestCase {
     $tests[] = [$script_tag, '&lt;script&gt;', 'Escapes &lt;script&gt; even inside an object that implements MarkupInterface.'];
     $tests[] = ["<script>", '&lt;script&gt;', 'Escapes &lt;script&gt;'];
     $tests[] = ['<>&"\'', '&lt;&gt;&amp;&quot;&#039;', 'Escapes reserved HTML characters.'];
-    $specialchars = $prophet->prophesize(MarkupInterface::class);
-    $specialchars->__toString()->willReturn('<>&"\'');
-    $specialchars = $specialchars->reveal();
-    $tests[] = [$specialchars, '&lt;&gt;&amp;&quot;&#039;', 'Escapes reserved HTML characters even inside an object that implements MarkupInterface.'];
+    $special_chars = $prophet->prophesize(MarkupInterface::class);
+    $special_chars->__toString()->willReturn('<>&"\'');
+    $special_chars = $special_chars->reveal();
+    $tests[] = [$special_chars, '&lt;&gt;&amp;&quot;&#039;', 'Escapes reserved HTML characters even inside an object that implements MarkupInterface.'];
 
     return $tests;
   }
@@ -59,7 +61,7 @@ class HtmlEscapedTextTest extends TestCase {
    * @covers ::count
    */
   public function testCount() {
-    $string = 'Can I please have a <em>kitten</em>';
+    $string = 'Can I have a <em>kitten</em>';
     $escapable_string = new HtmlEscapedText($string);
     $this->assertEquals(strlen($string), $escapable_string->count());
   }

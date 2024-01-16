@@ -25,7 +25,7 @@
       // Setting a relative value (100%) server side did not allow scrolling
       // within the modal.
       settings.maxHeight = windowHeight;
-      settings.height = 0.98 * windowHeight;
+      settings.height = 0.8 * windowHeight;
     }
   };
 
@@ -50,6 +50,7 @@
         if (!$element.hasClass('paragraphs-previewer-dialog-loaded')) {
           $element.addClass('paragraphs-previewer-dialog-loaded');
         }
+        $element.dialog(settings);
       });
     }
     else {

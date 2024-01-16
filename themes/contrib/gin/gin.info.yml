@@ -16,14 +16,6 @@ libraries:
 
 libraries-override:
   # Gin overrides: replace
-  core/drupal.tableselect:
-    js:
-      misc/tableselect.js: js/overrides/tableselect.js
-
-  core/drupal.tableheader:
-    js:
-      misc/tableheader.js: js/overrides/tableheader.js
-
   media_library/view:
     js:
       js/media_library.view.js: js/overrides/media_library.view.js
@@ -42,11 +34,6 @@ libraries-override:
         misc/dialog/off-canvas.css: false
         misc/dialog/off-canvas.theme.css: false
 
-  paragraphs_ee/paragraphs_ee.off_canvas:
-    css:
-      theme:
-        css/paragraphs_ee.off_canvas.css: false
-
   claro/global-styling:
     css:
       layout:
@@ -57,6 +44,8 @@ libraries-override:
 libraries-extend:
   core/drupal.tableselect:
     - gin/tableselect
+  core/drupal.tableheader:
+    - gin/tableheader
   core/drupal.autocomplete:
     - gin/autocomplete
   core/ckeditor:
@@ -115,8 +104,6 @@ libraries-extend:
    - gin/workbench
   paragraphs/drupal.paragraphs.widget:
     - gin/paragraphs
-  paragraphs_ee/paragraphs_ee.paragraphs:
-    - gin/paragraphs_ee
   entity_reference_layout/erl_widget:
     - gin/entity_reference_layout
     - gin/layout_paragraphs
@@ -148,7 +135,7 @@ regions:
 regions_hidden:
   - sidebar_first
 
-# Information added by Drupal.org packaging script on 2023-07-16
-version: '8.x-3.0-rc5'
+# Information added by Drupal.org packaging script on 2023-12-16
+version: '8.x-3.0-rc8'
 project: 'gin'
-datestamp: 1689504433
+datestamp: 1702729140

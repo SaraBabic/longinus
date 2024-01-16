@@ -46,6 +46,8 @@ abstract class Constraint
 
     /**
      * Maps error codes to the names of their constants.
+     *
+     * @var array<string, string>
      */
     protected const ERROR_NAMES = [];
 
@@ -191,6 +193,8 @@ abstract class Constraint
      * Corresponding properties are added to the object on first access. Hence
      * this method will be called at most once per constraint instance and
      * option name.
+     *
+     * @return void
      *
      * @throws InvalidOptionsException If an invalid option name is given
      */

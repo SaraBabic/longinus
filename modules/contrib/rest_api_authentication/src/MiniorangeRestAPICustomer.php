@@ -44,45 +44,6 @@ class MiniorangeRestAPICustomer {
     $this->defaultCustomerId = "16555";
     $this->defaultCustomerApiKey = "fFd2XcvTGDemZvbw1bcUesNJWEqKbbUq";
   }
-    function verifyLicense($code)
-    {
-        $url = MiniorangeApiAuthConstants::BASE_URL . '/moas/api/backupcode/verify';
-
-        $customerKey = \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_id');
-        $apiKey = \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_api_key');
-        global $base_url;
-
-        /* Current time in milliseconds since midnight, January 1, 1970 UTC. */
-        $currentTimeInMillis = round(microtime(true) * 1000);
-
-        /* Creating the Hash using SHA-512 algorithm */
-        $stringToHash = $customerKey . number_format($currentTimeInMillis, 0, '', '') . $apiKey;
-        $hashValue = hash("sha512", $stringToHash);
-
-        $fields = '';
-
-        $fields = array(
-            'code' => $code,
-            'customerKey' => $customerKey,
-            'additionalFields' => array(
-                'field1' => $base_url
-            )
-        );
-
-        $header = ['Content-Type'=> 'application/json','Customer-Key'=>$customerKey,'Timestamp'=>number_format($currentTimeInMillis, 0, '', ''),'Authorization'=>$hashValue];
-
-        $field_string = json_encode($fields);
-
-        try{
-          $response = \Drupal::httpClient()->post($url,['header'=>$header,'body'=>$field_string,'verify'=>FALSE]);
-        }catch(Exception $exception){
-          $error_msg = $exception->getMessage();
-          echo 'Request Error:' . $error_msg;
-          exit();
-        }
-
-        return $response;
-    }
 
     /**
    * Check if customer exists.
@@ -119,30 +80,6 @@ class MiniorangeRestAPICustomer {
       return $exception->getMessage();
     }
   }
-
-    function updateStatus()
-    {
-
-      $url = MiniorangeApiAuthConstants::BASE_URL . '/moas/api/backupcode/updatestatus';
-
-      $customerKey = \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_id');
-      $apiKey = \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_customer_api_key');
-      $currentTimeInMillis = round(microtime(true) * 1000);
-      $stringToHash = $customerKey . number_format($currentTimeInMillis, 0, '', '') . $apiKey;
-      $hashValue = hash("sha512", $stringToHash);
-      $code = \Drupal::config('rest_api_authentication.settings')->get('rest_api_authentication_license_key');
-      $fields = array('code' => $code, 'customerKey' => $customerKey);
-      $field_string = json_encode($fields);
-
-      $herder=['Content-Type'=>'application/json','Customer-Key'=>$customerKey,'Timestamp'=>number_format($currentTimeInMillis, 0, '', ''),'Authorization'=>$hashValue];
-
-      try{
-        $response = \Drupal::httpClient()->post($url,['headers'=>$herder,'body'=>$field_string,'verify'=>FALSE]);
-      }catch (Exception $exception){
-        $error_msg = $exception->getMessage();
-        \Drupal::logger('rest_api_authentication')->notice('Error:  %error', $error_msg);
-      }
-    }
 
   /**
    * Get Customer Keys.

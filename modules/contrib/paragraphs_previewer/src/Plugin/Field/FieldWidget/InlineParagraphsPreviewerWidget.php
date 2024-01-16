@@ -12,7 +12,7 @@ use Drupal\paragraphs\Plugin\Field\FieldWidget\InlineParagraphsWidget;
  *
  * @FieldWidget(
  *   id = "entity_reference_paragraphs_previewer",
- *   label = @Translation("Paragraphs Previewer & Paragraphs Classic"),
+ *   label = @Translation("Paragraphs Previewer with Paragraphs Legacy"),
  *   description = @Translation("An paragraphs inline form widget with a previewer."),
  *   field_types = {
  *     "entity_reference_revisions"

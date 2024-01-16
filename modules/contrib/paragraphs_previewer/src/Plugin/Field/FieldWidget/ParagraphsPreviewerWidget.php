@@ -9,8 +9,8 @@ use Drupal\paragraphs\Plugin\Field\FieldWidget\ParagraphsWidget;
  *
  * @FieldWidget(
  *   id = "paragraphs_previewer",
- *   label = @Translation("Paragraphs Previewer & Paragraphs EXPERIMENTAL"),
- *   description = @Translation("A paragraphs experimental form widget with a previewer."),
+ *   label = @Translation("Paragraphs Previewer"),
+ *   description = @Translation("A paragraphs form widget with a previewer."),
  *   field_types = {
  *     "entity_reference_revisions"
  *   },

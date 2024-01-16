@@ -94,7 +94,20 @@
     margin-right: var(--gin-spacing-xs);
 
     &--status {
+      color: var(--gin-color-text-light);
       margin-right: var(--gin-spacing-l);
+    }
+
+    .button--primary:not(:disabled, .is-disabled) {
+      background-color: var(--gin-color-primary);
+
+      &:hover {
+        background-color: var(--gin-color-primary-hover);
+      }
+
+      &:active {
+        background-color: var(--gin-color-primary-active);
+      }
     }
   }
 }

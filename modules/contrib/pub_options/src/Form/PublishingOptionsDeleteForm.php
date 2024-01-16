@@ -111,7 +111,7 @@ class PublishingOptionsDeleteForm extends ConfirmFormBase {
               ['%title' => $this->publishing_options->title($this->id)]
           );
 
-    $this->publishing_options->delete(['pubid' => $this->id]);
+    $this->publishing_options->delete($this->id);
 
     $form_state->setRedirect('publishing_options.index');
   }

@@ -219,11 +219,11 @@ class PublishingOptionsContent {
    * @param string $bundle
    *   Variable containing the bundle to add.
    *
-   * @see \Drupal\Core\Database\Connection::insert()
-   *
+   * @return int|string
    * @throws
    *
-   * @return object
+   * @see \Drupal\Core\Database\Connection::insert()
+   *
    */
   public function insertBundle($pubid, $bundle) {
     $fields = [
@@ -233,6 +233,7 @@ class PublishingOptionsContent {
 
     $insert = $this->connection->insert('publishing_options_bundles');
     $insert->fields(['pubid', 'bundle'], $fields);
+
     return $insert->execute();
   }
 
@@ -348,12 +349,17 @@ class PublishingOptionsContent {
     }
     $result = $publishingOption->execute();
 
-    $pubid = $this->connection->query("SELECT MAX(pubid) FROM {publishing_options}")->fetchField();
+    if (array_key_exists('pubid', $data)) {
+      $pubid = $data['pubid'];
+    }
+    else {
+      $pubid = $this->connection->query("SELECT MAX(pubid) FROM {publishing_options}")->fetchField();
+    }
 
     if ($pubid) {
       foreach ($data['bundles'] as $id => $bundle) {
-        if ($bundle) {
-          $this->connection->merge('publishing_options_bundles')
+        if ($bundle > 0) {
+        $test =  $this->connection->merge('publishing_options_bundles')
             ->insertFields(
                     [
                       'pubid' => $pubid,

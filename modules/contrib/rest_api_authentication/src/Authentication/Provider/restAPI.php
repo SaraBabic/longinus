@@ -87,7 +87,8 @@ class restAPI implements AuthenticationProviderInterface {
     if(isset($api_error['status']) && $api_error['status'] == 'error'){
 
       if((isset($api_error['message']) && trim($api_error['message'])!='') || (isset($api_error['error_description']) && trim($api_error['error_description'])!='')){
-        echo json_encode($api_error, JSON_PRETTY_PRINT);exit;
+        echo json_encode($api_error, JSON_PRETTY_PRINT);
+        http_response_code($api_error['http_code']);exit;
       }
       else{
         throw new AccessDeniedHttpException();

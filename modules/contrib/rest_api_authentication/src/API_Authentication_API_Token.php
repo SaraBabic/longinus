@@ -16,11 +16,11 @@ class API_Authentication_API_Token {
             $authorization_header = $request->headers->get('AUTHORIZATION') !=null ? $request->headers->get('AUTHORIZATION') : $request->headers->get('AUTHORISATION');
 
         if(empty($authorization_header) || $authorization_header == ""){
-            $api_error = array('status' => 'error', 'error' => 'MISSING_AUTHORIZATION_HEADER', 'error_description' => 'Authorization header not received');
+            $api_error = array('status' => 'error', 'http_code'=>'401','error' => 'MISSING_AUTHORIZATION_HEADER', 'error_description' => 'Authorization header not received');
             return $api_error;
         }
         if (!preg_match('/\Basic\b/', $authorization_header)) {
-            $api_error = array('status' => 'error', 'error' => 'INVALID_AUTHORIZATION_HEADER_TOKEN_TYPE', 'error_description' => 'Authorization header must be the type of Basic.');
+            $api_error = array('status' => 'error','http_code'=>'401', 'error' => 'INVALID_AUTHORIZATION_HEADER_TOKEN_TYPE', 'error_description' => 'Authorization header must be the type of Basic.');
             return $api_error;
         }
 
@@ -38,28 +38,27 @@ class API_Authentication_API_Token {
                     $user = user_load_by_name($name);
                 $api_key = $creds[1];
 
+                if( $user->isBlocked()){
+                  $api_error = array('status' => 'error','http_code'=>'403', "error" => "USER_BLOCKED", 'error_description' => 'The Username '.$user->getDisplayName().' has not been activated or is blocked.');
+                  return $api_error;
+                }
                 if(\Drupal::config('rest_api_authentication.settings')->get('api_token') != $api_key ){
-                    $config->set('miniorange_api_key_authentication_tried', "Failed")->save();
-                    $api_error = array('status' => 'error',"error" => "INVALID_API_KEY", 'error_description' => 'Sorry, you are using invalid API Key');
+                    $api_error = array('status' => 'error','http_code'=>'401',"error" => "INVALID_API_KEY", 'error_description' => 'Sorry, you are using invalid API Key');
                 }
                 else if(empty($user)){
-                    $config->set('miniorange_api_key_authentication_tried', "Failed")->save();
-                    $api_error = array('status' => 'error', "error" => "USER_DOES_NOT_EXIST", 'error_description' => 'The user does not exists');
+                    $api_error = array('status' => 'error','http_code'=>'404', "error" => "USER_DOES_NOT_EXIST", 'error_description' => 'The user does not exists');
                 }
                 else{
                     $api_error['status'] = 'SUCCESS';
                     $api_error['user'] = $user;
-                    $config->set('miniorange_api_key_authentication_tried', "Successful")->save();
                 }
             }
             else{
-                $config->set('miniorange_api_key_authentication_tried', "Failed")->save();
-                $api_error = array('status' => 'error', "error" => "INVALID_AUTHORIZATION_HEADER", 'error_description' => 'The authorization header seems to be invalid');
+                $api_error = array('status' => 'error','http_code'=>'400', "error" => "INVALID_AUTHORIZATION_HEADER", 'error_description' => 'The authorization header seems to be invalid');
             }
         }
         else{
-            $config->set('miniorange_api_key_authentication_tried', "Failed")->save();
-            $api_error = array('status' => 'error', "error" => "MISSING_AUTHORIZATION_HEADER", 'error_description' => 'The Authorization header is missing from the request.');
+            $api_error = array('status' => 'error', 'http_code'=>'400',"error" => "MISSING_AUTHORIZATION_HEADER", 'error_description' => 'The Authorization header is missing from the request.');
         }
         return $api_error;
     }

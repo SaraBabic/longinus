@@ -1,5 +1,5 @@
 .ck {
-  --ck-spacing-small: var(--gin-spacing-xs);
+  --ck-spacing-small: var(--gin-spacing-xxs);
 
   --ck-color-text: var(--gin-color-text);
 
@@ -67,11 +67,21 @@
   }
 
   &.ck-sticky-panel .ck-sticky-panel__content.ck-sticky-panel__content_sticky {
-    top: var(--gin-sticky-offset);
+    z-index: 2;
+    top: calc(var(--gin-toolbar-y-offset) + var(--gin-sticky-offset)) !important;
   }
 
   .ck-toolbar__separator {
     opacity: .3;
+  }
+
+  .ck-toolbar_grouping:focus,
+  .ck-toolbar__items:focus {
+    box-shadow: none;
+  }
+
+  .ck.ck-editor__editable_inline {
+    padding: 0 var(--gin-spacing-s);
   }
 
   .ck-button[aria-pressed=true] {

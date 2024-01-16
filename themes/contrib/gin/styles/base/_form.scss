@@ -1,7 +1,8 @@
-$maxWidth: 520px;
-
 .form-element {
   color: var(--gin-color-text);
+  line-height: var(--input-line-height);
+  padding: calc(var(--input-padding-vertical) - 1px) var(--input-padding-horizontal);
+  min-height: calc((var(--input-padding-vertical) * 2) + var(--input-line-height));
   background-color: var(--gin-bg-input);
   border: 1px solid var(--gin-border-color-form-element);
   border-radius: var(--gin-border-m);
@@ -60,7 +61,7 @@ $maxWidth: 520px;
 
 .password-confirm {
   width: 100%;
-  max-width: $maxWidth;
+  max-width: var(--gin-max-line-length);
 }
 
 .password-strength {
@@ -267,7 +268,7 @@ $maxWidth: 520px;
 
 // Correctly align bulk action checkboxes when used in combination with tabledrag
 table:has(.tabledrag-cell-content__item .form-checkbox) th.select-all .form-checkbox {
-  margin-left: calc(var(--tabledrag-handle-icon-size) + var(--space-m));
+  margin-left: calc(var(--tabledrag-handle-icon-size, calc(17rem / 16)) + var(--gin-spacing-m));
 }
 
 .form-boolean {
@@ -406,7 +407,7 @@ fieldset:not(.fieldgroup) {
 
 .form-item__description,
 .fieldset__description {
-  max-width: $maxWidth;
+  max-width: var(--gin-max-line-length);
   color: var(--gin-color-text-light);
 }
 

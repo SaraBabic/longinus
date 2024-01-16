@@ -22,6 +22,7 @@ module.exports = {
     'sidebar': ['./js/sidebar.js'],
     'sticky': ['./js/sticky.js'],
     'toolbar': ['./js/toolbar.js'],
+    'tableheader': ['./js/tableheader.js'],
     // ################################################
     // CSS
     // ################################################
@@ -51,7 +52,6 @@ module.exports = {
     'components/module_filter': ['./styles/components/module_filter.scss'],
     'components/node_preview': ['./styles/components/node_preview.scss'],
     'components/paragraphs': ['./styles/components/paragraphs.scss'],
-    'components/paragraphs_ee': ['./styles/components/paragraphs_ee.scss'],
     'components/responsive_preview': ['./styles/components/responsive_preview.scss'],
     'components/revisions': ['./styles/components/revisions.scss'],
     'components/settings_tray': ['./styles/components/settings_tray.scss'],
@@ -66,6 +66,7 @@ module.exports = {
     'components/webform': ['./styles/components/webform.scss'],
     'components/workbench': ['./styles/components/workbench.scss'],
     // Layout
+    'layout/navigation': ['./styles/layout/navigation.scss'],
     'layout/toolbar': ['./styles/layout/toolbar.scss'],
     'layout/horizontal_toolbar': ['./styles/layout/horizontal_toolbar.scss'],
     'layout/classic_toolbar': ['./styles/layout/classic_toolbar.scss'],

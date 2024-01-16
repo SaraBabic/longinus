@@ -109,6 +109,10 @@ body.gin--classic-toolbar {
         mask-repeat: no-repeat;
         mask-position: center center;
         mask-size: var(--gin-icon-size-toolbar) var(--gin-icon-size-toolbar);
+
+        @media (forced-colors: active) {
+          background: linktext !important;
+        }
       }
 
       &.toolbar-icon-default::before {
@@ -255,6 +259,13 @@ body.gin--classic-toolbar {
       }
     }
 
+    // Admin Toolbar Language Switcher
+    .toolbar-icon-language {
+      &:before {
+        mask-image: icon('tmgmt');
+      }
+    }
+
     // BAT
     .toolbar-icon-bat-admin {
       &:before {
@@ -293,7 +304,8 @@ body.gin--classic-toolbar {
 
     // Coffee & Search
     .toolbar-icon-coffee,
-    #toolbar-item-administration-search {
+    #toolbar-item-administration-search,
+    #admin-toolbar-mobile-search-tab .toolbar-icon {
       &:before {
         mask-image: icon('search');
       }
@@ -630,6 +642,10 @@ body.gin--classic-toolbar {
 
 .toolbar.toolbar-secondary .toolbar-bar .toolbar-tab > .toolbar-icon::before {
   background-color: var(--gin-icon-color);
+
+  @media (forced-colors: active) {
+    background: linktext !important;
+  }
 }
 
 .toolbar.toolbar-secondary .toolbar-bar .toolbar-tab > .toolbar-icon.toolbar-icon-edit.toolbar-item::before {
@@ -720,6 +736,10 @@ body.gin--classic-toolbar {
     mask-image: icon('search');
     mask-size: 100% 100%;
     mask-position: center center;
+
+    @media (forced-colors: active) {
+      background-color: buttonBorder;
+    }
   }
 }
 
@@ -810,4 +830,8 @@ body.gin--classic-toolbar {
     border-left: 0;
     border-right: 0;
   }
+}
+
+.toolbar-loading #toolbar-item-administration-tray.toolbar-tray {
+  background: var(--gin-bg-layer);
 }

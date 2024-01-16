@@ -59,6 +59,8 @@ class upgradePlansForm{
                               <li>-</li>
                               <li>-</li>
                               <li>-</li>
+                              <li>-</li>
+                              <li>-</li>
                               <li>Basic Email Support</li>
                             </ul>
                         </div>
@@ -68,7 +70,7 @@ class upgradePlansForm{
                                 <div class="pricing-header">
                                     <p class="pricing-title">Premium</p>
                             <p class="pricing-rate"><sup>$</sup> 399<sup>*</sup></p>
-                            <a href="'.MiniorangeApiAuthConstants::BASE_URL.'/moas/login?redirectUrl='.MiniorangeApiAuthConstants::BASE_URL.'/moas/initializepayment&requestOrigin=drupal_rest_api_authentication_premium_plan" target="_blank" class="button">Upgrade Now</a><br><br>
+                            <a href="https://portal.miniorange.com/initializepayment?requestOrigin=drupal_rest_api_authentication_premium_plan" target="_blank" class="button">Upgrade Now</a><br><br>
                                 </div>
                                 <div class="pricing-list">
                                     <ul>
@@ -79,11 +81,13 @@ class upgradePlansForm{
                                         <li>Basic Authentication</li>
                                         <li>Access Token Based Authentication</li>
                                         <li>JWT Based Authentication</li>
+                                        <li>Authenticate private files and images</li>
+                                        <li>Support for multiple authentication methods</li>
                                         <li>3rd Party/External IDP Token Based Authentication</li>
                                         <li>Generate separate API Keys for every user</li>
                                         <li>Custom Authentication Header</li>
                                         <li>Configurable Token Expiry Time</li>
-                                        <li>Whitelist or Blacklist APIs</li>
+                                        <li>Allow or restrict the custom APIs</li>
                                         <li>IP Address Based Restriction</li>
                                         <li>Role Based Restriction</li>
                                         <li>Premium GoTo Meeting Support</li>
@@ -103,7 +107,8 @@ class upgradePlansForm{
     $form['upgrade-plans']['upgrade_container_outline']['instr'] = array(
       '#markup' => '
         <br>
-        The above mentioned cost is applicable for one instance only. Licenses are perpetual and include free version updates for the first 12 months. You can renew maintenance(version updates) after the first 12 months at 50% of the current license cost. We also provide various Support Plans which includes 12 months of support.
+        The above-mentioned cost is applicable for one instance only. If you are planning to use the module on multiple instances, you can check out the bulk purchase discount on our <a href="https://plugins.miniorange.com/drupal-rest-api-authentication#pricing" target="_blank">website</a>.
+        <br><br>Licenses are perpetual and include free version updates for the first 12 months. You can renew maintenance(version updates) after the first 12 months. We also provide various Support Plans which includes 12 months of support.
         <br><br><br><b>10 Days Return Policy -</b><br><br>
         At miniOrange, we want to ensure that you are 100% happy with your purchase. If the premium module you purchased is not working as advertised and you have attempted to resolve any issues with our support team, which could not get resolved, we will refund the whole amount given that you have a raised a refund request within the first 10 days of the purchase.<br><br>Please email us at <a href="mailto:drupalsupport@xecurify.com">drupalsupport@xecurify.com</a> for any queries.'
     );
@@ -111,7 +116,6 @@ class upgradePlansForm{
     $config = \Drupal::configFactory()->getEditable('rest_api_authentication.settings');
     if(isset($_GET['tab'])){
       if($_GET['tab'] == 'edit-upgrade-plans'){
-        $config->set('miniorange_rest_api_license_page_visited', "TRUE")->save();
       }
     }
     return $form;
