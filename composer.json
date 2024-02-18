@@ -46,6 +46,7 @@
         "drupal/focal_point": "^2.0",
         "drupal/gin": "^3.0@RC",
         "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/google_analytics": "^4.0",
         "drupal/jwt": "^2.0",
         "drupal/lightgallery": "^1.1",
         "drupal/mailsystem": "^4.4",

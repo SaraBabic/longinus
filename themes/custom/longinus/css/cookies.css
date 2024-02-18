@@ -1,9 +1,10 @@
-.eu-cookie-withdraw-wrapper {
-    background-color: #e6af73;
+.eu-cookie-compliance-banner-info {
+    background-color: #e6af73 !important;
     width: 100%;
     display: flex;
     gap: 20px;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
 }
 .sliding-popup-bottom {
     background-color: #e6af73;

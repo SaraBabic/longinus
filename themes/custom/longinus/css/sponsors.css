@@ -1,0 +1,22 @@
+.view-sponsors-block-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 48px;
+    margin-top: 38px;
+}
+
+.view-sponsors-block-1__row {
+    display: flex;
+    align-items: center;
+}
+
+.view-sponsors-block-1__row img {
+    height: 100px;
+    width: auto;
+    transition: .4s ease;
+}
+
+.view-sponsors-block-1__row:hover img {
+    transform: scale(1.1);
+}
