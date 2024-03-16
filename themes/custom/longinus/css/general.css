@@ -15,6 +15,19 @@
     font-size: 42px;
     text-align: center;
 }
+
+@media all and (max-width:800px) {
+    #block-longinus-pagetitle {
+        font-size: 28px;
+    }
+}
+
+@media all and (max-width:450px) {
+    #block-longinus-pagetitle {
+        font-size: 22px;
+    }
+}
+
 ul {
     padding: 0;
 }
