@@ -11,6 +11,7 @@ global-css:
       css/general.css: {}
       css/up.css: {}
       css/blog.css: {}
+      css/item.css: {}
       css/cards.css: {}
       css/text-and-image.css: {}
       css/video.css: {}

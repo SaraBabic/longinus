@@ -1,0 +1,98 @@
+.view-taxonomy-term-page-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.view-taxonomy-term-page-1__row {
+    flex: 0 0 100%;
+}
+.node-item-teaser__body {
+    margin-bottom: 40px;
+}
+
+.node-item-teaser__body p{
+    text-decoration: none;
+    color: black;
+    height: 77px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.node-item-teaser__title span {
+    font-family: 'MedievalSharp', cursive !important;
+    
+}
+.view-taxonomy-term-page-1__row:hover .node-item-teaser__title a {
+    text-decoration: underline;
+}
+.node-item-teaser__title a{
+    text-decoration: none;
+    color: black;
+}
+.view-taxonomy-term-page-1 img {
+    border-radius: 8px;
+}
+/* Pager */
+.pager ul {
+    display: flex;
+    justify-content: center;
+}
+.pager li {
+    margin: 0 8px;
+    font-size: 16px;
+}
+.view-taxonomy-term-page-1__content a {
+    text-decoration: none;
+}
+.pager a {
+    text-decoration: none;
+    color: black
+}
+.pager a:hover {
+    text-decoration: underline;
+}
+
+/* front page */
+.view-taxonomy-term-page-1__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.view-taxonomy-term-page-1__row {
+    flex: 0 0 100%;
+}
+.view-taxonomy-term-page-1__row:hover .node-item-teaser__title a {
+    text-decoration: underline;
+}
+ 
+@media all and (min-width:768px) {
+    .view-taxonomy-term-page-1__row {
+        flex: 0 0 calc(50% - 16px);
+    }
+    .view-taxonomy-term-page-1__content  {
+        gap: 16px;
+    }
+    .view-taxonomy-term-page-1__row {
+        flex: 0 0 calc(50% - 16px);
+    }
+    .view-taxonomy-term-page-1__content {
+        gap: 16px;
+    }
+}
+
+@media all and (min-width:1024px) {
+    .view-taxonomy-term-page-1__row {
+        flex: 0 0 calc(33% - 32px);
+    }
+    .view-taxonomy-term-page-1__content  {
+        gap: 32px;
+    }
+    .view-taxonomy-term-page-1__row {
+        flex: 0 0 calc(33% - 32px);
+    }
+    .view-taxonomy-term-page-1__content {
+        gap: 32px;
+    }
+}
+.view-taxonomy-term-page-1__feed-icons {
+    display: none;
+}
