@@ -1,5 +1,12 @@
 .paragraph-video__field-video video{
     width: 100%;
-    height: auto;
     margin-bottom: 40px;
+    margin-top: 40px;
+    height: 80vh;
+}
+
+.paragraph-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
