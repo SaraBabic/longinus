@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: sh backup-database.sh longinus.rs "gn-master-backups/Servers/GN Digital/live-pp/promo-ponude.com/databases/";
+# Usage: sh backup-database.sh longinus.rs "gn-master-backups/Servers/GN Digital/live-pp/longinus.rs/databases/";
 
 if [ -z "$1" ]
   then
