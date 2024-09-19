@@ -59,6 +59,7 @@
         "drupal/svg_formatter": "^2.0",
         "drupal/token": "^1.12",
         "drupal/twig_tweak": "^3.2",
+        "drupal/upgrade_status": "^4.3",
         "drupal/video_embed_field": "^2.5",
         "drush/drush": "^12.1",
         "sachinchoolur/lightgallery": "^1.6",
