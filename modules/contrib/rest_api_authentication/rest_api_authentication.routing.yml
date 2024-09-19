@@ -2,7 +2,7 @@ rest_api_authentication.auth_settings:
   path: /admin/config/people/rest_api_authentication/auth_settings
   defaults:
     _title: 'miniOrange API Authentication&nbsp;&nbsp;&nbsp; <a class="button button--primary js-form-submit form-submit use-ajax mo_top_bar_button" href="auth_settings/requestSupport">Contact Us</a><a class="button button--primary js-form-submit form-submit use-ajax mo_top_bar_button" href="auth_settings/requestFreeTrial">Request 7-days trial</a><a class="button js-form-submit form-submit mo_top_bar_button" href="?tab=edit-upgrade-plans">Upgrade Plans</a>'
-    _form: \Drupal\rest_api_authentication\Form\miniorangeAPIAuth
+    _form: \Drupal\rest_api_authentication\Form\MiniOrangeAPIAuth
   requirements:
     _permission: 'administer site configuration'
 
@@ -11,7 +11,7 @@ rest_api_authentication.request_api_support:
   path: /admin/config/people/rest_api_authentication/auth_settings/requestSupport
   defaults:
     _title: 'miniOrange API Authentication Request Support'
-    _controller: '\Drupal\rest_api_authentication\Controller\rest_api_authenticationController::openSupportRequestForm'
+    _controller: '\Drupal\rest_api_authentication\Controller\RestApiAuthenticationController::openSupportRequestForm'
   requirements:
     _permission: 'administer site configuration'
 
@@ -20,8 +20,6 @@ rest_api_authentication.request_trial:
   path: /admin/config/people/rest_api_authentication/auth_settings/requestFreeTrial
   defaults:
     _title: 'miniOrange API Authentication Trial Request'
-    _controller: '\Drupal\rest_api_authentication\Controller\rest_api_authenticationController::openTrialRequestForm'
+    _controller: '\Drupal\rest_api_authentication\Controller\RestApiAuthenticationController::openTrialRequestForm'
   requirements:
     _permission: 'administer site configuration'
-
-

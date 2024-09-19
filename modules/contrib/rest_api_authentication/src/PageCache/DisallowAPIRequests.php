@@ -8,8 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Cache policy for pages served from rest api authentication.
  *
- * This policy disallows caching of requests that use rest_api_authentication for security
- * reasons. Otherwise responses for authenticated requests can get into the
+ * This policy disallows caching of requests that use
+ * rest_api_authentication for security reasons.
+ * Otherwise responses for authenticated requests can get into the
  * page cache and could be delivered to unprivileged users.
  */
 class DisallowAPIRequests implements RequestPolicyInterface {
@@ -22,7 +23,7 @@ class DisallowAPIRequests implements RequestPolicyInterface {
       return self::DENY;
     }
     if (strpos($request->getRequestUri(), '?_format=') !== FALSE) {
-    return self::DENY;
+      return self::DENY;
     }
   }
 

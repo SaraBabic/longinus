@@ -3,11 +3,11 @@
 namespace Drupal\layout_builder_restrictions_by_region\Plugin\LayoutBuilderRestriction;
 
 use Drupal\Core\Config\Entity\ThirdPartySettingsInterface;
-use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Database\Connection;
-use Drupal\layout_builder_restrictions\Plugin\LayoutBuilderRestrictionBase;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\layout_builder\OverridesSectionStorageInterface;
 use Drupal\layout_builder\SectionStorageInterface;
+use Drupal\layout_builder_restrictions\Plugin\LayoutBuilderRestrictionBase;
 use Drupal\layout_builder_restrictions\Traits\PluginHelperTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

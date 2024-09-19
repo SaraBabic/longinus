@@ -21,7 +21,7 @@ use Symfony\Component\VarDumper\Cloner\Data;
 /**
  * @author Mathias Arlaud <mathias.arlaud@gmail.com>
  *
- * @internal
+ * @final
  */
 class SerializerDataCollector extends DataCollector implements LateDataCollectorInterface
 {
@@ -33,7 +33,7 @@ class SerializerDataCollector extends DataCollector implements LateDataCollector
         $this->collected = [];
     }
 
-    public function collect(Request $request, Response $response, \Throwable $exception = null): void
+    public function collect(Request $request, Response $response, ?\Throwable $exception = null): void
     {
         // Everything is collected during the request, and formatted on kernel terminate.
     }

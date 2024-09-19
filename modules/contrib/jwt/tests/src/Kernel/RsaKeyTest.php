@@ -8,6 +8,8 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 
+// cspell:ignore wxyz
+
 /**
  * Tests RSA keys.
  *

@@ -10,6 +10,7 @@ use Symfony\Component\Routing\RouteCollection;
  * Listens to the dynamic route events.
  */
 class RouteSubscriber extends RouteSubscriberBase {
+
   /**
    * {@inheritdoc}
    */
@@ -17,18 +18,23 @@ class RouteSubscriber extends RouteSubscriberBase {
     $route_login = $collection->get('user.login.http');
     $route_login->addOptions([
       '_auth' => [
-        'rest_api_authentication'
+        'rest_api_authentication',
       ],
     ]);
   }
 
   /**
-   * @param Route $route
+   * Checks if the given route is for the REST login.
    *
-   * @return false|true
+   * @param \Symfony\Component\Routing\Route $route
+   *   The route to check.
+   *
+   * @return bool
+   *   TRUE if the route is for the REST login, FALSE otherwise.
    */
   private function restLoginRount(Route $route) {
     $path = $route->getPath();
-    return strpos($path,'/user/login?_format=');
+    return strpos($path, '/user/login?_format=');
   }
+
 }

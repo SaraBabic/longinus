@@ -37,7 +37,7 @@ class ChooseBlockController extends ChooseBlockControllerBase {
         $build['links']['#links'][$key]['title'] = Markup::create('<img src="' . $icon_url . '" class="bl-block-icon" /> ' . '<span class="bl-block-title">' . $link['title'] . '</span>');
 
         // Needed for inline SVG's "currentColor" attribute.
-        if (mime_content_type($icon_path) === "image/svg") {
+        if (strpos(mime_content_type($icon_path), "image/svg") !== false) {
           $svg = file_get_contents(DRUPAL_ROOT . '/' . $icon_url);
           $svg = preg_replace(['/<\?xml.*\?>/i', '/<!DOCTYPE((.|\n|\r)*?)">/i'], '', $svg);
           $icon = trim($svg);

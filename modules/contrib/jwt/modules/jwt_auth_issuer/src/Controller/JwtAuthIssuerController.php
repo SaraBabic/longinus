@@ -2,8 +2,8 @@
 
 namespace Drupal\jwt_auth_issuer\Controller;
 
-use Drupal\jwt\Authentication\Provider\JwtAuth;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\jwt\Authentication\Provider\JwtAuth;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

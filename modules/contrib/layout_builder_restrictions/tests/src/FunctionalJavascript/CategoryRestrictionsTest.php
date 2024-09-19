@@ -15,7 +15,7 @@ class CategoryRestrictionsTest extends LayoutBuilderRestrictionsTestBase {
   public function testLayoutRestriction() {
     $this->getSession()->resizeWindow(1200, 4000);
     // Create 2 custom block types, with 3 block instances.
-    $blocks = $this->generateTestBlocks();
+    $this->generateTestBlocks();
     $node_id = $this->generateTestNode();
     $assert_session = $this->assertSession();
     $page = $this->getSession()->getPage();
@@ -34,7 +34,6 @@ class CategoryRestrictionsTest extends LayoutBuilderRestrictionsTestBase {
     $this->assertNotEmpty($assert_session->waitForText('Add a new content block'));
     $assert_session->linkExists('Basic');
     $assert_session->linkExists('Alternate');
-
 
     $this->navigateToManageDisplay();
     $element = $page->find('xpath', '//*[@id="edit-layout-layout-builder-restrictions-allowed-blocks"]/summary');

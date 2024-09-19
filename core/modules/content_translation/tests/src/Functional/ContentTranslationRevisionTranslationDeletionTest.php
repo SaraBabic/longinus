@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\content_translation\Functional;
 
 use Drupal\Core\Url;
@@ -22,13 +24,14 @@ class ContentTranslationRevisionTranslationDeletionTest extends ContentTranslati
    */
   protected function setUp(): void {
     parent::setUp();
+    $this->doSetup();
     $this->enableContentModeration();
   }
 
   /**
    * Tests that translation overview handles pending revisions correctly.
    */
-  public function testOverview() {
+  public function testOverview(): void {
     $index = 1;
     $accounts = [
       $this->rootUser,

@@ -3,9 +3,9 @@
 namespace Drupal\jwt_auth_consumer\EventSubscriber;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\jwt\Authentication\Event\JwtAuthEvents;
 use Drupal\jwt\Authentication\Event\JwtAuthValidateEvent;
 use Drupal\jwt\Authentication\Event\JwtAuthValidEvent;
-use Drupal\jwt\Authentication\Event\JwtAuthEvents;
 use Drupal\jwt\JsonWebToken\JsonWebTokenInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

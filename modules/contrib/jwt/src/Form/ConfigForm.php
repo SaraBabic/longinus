@@ -5,9 +5,9 @@ namespace Drupal\jwt\Form;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\jwt\Transcoder\JwtTranscoder;
 use Drupal\key\KeyRepositoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\jwt\Transcoder\JwtTranscoder;
 
 /**
  * JWT module config form.
@@ -81,7 +81,7 @@ class ConfigForm extends ConfigFormBase {
    * @param array $form
    *   Drupal form array.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   Drupal formstate object.
+   *   Drupal form state object.
    *
    * @return mixed
    *   Updated AJAXed form.

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\focal_point\Unit;
 
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\crop\CropInterface;
 use Drupal\crop\CropStorageInterface;
 use Drupal\focal_point\FocalPointManager;
-use Drupal\Core\Entity\EntityTypeManager;
 
 /**
  * @coversDefaultClass \Drupal\focal_point\FocalPointManager
@@ -45,7 +47,7 @@ class FocalPointManagerTest extends FocalPointUnitTestCase {
   /**
    * Data provider for testFocalPoint().
    */
-  public function providerValidateFocalPoint() {
+  public static function providerValidateFocalPoint() {
     $data = [];
     $data['default_focal_point_position'] = ['50,50', TRUE];
     $data['basic_focal_point_position_1'] = ['75,25', TRUE];
@@ -102,7 +104,7 @@ class FocalPointManagerTest extends FocalPointUnitTestCase {
   /**
    * Data provider for testRelativeToAbsolute() and absoluteToRelative().
    */
-  public function providerCoordinates() {
+  public static function providerCoordinates() {
     $data = [];
     $data['top_left'] = [
       ['x' => 0, 'y' => 0],

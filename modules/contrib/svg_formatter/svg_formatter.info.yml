@@ -6,7 +6,7 @@ package: Field types
 test_dependencies:
   - token:token
 
-# Information added by Drupal.org packaging script on 2023-05-01
-version: '2.0.2'
+# Information added by Drupal.org packaging script on 2024-03-16
+version: '2.0.3'
 project: 'svg_formatter'
-datestamp: 1682943383
+datestamp: 1710573986

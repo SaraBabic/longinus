@@ -1,6 +1,6 @@
 services:
   rest_api_authentication.authentication.rest_api_authentication:
-    class: Drupal\rest_api_authentication\Authentication\Provider\restAPI
+    class: Drupal\rest_api_authentication\Authentication\Provider\RestAPI
     arguments: ['@config.factory', '@entity_type.manager']
     tags:
       - { name: authentication_provider, provider_id: rest_api_authentication, priority: 150 }

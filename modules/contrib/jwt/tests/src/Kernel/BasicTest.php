@@ -69,12 +69,12 @@ class BasicTest extends KernelTestBase {
     $jwt->setHeader('typ', 'XWT');
     self::assertSame('can', $jwt->getHeader('garbage'));
     $jwt->unsetHeader('garbage');
-    self::assertSame(NULL, $jwt->getHeader('garbage'));
+    self::assertNull($jwt->getHeader('garbage'));
     $encoded = $transcoder->encode($jwt);
     $decoded_jwt = $transcoder->decode($encoded);
     self::assertSame('llama', $decoded_jwt->getHeader('kid'));
     self::assertSame(7654, $decoded_jwt->getHeader('test'));
-    self::assertSame(NULL, $decoded_jwt->getHeader('garbage'));
+    self::assertNull($decoded_jwt->getHeader('garbage'));
     self::assertSame('HS256', $decoded_jwt->getHeader('alg'));
     self::assertSame('JWT', $decoded_jwt->getHeader('typ'));
   }

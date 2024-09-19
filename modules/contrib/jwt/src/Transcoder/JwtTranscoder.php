@@ -251,7 +251,7 @@ class JwtTranscoder implements JwtTranscoderInterface {
    *   The operation being performed. One of: encode, decode.
    *
    * @return null|string
-   *   Returns NULL if opteration is not found. Otherwise, returns key.
+   *   Returns NULL if operation is not found. Otherwise, returns key.
    */
   protected function getKey(string $operation) {
     if ($this->algorithmType == 'jwt_hs') {

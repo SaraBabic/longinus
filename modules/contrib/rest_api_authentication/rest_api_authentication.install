@@ -1,13 +1,13 @@
 <?php
+
 /**
  * @file
  * Installation file for miniOrange REST API Module.
  */
 
-function rest_api_authentication_uninstall(){
-}
-
-
-function rest_api_authentication_install(){
+/**
+ * Install function which execute while installing the module.
+ */
+function rest_api_authentication_install() {
   drupal_flush_all_caches();
 }

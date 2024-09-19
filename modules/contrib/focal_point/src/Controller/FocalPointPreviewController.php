@@ -2,23 +2,25 @@
 
 namespace Drupal\focal_point\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
-use Drupal\focal_point\Plugin\Field\FieldWidget\FocalPointImageWidget;
-use Drupal\file\Entity\File;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\image\ImageStyleInterface;
-use Symfony\Component\Validator\Exception\InvalidArgumentException;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\Url;
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\OpenModalDialogCommand;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Ajax\OpenDialogCommand;
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Image\ImageFactory;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\focal_point\FocalPointEffectBase;
+use Drupal\focal_point\Plugin\Field\FieldWidget\FocalPointImageWidget;
+use Drupal\image\ImageEffectManager;
+use Drupal\image\ImageStyleInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * Class FocalPointPreviewController.
+ * Class Focal Point Preview Controller.
  *
  * @package Drupal\focal_point\Controller
  */
@@ -46,17 +48,41 @@ class FocalPointPreviewController extends ControllerBase {
   protected $fileStorage;
 
   /**
+   * The image effect plugin manager.
+   *
+   * @var \Drupal\image\ImageEffectManager
+   */
+  protected $imageEffectManager;
+
+  /**
+   * A logger instance.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
+  protected $logger;
+
+  /**
    * {@inheritdoc}
    *
    * @param \Drupal\Core\Image\ImageFactory $image_factory
    *   The image_factory parameter.
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request parameter.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
+   *   The logger factory.
+   * @param \Drupal\image\ImageEffectManager $imageEffectManager
+   *   The image effect manager.
    */
-  public function __construct(ImageFactory $image_factory, RequestStack $request_stack) {
+  public function __construct(
+    ImageFactory $image_factory,
+    RequestStack $request_stack,
+    LoggerChannelFactoryInterface $logger,
+    ImageEffectManager $imageEffectManager,
+  ) {
     $this->imageFactory = $image_factory;
     $this->request = $request_stack->getCurrentRequest();
     $this->fileStorage = $this->entityTypeManager()->getStorage('file');
+    $this->logger = $logger->get('focal_point');
   }
 
   /**
@@ -65,7 +91,9 @@ class FocalPointPreviewController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('image.factory'),
-      $container->get('request_stack')
+      $container->get('request_stack'),
+      $container->get('logger.factory'),
+      $container->get('plugin.manager.image.effect')
     );
   }
 
@@ -79,7 +107,7 @@ class FocalPointPreviewController extends ControllerBase {
     $file = $this->fileStorage->load($fid);
     $image = $this->imageFactory->get($file->getFileUri());
     if (!$image->isValid()) {
-      throw new InvalidArgumentException('The file with id = $fid is not an image.');
+      $this->logger->warning($this->t('Source image with fid=%fid not confirmed as valid.'), ['%fid' => $fid]);
     }
 
     $styles = $this->getFocalPointImageStyles();
@@ -147,7 +175,7 @@ class FocalPointPreviewController extends ControllerBase {
     ];
     $response = new AjaxResponse();
     $response->addCommand(
-      new OpenModalDialogCommand($this->t('Images preview'), $output, $options)
+      new OpenDialogCommand('#focal-point-preview', $this->t('Images preview'), $output, $options)
     );
 
     return $response;
@@ -172,11 +200,11 @@ class FocalPointPreviewController extends ControllerBase {
   public function access(AccountInterface $account, $fid) {
     $access = AccessResult::forbidden();
 
-    // @todo: I should be able to use "magic args" to load the file directly.
+    // @todo I should be able to use "magic args" to load the file directly.
     $file = $this->fileStorage->load($fid);
     $image = $this->imageFactory->get($file->getFileUri());
     if (!$image->isValid()) {
-      throw new InvalidArgumentException('The file with id = $fid is not an image.');
+      $this->logger->warning($this->t('Source image with fid=%fid not confirmed as valid while checking access.'), ['%fid' => $fid]);
     }
 
     // Check if there was a valid token provided in with the HTTP request so
@@ -211,8 +239,13 @@ class FocalPointPreviewController extends ControllerBase {
    *   An array of machine names of image styles that use a focal point effect.
    */
   public function getFocalPointImageStyles() {
-    // @todo: Can this be generated? See $imageEffectManager->getDefinitions();
-    $focal_point_effects = ['focal_point_crop', 'focal_point_scale_and_crop'];
+    $focal_point_effects = [];
+
+    foreach ($this->imageEffectManager->getDefinitions() as $id => $definition) {
+      if (is_subclass_of($definition['class'], FocalPointEffectBase::class)) {
+        $focal_point_effects[] = $id;
+      }
+    }
 
     $styles_using_focal_point = [];
     $styles = $this->entityTypeManager()->getStorage('image_style')->loadMultiple();
@@ -262,8 +295,8 @@ class FocalPointPreviewController extends ControllerBase {
    */
   protected function validTokenProvided() {
     try {
-      if (\Drupal::request()->query->has('focal_point_token')) {
-        $token = \Drupal::request()->query->get('focal_point_token');
+      if ($this->request->query->has('focal_point_token')) {
+        $token = $this->request->query->get('focal_point_token');
         return FocalPointImageWidget::validatePreviewToken($token);
       }
       else {

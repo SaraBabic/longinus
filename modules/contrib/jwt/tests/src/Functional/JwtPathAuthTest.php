@@ -2,11 +2,11 @@
 
 namespace Drupal\Tests\jwt\Functional;
 
+use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\file\FileInterface;
 use Drupal\jwt\JsonWebToken\JsonWebToken;
 use Drupal\Tests\BrowserTestBase;
-use Drupal\Core\Url;
 use Drupal\Tests\file\Functional\FileFieldCreationTrait;
 use Drupal\Tests\TestFileCreationTrait;
 

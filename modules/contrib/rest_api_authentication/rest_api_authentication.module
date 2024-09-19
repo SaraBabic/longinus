@@ -1,28 +1,23 @@
 <?php
-use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\rest_api_authentication\MiniorangeApiAuthConstants;
-use Drupal\Core\Url;
+
 /**
  * @file
  * Module file for miniOrange REST API Module.
  */
 
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\rest_api_authentication\MiniorangeApiAuthConstants;
 
 /**
  * Implements hook_help().
  */
-function rest_api_authentication_help($route_name, RouteMatchInterface $route_match)
-{
+function rest_api_authentication_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     case 'help.page.rest_api_authentication':
-      $url = Url::fromRoute('user.admin_index')->toString();
-      $moduleLink = $url . '/rest_api_authentication/auth_settings';
-
-      $moduleLandingPage = MiniorangeApiAuthConstants::SITE_URL.'/drupal-rest-api-authentication';
-      $setup_guides = MiniorangeApiAuthConstants::SITE_URL.'/drupal-api-authentication';
-
+      $moduleLandingPage = MiniorangeApiAuthConstants::SITE_URL . '/drupal-rest-api-authentication';
+      $setup_guides = MiniorangeApiAuthConstants::SITE_URL . '/drupal-api-authentication';
       $output = '';
-      $output .= '<b>' . t('ABOUT <a target="_blank" href="' . $moduleLandingPage . '">[Know more]</a>') . '</b>';
+      $output .= '<b>' . t('ABOUT <a target="_blank" href=":url">[Know more]</a>', [':url' => $moduleLandingPage]) . '</b>';
       $output .= '<br>' . t('Drupal API Authentication module allows you to authenticate any Drupal site API calls. The module is compatible with both RESTful Web Services and JSON API module. If you have any other custom APIs as well, this module can authenticate them as well.') . '<br>';
       $output .= '<br><b>' . t('AUTHENTICATION METHODS SUPPORTED:') . '</b>';
       $output .= '<br>' . t('<ol>
@@ -36,8 +31,7 @@ function rest_api_authentication_help($route_name, RouteMatchInterface $route_ma
 
                         </p>';
       $output .= '<b>' . t('SETUP GUIDE') . '</b><br>';
-      $output .= '' . t('Please click on this <a target="_blank" href="'.$setup_guides.'"><strong>link here</strong></a> to setup the module according to your requirements.') . '';
-
+      $output .= '' . t('Please click on this <a target="_blank" href=":url"><strong>link here</strong></a> to setup the module according to your requirements.', [':url' => $setup_guides]);
       $output .= '<br><br><b>' . t('24 / 7 ACTIVE SUPPORT') . '</b><br>';
       $output .= '' . t('If you have any questions or in case you need any sort of assistance in configuring our module according toy our requirements, please feel free to drop us an email at <a href="mailto:drupalsupport@xecurify.com">drupalsupport@xecurify.com</a>. We will be more than happy to help') . '';
 

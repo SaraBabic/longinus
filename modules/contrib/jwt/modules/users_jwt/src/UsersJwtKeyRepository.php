@@ -9,7 +9,7 @@ use Drupal\user\UserDataInterface;
 use Firebase\JWT\Key;
 
 /**
- * Class UsersJwtKeyRepository.
+ * Provides a user key repository.
  */
 class UsersJwtKeyRepository implements UsersJwtKeyRepositoryInterface {
   use StringTranslationTrait;

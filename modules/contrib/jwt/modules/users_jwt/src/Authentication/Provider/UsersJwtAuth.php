@@ -9,8 +9,8 @@ use Drupal\Core\Site\Settings;
 use Drupal\user\UserInterface;
 use Drupal\users_jwt\UsersJwtKeyRepositoryInterface;
 use Drupal\users_jwt\UsersKey;
-use Symfony\Component\HttpFoundation\Request;
 use Firebase\JWT\JWT;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Authentication provider UsersJwtAuth.
@@ -153,7 +153,7 @@ class UsersJwtAuth implements AuthenticationProviderInterface {
         break;
       }
     }
-    if ($id === NULL) {
+    if (!isset($id)) {
       return [
         NULL,
         'No Drupal uid, uuid, or name was provided in the JWT payload.',

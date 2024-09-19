@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\focal_point\Unit\Effects;
 
 use Drupal\Core\Config\ImmutableConfig;
 use Drupal\crop\CropInterface;
 use Drupal\crop\CropStorageInterface;
-use Drupal\focal_point\Plugin\ImageEffect\FocalPointCropImageEffect;
 use Drupal\focal_point\FocalPointEffectBase;
-use Psr\Log\LoggerInterface;
+use Drupal\focal_point\Plugin\ImageEffect\FocalPointCropImageEffect;
 use Drupal\Tests\focal_point\Unit\FocalPointUnitTestCase;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -19,13 +21,6 @@ use Symfony\Component\HttpFoundation\Request;
  * @coversDefaultClass \Drupal\focal_point\FocalPointEffectBase
  */
 class FocalPointEffectsTest extends FocalPointUnitTestCase {
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function setUp(): void {
-    parent::setUp();
-  }
 
   /**
    * Test the construct method.
@@ -61,7 +56,7 @@ class FocalPointEffectsTest extends FocalPointUnitTestCase {
    *
    * @see FocalPointEffectsTest::testCalculateResizeData()
    */
-  public function calculateResizeDataProvider() {
+  public static function calculateResizeDataProvider() {
     $data = [];
     // @codingStandardsIgnoreStart
     $data['horizontal_image_horizontal_crop'] = [640, 480, 300, 100, ['width' => 300, 'height' => 225]];
@@ -115,7 +110,7 @@ class FocalPointEffectsTest extends FocalPointUnitTestCase {
    *
    * @see FocalPointEffectsTest::testTransformFocalPoint()
    */
-  public function transformFocalPointProvider() {
+  public static function transformFocalPointProvider() {
     $data = [];
     // @codingStandardsIgnoreStart
     $data['no_scale'] = [['width' => 800, 'height' => 600], ['width' => 800, 'height' => 600], ['x' => 300, 'y' => 400], ['x' => 300, 'y' => 400]];
@@ -191,7 +186,7 @@ class FocalPointEffectsTest extends FocalPointUnitTestCase {
    *
    * @see FocalPointEffectsTest::testConstrainCropArea()
    */
-  public function constrainCropAreaProvider() {
+  public static function constrainCropAreaProvider() {
     $data = [];
     // @codingStandardsIgnoreStart
     $data['constrained-top-left'] = [['x' => -10, 'y' => -10], ['width' => 1000, 'height' => 1000], ['width' => 100, 'height' => 100], ['x' => 0, 'y' => 0]];
@@ -234,7 +229,7 @@ class FocalPointEffectsTest extends FocalPointUnitTestCase {
    *
    * @see FocalPointEffectsTest::testCalculateAnchor()
    */
-  public function calculateAnchorProvider() {
+  public static function calculateAnchorProvider() {
     $data = [];
     // @codingStandardsIgnoreStart
 

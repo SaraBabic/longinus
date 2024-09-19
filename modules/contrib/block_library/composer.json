@@ -5,7 +5,7 @@
   "license": "GPL-2.0+",
   "description": "Adds additional functionality to the core block library.",
   "require": {
-    "drupal/core": "^9.3 || ^10",
-    "drupal/layout_builder_restrictions": "^2.7"
+    "drupal/core": "^9.3 || ^10.3 || ^11",
+    "drupal/layout_builder_restrictions": "^2.7 || ^3"
   }
 }

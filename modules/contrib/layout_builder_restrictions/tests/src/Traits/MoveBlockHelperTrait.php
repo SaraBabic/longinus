@@ -29,7 +29,7 @@ trait MoveBlockHelperTrait {
   }
 
   /**
-   * Reconciles minor rendering differences in theme output
+   * Reconciles minor rendering differences in theme output.
    *
    * @param string $string
    *   A string of text.
@@ -41,9 +41,9 @@ trait MoveBlockHelperTrait {
     // Drupal 9.5 and 10 appear to have different output for in-progress moved
     // blocks on Olivero theme. Normalize with a space before the asterisk.
     // Before: 'Body (current)*'
-    // After: 'Body (current) *'
+    // After: 'Body (current) *'.
     $string = str_replace(")*", ") *", $string);
-    // @todo: Make this more abstracted for other scenarios.
+    // @todo Make this more abstracted for other scenarios.
     // Before: 'branding*'
     // After: 'branding *'
     $string = str_replace("branding*", "branding *", $string);
@@ -118,7 +118,6 @@ trait MoveBlockHelperTrait {
     $page = $this->getSession()->getPage();
     $assert_session = $this->assertSession();
 
-    $assert_session->assertWaitOnAjaxRequest();
     $this->waitForNoElement('#drupal-off-canvas');
 
     $region_selector = "[data-layout-delta=\"$section_delta\"] [data-region=\"$region\"]";

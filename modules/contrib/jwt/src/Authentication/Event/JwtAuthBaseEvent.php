@@ -2,8 +2,8 @@
 
 namespace Drupal\jwt\Authentication\Event;
 
-use Symfony\Contracts\EventDispatcher\Event;
 use Drupal\jwt\JsonWebToken\JsonWebTokenInterface;
+use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * JWT Auth Base Event is extended by other JWT event classes.
