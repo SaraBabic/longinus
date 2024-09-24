@@ -1,0 +1,61 @@
+uuid: e47c9378-5cff-4e15-8dc2-8ded5a296d6d
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.field.node.item.body
+    - field.field.node.item.field_lead_image
+    - field.field.node.item.field_link
+    - field.field.node.item.field_paragraph
+    - field.field.node.item.field_taxonomy_term
+    - node.type.item
+  module:
+    - entity_reference_revisions
+    - link
+    - text
+    - user
+id: node.item.default
+targetEntityType: node
+bundle: item
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_taxonomy_term:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_lead_image: true
+  langcode: true
+  links: true

@@ -1,0 +1,11 @@
+uuid: addf999c-d34e-48e7-87d7-f02e21052d02
+langcode: hu
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.kiegeszitok
+id: taxonomy_term.kiegeszitok
+target_entity_type_id: taxonomy_term
+target_bundle: kiegeszitok
+default_langcode: site_default
+language_alterable: false

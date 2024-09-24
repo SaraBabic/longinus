@@ -1,0 +1,18 @@
+uuid: e30f497f-8109-43d4-aac7-48dad98baa72
+langcode: hu
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Item
+type: item
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

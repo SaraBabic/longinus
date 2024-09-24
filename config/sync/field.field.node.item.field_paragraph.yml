@@ -1,0 +1,51 @@
+uuid: 0bd10d9c-4e74-470e-9ac3-ce6c95914e82
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph
+    - node.type.item
+    - paragraphs.paragraphs_type.card
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.row
+    - paragraphs.paragraphs_type.text_and_image
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: node.item.field_paragraph
+field_name: field_paragraph
+entity_type: node
+bundle: item
+label: Paragraph
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card: card
+      gallery: gallery
+      row: row
+      text_and_image: text_and_image
+      video: video
+    negate: 0
+    target_bundles_drag_drop:
+      card:
+        weight: 6
+        enabled: true
+      gallery:
+        weight: 7
+        enabled: true
+      row:
+        weight: 8
+        enabled: true
+      text_and_image:
+        weight: 9
+        enabled: true
+      video:
+        weight: 10
+        enabled: true
+field_type: entity_reference_revisions

@@ -1,0 +1,20 @@
+uuid: 70d19add-1fd3-4f81-ae41-83dbebe70a5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - longinus
+id: longinus_poweredbydrupal
+theme: longinus
+region: footer_fourth
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

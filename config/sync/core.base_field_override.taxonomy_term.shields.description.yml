@@ -1,0 +1,21 @@
+uuid: 5b0227df-aba3-4eb0-a2b9-c69765898556
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.shields
+  module:
+    - text
+id: taxonomy_term.shields.description
+field_name: description
+entity_type: taxonomy_term
+bundle: shields
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

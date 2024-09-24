@@ -1,0 +1,29 @@
+uuid: 6648d180-e8ff-4594-9b45-72de9e3a287d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.shield_hands
+  module:
+    - system
+    - views
+  theme:
+    - longinus
+id: longinus_views_block__shield_hands_block_1
+theme: longinus
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:shield_hands-block_1'
+settings:
+  id: 'views_block:shield_hands-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /shields

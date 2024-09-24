@@ -1,0 +1,9 @@
+uuid: 5567d0a1-2cee-4208-98dc-026fad4902c8
+langcode: en
+status: true
+dependencies: {  }
+name: Costumes
+vid: costumes
+description: null
+weight: 0
+new_revision: false

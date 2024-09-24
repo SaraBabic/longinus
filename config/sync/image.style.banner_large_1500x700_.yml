@@ -1,0 +1,15 @@
+uuid: b2811ee5-f8a8-460c-9e4a-157a48fa4fb3
+langcode: en
+status: true
+dependencies: {  }
+name: banner_large_1500x700_
+label: 'Banner large [1500x700]'
+effects:
+  7d43a50a-43a4-48e5-ac2b-e1b3b0772fd3:
+    uuid: 7d43a50a-43a4-48e5-ac2b-e1b3b0772fd3
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1500
+      height: 700
+      anchor: center-center

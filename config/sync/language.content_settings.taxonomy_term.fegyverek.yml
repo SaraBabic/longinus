@@ -1,0 +1,11 @@
+uuid: 7f32fe77-1495-4730-876a-084afc2c4088
+langcode: hu
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.fegyverek
+id: taxonomy_term.fegyverek
+target_entity_type_id: taxonomy_term
+target_bundle: fegyverek
+default_langcode: site_default
+language_alterable: false

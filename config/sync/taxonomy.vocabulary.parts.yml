@@ -1,0 +1,9 @@
+uuid: 82f209d3-cbf3-498c-8227-2a269808ab2b
+langcode: en
+status: true
+dependencies: {  }
+name: Parts
+vid: parts
+description: null
+weight: 0
+new_revision: false

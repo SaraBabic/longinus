@@ -1,0 +1,9 @@
+uuid: a261f045-1755-4428-8813-d91f7b301c6e
+langcode: hu
+status: true
+dependencies: {  }
+name: 'Harci felszerelés'
+vid: harci_felszereles
+description: null
+weight: 0
+new_revision: false

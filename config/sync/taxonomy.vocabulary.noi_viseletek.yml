@@ -1,0 +1,9 @@
+uuid: c01e7458-a0b2-4499-b89b-3dec483358f5
+langcode: hu
+status: true
+dependencies: {  }
+name: 'Női viseletek'
+vid: noi_viseletek
+description: null
+weight: 0
+new_revision: false

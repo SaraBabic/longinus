@@ -1,0 +1,20 @@
+uuid: 40190916-89b5-4ee2-8b45-c27e6d8e97e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.shields
+  module:
+    - path
+id: taxonomy_term.shields.path
+field_name: path
+entity_type: taxonomy_term
+bundle: shields
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

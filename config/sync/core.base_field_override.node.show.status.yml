@@ -1,0 +1,22 @@
+uuid: dd4afaca-d744-49ec-97d1-c5574bf1fa18
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.show
+id: node.show.status
+field_name: status
+entity_type: node
+bundle: show
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

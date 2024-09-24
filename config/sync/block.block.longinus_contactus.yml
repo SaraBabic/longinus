@@ -1,0 +1,25 @@
+uuid: fd776347-381e-48b5-a00d-7ffdb7d4898b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9ffc9001-491d-4a2e-8cb7-56a2b1f09629'
+  module:
+    - block_content
+  theme:
+    - longinus
+id: longinus_contactus
+theme: longinus
+region: footer_second
+weight: -6
+provider: null
+plugin: 'block_content:9ffc9001-491d-4a2e-8cb7-56a2b1f09629'
+settings:
+  id: 'block_content:9ffc9001-491d-4a2e-8cb7-56a2b1f09629'
+  label: Kapcsolat
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

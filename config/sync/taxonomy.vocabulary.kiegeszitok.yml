@@ -1,0 +1,9 @@
+uuid: 7b1368b2-ffc6-4ae3-9dbe-e07551adb074
+langcode: hu
+status: true
+dependencies: {  }
+name: Kiegészítők
+vid: kiegeszitok
+description: null
+weight: 0
+new_revision: false

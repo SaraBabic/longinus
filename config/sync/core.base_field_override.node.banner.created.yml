@@ -1,0 +1,18 @@
+uuid: 52b6800e-ba32-4c06-a06b-14f57fd3e538
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.banner
+id: node.banner.created
+field_name: created
+entity_type: node
+bundle: banner
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

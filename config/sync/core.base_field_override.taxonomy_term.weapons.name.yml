@@ -1,0 +1,18 @@
+uuid: d2c3e4a4-28f9-4e4d-beea-655d86df98c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.weapons
+id: taxonomy_term.weapons.name
+field_name: name
+entity_type: taxonomy_term
+bundle: weapons
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,17 @@
+uuid: 7eaeb610-0496-420e-be7e-a363e1f86405
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: text_and_image_770x_
+label: 'Text and image [770x]'
+effects:
+  5e8eb46a-ee3b-4a39-958a-5311e10e45de:
+    uuid: 5e8eb46a-ee3b-4a39-958a-5311e10e45de
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 770
+      height: 610
+      crop_type: focal_point

@@ -1,0 +1,8 @@
+uuid: 35315b4c-f3fa-4d8c-8ddb-e01cce18b247
+langcode: en
+status: true
+dependencies: {  }
+id: footer-menu
+label: 'Footer menu'
+description: ''
+locked: false

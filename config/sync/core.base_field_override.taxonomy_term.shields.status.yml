@@ -1,0 +1,22 @@
+uuid: ae5ec7a5-db24-4b0e-b12f-f3eb5961b880
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.shields
+id: taxonomy_term.shields.status
+field_name: status
+entity_type: taxonomy_term
+bundle: shields
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

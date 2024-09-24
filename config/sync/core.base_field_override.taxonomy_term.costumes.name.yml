@@ -1,0 +1,18 @@
+uuid: d17be7bd-25af-466b-bd9b-17250bbd02c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.costumes
+id: taxonomy_term.costumes.name
+field_name: name
+entity_type: taxonomy_term
+bundle: costumes
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

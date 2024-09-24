@@ -1,0 +1,11 @@
+uuid: 7d30d5ce-d805-4dfc-a38e-1d61791ac8cb
+langcode: hu
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.harci_felszereles
+id: taxonomy_term.harci_felszereles
+target_entity_type_id: taxonomy_term
+target_bundle: harci_felszereles
+default_langcode: site_default
+language_alterable: false

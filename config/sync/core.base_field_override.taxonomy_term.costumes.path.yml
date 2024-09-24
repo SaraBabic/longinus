@@ -1,0 +1,20 @@
+uuid: 41532002-f9ee-4f38-886a-7a01b1eaba5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.costumes
+  module:
+    - path
+id: taxonomy_term.costumes.path
+field_name: path
+entity_type: taxonomy_term
+bundle: costumes
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

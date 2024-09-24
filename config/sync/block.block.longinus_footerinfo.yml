@@ -1,0 +1,25 @@
+uuid: b35a38e4-03aa-4b1a-bfe2-ab6024715a24
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:90e35c7e-215d-4674-bf5a-5ccaf6e1ddff'
+  module:
+    - block_content
+  theme:
+    - longinus
+id: longinus_footerinfo
+theme: longinus
+region: footer_second
+weight: -7
+provider: null
+plugin: 'block_content:90e35c7e-215d-4674-bf5a-5ccaf6e1ddff'
+settings:
+  id: 'block_content:90e35c7e-215d-4674-bf5a-5ccaf6e1ddff'
+  label: 'Footer info'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

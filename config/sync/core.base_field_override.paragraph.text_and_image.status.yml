@@ -1,0 +1,22 @@
+uuid: fc191578-0ab6-4304-a495-616022275faf
+langcode: sr
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.text_and_image
+id: paragraph.text_and_image.status
+field_name: status
+entity_type: paragraph
+bundle: text_and_image
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

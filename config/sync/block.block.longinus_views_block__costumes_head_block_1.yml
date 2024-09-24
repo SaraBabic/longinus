@@ -1,0 +1,29 @@
+uuid: 18bc68de-0cf3-49c8-8fa6-2b56efbb8daf
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.costumes_head
+  module:
+    - system
+    - views
+  theme:
+    - longinus
+id: longinus_views_block__costumes_head_block_1
+theme: longinus
+region: content
+weight: -11
+provider: null
+plugin: 'views_block:costumes_head-block_1'
+settings:
+  id: 'views_block:costumes_head-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /costumes

@@ -1,0 +1,11 @@
+uuid: 95b79760-04fd-4307-ada1-593e4222d3b3
+langcode: hu
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 35CefWbnzaiytcg3acexxz_GTvuwIjYd_ZTcmmR-tXA
+id: zxx
+label: 'Nem alkalmazható'
+direction: ltr
+weight: 4
+locked: true

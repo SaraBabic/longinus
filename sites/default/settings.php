@@ -265,7 +265,7 @@ if (getenv('APP_ENV') === 'Local') {
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-$settings['config_sync_directory'] = 'sites/default/files/config_4BFoxAp2RlY3EM91b1Xg6CSznl-OLXXAVuBJaV0n7YeTbK521hv0JnF6t-umbfv5idupVqdzQQ/sync';
+$settings['config_sync_directory'] = 'config/sync';
 
 /**
  * Settings:

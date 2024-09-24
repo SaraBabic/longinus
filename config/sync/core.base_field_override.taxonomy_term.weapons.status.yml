@@ -1,0 +1,22 @@
+uuid: c204429c-b559-479e-ba04-a288e2164949
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.weapons
+id: taxonomy_term.weapons.status
+field_name: status
+entity_type: taxonomy_term
+bundle: weapons
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

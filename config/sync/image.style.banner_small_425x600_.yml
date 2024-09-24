@@ -1,0 +1,15 @@
+uuid: 71cb6c65-114e-4e77-a17b-0fdaab63c8f8
+langcode: en
+status: true
+dependencies: {  }
+name: banner_small_425x600_
+label: 'Banner small [425x600]'
+effects:
+  29f61800-9ff0-468d-bacb-76f6d161d9e8:
+    uuid: 29f61800-9ff0-468d-bacb-76f6d161d9e8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 425
+      height: 600
+      anchor: center-center

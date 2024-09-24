@@ -1,0 +1,9 @@
+uuid: 2c15c44b-f162-43cd-894d-87430144b6e0
+langcode: hu
+status: true
+dependencies: {  }
+name: 'FÉRFI VISELETEK'
+vid: ferfi_viseletek
+description: null
+weight: 0
+new_revision: false

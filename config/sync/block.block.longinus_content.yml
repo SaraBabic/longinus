@@ -1,0 +1,22 @@
+uuid: cbed8437-4512-4cdc-ae57-1bbda2df89fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - longinus
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: longinus_content
+theme: longinus
+region: content
+weight: -12
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

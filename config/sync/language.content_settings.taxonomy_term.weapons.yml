@@ -1,0 +1,18 @@
+uuid: 60e4d94e-5526-44d8-98ab-1fab8d7b2a3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.weapons
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.weapons
+target_entity_type_id: taxonomy_term
+target_bundle: weapons
+default_langcode: site_default
+language_alterable: false

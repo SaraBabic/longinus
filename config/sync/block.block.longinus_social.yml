@@ -1,0 +1,25 @@
+uuid: 8225ded7-8513-4082-a2f5-40c41ec4145c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social
+  module:
+    - system
+  theme:
+    - longinus
+id: longinus_social
+theme: longinus
+region: footer_third
+weight: 0
+provider: null
+plugin: 'system_menu_block:social'
+settings:
+  id: 'system_menu_block:social'
+  label: Social
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,18 @@
+uuid: db1de053-1f22-4c5b-8066-56576fa2f1d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.banner
+id: node.banner.changed
+field_name: changed
+entity_type: node
+bundle: banner
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

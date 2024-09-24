@@ -1,0 +1,29 @@
+uuid: cd706f9a-1d68-4393-a598-275c2ad8ebda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_taxonomy
+    - taxonomy.vocabulary.parts
+    - taxonomy.vocabulary.shields
+id: taxonomy_term.shields.field_taxonomy
+field_name: field_taxonomy
+entity_type: taxonomy_term
+bundle: shields
+label: taxonomy
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      parts: parts
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: parts
+field_type: entity_reference

@@ -1,0 +1,37 @@
+uuid: 38316353-243e-4f68-93a3-79d702ddfb0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.shields.field_image
+    - field.field.taxonomy_term.shields.field_taxonomy
+    - taxonomy.vocabulary.shields
+  module:
+    - image
+    - text
+id: taxonomy_term.shields.default
+targetEntityType: taxonomy_term
+bundle: shields
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_taxonomy: true
+  langcode: true

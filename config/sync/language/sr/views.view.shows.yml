@@ -1,0 +1,18 @@
+label: Nastupi
+display:
+  default:
+    display_options:
+      title: Nastupi
+      fields:
+        title:
+          label: Nastup
+        field_date:
+          label: Početak
+        field_end_date:
+          label: Kraj
+        field_city:
+          label: Grad
+        field_country:
+          label: Država
+        body:
+          label: Opis

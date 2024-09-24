@@ -1,0 +1,29 @@
+uuid: 84c81b0d-ba12-4768-9b6e-2449e0b5aaee
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wear
+    - node.type.characters
+    - node.type.item
+id: node.characters.field_wear
+field_name: field_wear
+entity_type: node
+bundle: characters
+label: wear
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      item: item
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

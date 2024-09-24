@@ -1,0 +1,29 @@
+uuid: 3666d6a8-9c29-4f4d-b4fc-20a735b1fa87
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.costumes_lower_body
+  module:
+    - system
+    - views
+  theme:
+    - longinus
+id: longinus_views_block__costumes_lower_body_block_1
+theme: longinus
+region: content
+weight: -8
+provider: null
+plugin: 'views_block:costumes_lower_body-block_1'
+settings:
+  id: 'views_block:costumes_lower_body-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /costumes

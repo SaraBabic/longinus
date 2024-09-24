@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: hu
+uuid: 0eb9ab95-a3c6-437b-b7d2-bda9e97237a2
+name: 'St. Longinus Medieval Preservation Association'
+mail: sara@studiopresent.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: hu
+mail_notification: null

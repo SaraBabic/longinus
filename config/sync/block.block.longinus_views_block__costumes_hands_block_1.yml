@@ -1,0 +1,29 @@
+uuid: 460cc16a-ed7f-481f-bda2-3c84c26f66ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.costumes_hands
+  module:
+    - system
+    - views
+  theme:
+    - longinus
+id: longinus_views_block__costumes_hands_block_1
+theme: longinus
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:costumes_hands-block_1'
+settings:
+  id: 'views_block:costumes_hands-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /costumes

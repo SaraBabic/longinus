@@ -1,0 +1,9 @@
+uuid: 18dc2ad8-2efd-486d-8f20-b73dda0e432f
+langcode: en
+status: true
+dependencies: {  }
+name: Weapons
+vid: weapons
+description: null
+weight: 0
+new_revision: false

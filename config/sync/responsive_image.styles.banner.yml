@@ -1,0 +1,52 @@
+uuid: abcf4564-d975-46f3-bd30-08b00926daaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.banner
+    - image.style.banner_extra_3000x780_
+    - image.style.banner_large_1500x700_
+    - image.style.banner_medium_770x600_
+    - image.style.banner_small_425x600_
+  theme:
+    - longinus
+id: banner
+label: Banner
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_extra_3000x780_
+    breakpoint_id: longinus.default.desktop-4k
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner
+    breakpoint_id: longinus.default.laptop-l
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_large_1500x700_
+    breakpoint_id: longinus.default.laptop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_large_1500x700_
+    breakpoint_id: longinus.default.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_medium_770x600_
+    breakpoint_id: longinus.default.mobile_l
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_small_425x600_
+    breakpoint_id: longinus.default.mobile_m
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: banner_small_425x600_
+    breakpoint_id: longinus.default.mobile_s
+    multiplier: 1x
+breakpoint_group: longinus.default
+fallback_image_style: banner_large_1500x700_

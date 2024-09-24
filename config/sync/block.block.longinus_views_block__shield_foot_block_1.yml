@@ -1,0 +1,29 @@
+uuid: d701f2c2-48e1-4022-a6db-aa87927cb8de
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.shield_foot
+  module:
+    - system
+    - views
+  theme:
+    - longinus
+id: longinus_views_block__shield_foot_block_1
+theme: longinus
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:shield_foot-block_1'
+settings:
+  id: 'views_block:shield_foot-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /shields

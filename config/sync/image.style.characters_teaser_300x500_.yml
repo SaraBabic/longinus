@@ -1,0 +1,17 @@
+uuid: e0e8e0e7-e86d-466c-97e1-99e7ba6388ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: characters_teaser_300x500_
+label: 'Characters teaser [300x500]'
+effects:
+  d809437c-ca9a-4e33-ace8-1f6914d813ff:
+    uuid: d809437c-ca9a-4e33-ace8-1f6914d813ff
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 500
+      crop_type: focal_point

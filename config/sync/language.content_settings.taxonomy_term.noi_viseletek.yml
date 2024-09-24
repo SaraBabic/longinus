@@ -1,0 +1,11 @@
+uuid: 33d1023a-0af9-45e0-8634-7c207534ccf1
+langcode: hu
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.noi_viseletek
+id: taxonomy_term.noi_viseletek
+target_entity_type_id: taxonomy_term
+target_bundle: noi_viseletek
+default_langcode: site_default
+language_alterable: false

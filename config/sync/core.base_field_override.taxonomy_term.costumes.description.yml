@@ -1,0 +1,21 @@
+uuid: 869c38bd-a42c-47ca-b6a1-ab4ae7ba02fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.costumes
+  module:
+    - text
+id: taxonomy_term.costumes.description
+field_name: description
+entity_type: taxonomy_term
+bundle: costumes
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

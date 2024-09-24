@@ -1,0 +1,37 @@
+uuid: 5c031c69-faf4-403e-ad62-eb689215f5e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.costumes.field_image
+    - field.field.taxonomy_term.costumes.field_taxonomy
+    - taxonomy.vocabulary.costumes
+  module:
+    - image
+    - text
+id: taxonomy_term.costumes.default
+targetEntityType: taxonomy_term
+bundle: costumes
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_taxonomy: true
+  langcode: true

@@ -1,0 +1,55 @@
+uuid: 638a8669-f525-40e8-b020-043ae59d6a16
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.characters.body
+    - field.field.node.characters.field_image
+    - field.field.node.characters.field_paragraph
+    - field.field.node.characters.field_wear
+    - image.style.characters_teaser_300x500_
+    - node.type.characters
+  module:
+    - field_group
+    - image
+    - user
+third_party_settings:
+  field_group:
+    group_link:
+      children:
+        - field_image
+      label: link
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: link
+      format_settings:
+        classes: node-character-teaser__link
+        show_empty_fields: false
+        id: ''
+        target: entity
+        custom_uri: ''
+        target_attribute: default
+id: node.characters.teaser
+targetEntityType: node
+bundle: characters
+mode: teaser
+content:
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: characters_teaser_300x500_
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_paragraph: true
+  field_wear: true
+  langcode: true
+  links: true

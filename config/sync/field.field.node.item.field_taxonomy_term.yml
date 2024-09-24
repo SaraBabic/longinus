@@ -1,0 +1,37 @@
+uuid: 6f2d48ed-5589-45ab-aa82-f62ddf79865b
+langcode: hu
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_taxonomy_term
+    - node.type.item
+    - taxonomy.vocabulary.fegyverek
+    - taxonomy.vocabulary.ferfi_viseletek
+    - taxonomy.vocabulary.harci_felszereles
+    - taxonomy.vocabulary.kiegeszitok
+    - taxonomy.vocabulary.noi_viseletek
+id: node.item.field_taxonomy_term
+field_name: field_taxonomy_term
+entity_type: node
+bundle: item
+label: taxonomy-term
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      fegyverek: fegyverek
+      ferfi_viseletek: ferfi_viseletek
+      harci_felszereles: harci_felszereles
+      kiegeszitok: kiegeszitok
+      noi_viseletek: noi_viseletek
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: harci_felszereles
+field_type: entity_reference

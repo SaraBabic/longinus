@@ -1,0 +1,68 @@
+uuid: 1185aebd-f527-462f-ad84-6f477a389596
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.show.body
+    - field.field.node.show.field_city
+    - field.field.node.show.field_country
+    - field.field.node.show.field_date
+    - field.field.node.show.field_end_date
+    - node.type.show
+  module:
+    - datetime
+    - text
+    - user
+id: node.show.default
+targetEntityType: node
+bundle: show
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_city:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_country:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_end_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

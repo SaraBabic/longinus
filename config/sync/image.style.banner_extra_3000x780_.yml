@@ -1,0 +1,15 @@
+uuid: 50f67441-383d-46f5-a63c-fd441cfb382a
+langcode: en
+status: true
+dependencies: {  }
+name: banner_extra_3000x780_
+label: 'Banner extra [3000x780]'
+effects:
+  923fc5b3-8e67-40dc-b444-c425984e61ba:
+    uuid: 923fc5b3-8e67-40dc-b444-c425984e61ba
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 3000
+      height: 780
+      anchor: center-center

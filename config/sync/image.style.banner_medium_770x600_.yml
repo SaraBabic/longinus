@@ -1,0 +1,15 @@
+uuid: 692c20f8-6245-4404-958a-891c8210b716
+langcode: en
+status: true
+dependencies: {  }
+name: banner_medium_770x600_
+label: 'Banner medium [770x600]'
+effects:
+  91fae369-0169-4c7a-8cce-c1832a2d3dc0:
+    uuid: 91fae369-0169-4c7a-8cce-c1832a2d3dc0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 770
+      height: 600
+      anchor: center-center

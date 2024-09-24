@@ -1,0 +1,25 @@
+uuid: b1f32f67-2ef9-4a41-b8d4-92f04b9388d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-menu
+  module:
+    - system
+  theme:
+    - longinus
+id: longinus_footermenu
+theme: longinus
+region: footer_fourth
+weight: -7
+provider: null
+plugin: 'system_menu_block:footer-menu'
+settings:
+  id: 'system_menu_block:footer-menu'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,29 @@
+uuid: 86a0aa32-d7cc-4146-b94c-4e981aafb6a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_taxonomy
+    - taxonomy.vocabulary.costumes
+    - taxonomy.vocabulary.parts
+id: taxonomy_term.costumes.field_taxonomy
+field_name: field_taxonomy
+entity_type: taxonomy_term
+bundle: costumes
+label: taxonomy
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      parts: parts
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: parts
+field_type: entity_reference

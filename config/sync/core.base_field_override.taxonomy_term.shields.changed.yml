@@ -1,0 +1,18 @@
+uuid: 0f6cdae8-62b0-4910-a39c-67c82f483c94
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.shields
+id: taxonomy_term.shields.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: shields
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

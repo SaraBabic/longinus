@@ -1,0 +1,25 @@
+uuid: 7b284c81-1b09-41aa-83bc-5f37d88cf6ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - block.block.longinus_cheeseburgermenu
+  module:
+    - cheeseburger_menu
+  theme:
+    - longinus
+id: longinus_cheeseburgermenutrigger
+theme: longinus
+region: branding
+weight: -1
+provider: null
+plugin: cheeseburger_menu_trigger
+settings:
+  id: cheeseburger_menu_trigger
+  label: 'Cheeseburger menu trigger'
+  label_display: '0'
+  provider: cheeseburger_menu
+  block_to_trigger: longinus_cheeseburgermenu
+  breakpoints: {  }
+  custom_media_query: 'all and (min-width: 1024px)'
+visibility: {  }

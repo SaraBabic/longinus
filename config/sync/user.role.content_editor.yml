@@ -1,0 +1,96 @@
+uuid: 6ec969df-498f-441a-b769-fe7c53f5fd36
+langcode: hu
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.banner
+    - node.type.blog
+    - node.type.characters
+    - node.type.item
+    - node.type.page
+    - node.type.show
+    - node.type.sponsor
+    - taxonomy.vocabulary.tags
+  module:
+    - comment
+    - content_translation
+    - contextual
+    - eu_cookie_compliance
+    - file
+    - help
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+    - tour
+_core:
+  default_config_hash: NtMgnXp0miNtJhag07NSjwdCm4zpJwhlDFs1HgyL4wI
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access help pages'
+  - 'access toolbar'
+  - 'access tour'
+  - 'administer url aliases'
+  - 'create banner content'
+  - 'create blog content'
+  - 'create characters content'
+  - 'create item content'
+  - 'create show content'
+  - 'create sponsor content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete any banner content'
+  - 'delete any blog content'
+  - 'delete any characters content'
+  - 'delete any item content'
+  - 'delete any page content'
+  - 'delete any show content'
+  - 'delete any sponsor content'
+  - 'delete article revisions'
+  - 'delete banner revisions'
+  - 'delete blog revisions'
+  - 'delete characters revisions'
+  - 'delete item revisions'
+  - 'delete own article content'
+  - 'delete own banner content'
+  - 'delete own blog content'
+  - 'delete own characters content'
+  - 'delete own files'
+  - 'delete own item content'
+  - 'delete own page content'
+  - 'delete own show content'
+  - 'delete own sponsor content'
+  - 'delete page revisions'
+  - 'delete show revisions'
+  - 'delete sponsor revisions'
+  - 'display eu cookie compliance popup'
+  - 'edit any banner content'
+  - 'edit any blog content'
+  - 'edit any characters content'
+  - 'edit any item content'
+  - 'edit any page content'
+  - 'edit any show content'
+  - 'edit any sponsor content'
+  - 'edit own banner content'
+  - 'edit own blog content'
+  - 'edit own characters content'
+  - 'edit own comments'
+  - 'edit own page content'
+  - 'edit own show content'
+  - 'edit own sponsor content'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'translate blog node'
+  - 'view all revisions'
+  - 'view item revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'

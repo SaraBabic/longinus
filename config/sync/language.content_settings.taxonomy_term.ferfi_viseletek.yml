@@ -1,0 +1,11 @@
+uuid: 457918ed-c25a-4fcf-b29a-11cb9778dc2b
+langcode: hu
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ferfi_viseletek
+id: taxonomy_term.ferfi_viseletek
+target_entity_type_id: taxonomy_term
+target_bundle: ferfi_viseletek
+default_langcode: site_default
+language_alterable: false

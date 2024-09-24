@@ -1,0 +1,9 @@
+uuid: d536516e-56de-4755-afaf-d2b795232c1f
+langcode: hu
+status: true
+dependencies: {  }
+name: Fegyverek
+vid: fegyverek
+description: null
+weight: 0
+new_revision: false

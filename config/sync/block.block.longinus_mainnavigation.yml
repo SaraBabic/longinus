@@ -1,0 +1,25 @@
+uuid: 0223e5b1-0342-48ee-bd1d-de300a4f3703
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - longinus
+id: longinus_mainnavigation
+theme: longinus
+region: primary_navigation
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

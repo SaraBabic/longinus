@@ -1,0 +1,21 @@
+uuid: a92069a9-ad4c-4d53-b0f7-91d2bd3271d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_invert
+    - paragraphs.paragraphs_type.card
+id: paragraph.card.field_invert
+field_name: field_invert
+entity_type: paragraph
+bundle: card
+label: invert
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

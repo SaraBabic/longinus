@@ -1,0 +1,21 @@
+uuid: 5aa431ac-3286-45f8-a9ac-48269f5a0036
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_position
+    - paragraphs.paragraphs_type.text_and_image
+  module:
+    - options
+id: paragraph.text_and_image.field_image_position
+field_name: field_image_position
+entity_type: paragraph
+bundle: text_and_image
+label: 'Image position'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

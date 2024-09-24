@@ -1,0 +1,25 @@
+uuid: 544c61e1-9362-4c33-a029-64a9706e6190
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2177f254-b6da-4250-91ec-9dabf86f45c9'
+  module:
+    - block_content
+  theme:
+    - longinus
+id: longinus_up
+theme: longinus
+region: content
+weight: -14
+provider: null
+plugin: 'block_content:2177f254-b6da-4250-91ec-9dabf86f45c9'
+settings:
+  id: 'block_content:2177f254-b6da-4250-91ec-9dabf86f45c9'
+  label: Up
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

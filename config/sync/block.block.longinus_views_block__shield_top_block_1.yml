@@ -1,0 +1,29 @@
+uuid: 54ee7af1-5a43-45af-8a22-c1eca494e47e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.shield_top
+  module:
+    - system
+    - views
+  theme:
+    - longinus
+id: longinus_views_block__shield_top_block_1
+theme: longinus
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:shield_top-block_1'
+settings:
+  id: 'views_block:shield_top-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /shields

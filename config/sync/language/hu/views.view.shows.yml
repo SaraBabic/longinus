@@ -1,0 +1,18 @@
+label: Bemutatók
+display:
+  default:
+    display_options:
+      title: Bemutatók
+      fields:
+        title:
+          label: Bemutató
+        field_date:
+          label: Kezdés
+        field_end_date:
+          label: Vége
+        field_city:
+          label: Város
+        field_country:
+          label: Ország
+        body:
+          label: Leírás

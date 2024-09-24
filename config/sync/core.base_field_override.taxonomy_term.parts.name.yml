@@ -1,0 +1,18 @@
+uuid: 30e602bf-a5be-4408-b3bf-25a54fa86f22
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.parts
+id: taxonomy_term.parts.name
+field_name: name
+entity_type: taxonomy_term
+bundle: parts
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
